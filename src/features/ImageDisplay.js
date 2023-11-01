@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import Moment from 'react-moment';
 import moment from 'moment';
@@ -7,6 +7,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import ListSubheader from '@mui/material/ListSubheader';
 import FormControl from '@mui/material/FormControl';
+import CircularProgress from '@mui/material/CircularProgress';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import Zoom from 'react-medium-image-zoom'
@@ -35,18 +38,72 @@ const ImageDisplay = () => {
 		"selectedParameterGroup": initialParameterGroup,
 		"selectedParameter": initialParameter
 	})
-	const [imgLink, setImgLink] = useState(null)
 	const [dateOptions, setDateOptions] = useState([])
+	const [imgElements, setImgelements] = useState([])
+	const [imgsAreLoading, setImgsAreLoading] = useState(false)
+	const [numLoaded, setNumLoaded] = useState(0)
+	const loadStatus = useRef(0)
 
 	useEffect(() => {
 		genDateOptions()
 	},[])
 
-
-
 	useEffect(() => {
-		constructImgUrl()
-	},[menuSelections, fcstHr])
+		if(menuSelections["selectedRun"] !== "" && menuSelections["selectedProduct"] !== ""){
+			setImgsAreLoading(true)
+
+		    const loadImage = image => {
+		      return new Promise((resolve, reject) => {
+		        image.onload = () => {
+					setTimeout(() => {
+						loadStatus.current = loadStatus.current + 1
+						setNumLoaded(loadStatus.current)
+						return(resolve(image.src))
+					}, 10)
+		        	
+		        }
+		        image.onerror = (err) => {
+		        	loadStatus.current = loadStatus.current + 1
+		        	setNumLoaded(loadStatus.current)
+		        	return(reject(err))
+		        }
+		      })
+		    }
+
+		    let tmpDate = moment(menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
+			let urlBase = prodConf[menuSelections["selectedProduct"]]["url_base"]
+		    let promises = []
+		    let tmpImgElements = []
+			for(let i=0; i<prodConf[menuSelections["selectedProduct"]]["num_fcst_hrs"]; i++) {
+
+				let fcstHrStr = ""
+				if(i < 10) {
+					fcstHrStr = "0"+i.toString()
+				} else {
+					fcstHrStr = i.toString()
+				}
+
+				let url = urlBase
+				url += menuSelections["selectedParameter"] + "_" + tmpDate.format("YYYYMMDDHH") + "f" + fcstHrStr + ".png"
+
+				// let imgObj = {url:url, index:i}
+				const imageElement = new Image()
+		        imageElement.src = url
+				tmpImgElements.push(imageElement)
+
+				let promise = loadImage(imageElement)
+				promises.push(promise)
+			}
+			setImgelements(tmpImgElements)
+
+		    Promise.allSettled(promises)
+		      .then(() => {
+		      	setImgsAreLoading(false)
+		      	setNumLoaded(0)
+		      	loadStatus.current = 0
+		      })
+		}
+	}, [menuSelections])
 
 	const genDateOptions = () => {
 		let currentDate = moment().utc()
@@ -83,25 +140,6 @@ const ImageDisplay = () => {
 			tmpMenuSelections["selectedRun"] = dateArr[0].format('HH z ddd DD MMM YYYY')
 			setSelectedMenuSelections(tmpMenuSelections)
 		}
-	}
-
-	const constructImgUrl = () => {
-		let url = prodConf[menuSelections["selectedProduct"]]["url_base"]
-
-		let fcstHrStr = ""
-		if(fcstHr < 10) {
-			fcstHrStr = "0"+fcstHr.toString()
-		} else {
-			fcstHrStr = fcstHr.toString()
-		}
-
-		if(menuSelections["selectedRun"] !== ''){
-			let tmpDate = moment(menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
-
-			url += menuSelections["selectedParameter"] + "_" + tmpDate.format("YYYYMMDDHH") + "f" + fcstHrStr + ".png"
-			setImgLink(url)
-		}
-		
 	}
 
 	const handleMenuChange = (e, selectionID) => {
@@ -150,11 +188,24 @@ const ImageDisplay = () => {
 	return(
 		<div className="w-full flex flex-col justify-center items-center">
 			<SelectionMenu dateOptions={dateOptions} menuSelections={menuSelections} onChange={handleMenuChange}/>
-			<HourSlider onChange={handleSliderChange} value={fcstHr} run={menuSelections["selectedRun"]} maxHr={prodConf[menuSelections["selectedProduct"]]["num_fcst_hrs"]} minHr={prodConf[menuSelections["selectedProduct"]]["min_fcst_hr"]}/>
-			<div className="">
-				<Zoom>
-					<img className="min-h-[700px] h-[calc(100vh-365px)]" src={imgLink}></img>
-				</Zoom>
+			<HourSlider onChange={handleSliderChange} value={fcstHr} run={menuSelections["selectedRun"]} maxHr={prodConf[menuSelections["selectedProduct"]]["num_fcst_hrs"]-1} minHr={prodConf[menuSelections["selectedProduct"]]["min_fcst_hr"]}/>
+			<div className="h-screen">
+				{imgsAreLoading ?
+					<CircularProgressWithLabel value={(numLoaded / prodConf[menuSelections["selectedProduct"]]["num_fcst_hrs"])*100} />
+				:
+					null
+				}
+
+				{imgElements.map((imgEl, i) => {
+					let isVisible = (i === fcstHr) && !imgsAreLoading
+					return (
+						<Zoom key={i+"img"} >
+							<img className={`${isVisible ? 'block' : 'hidden' } max-h-[700px] object-scale-down max-h-full m-auto`} src={imgEl.src}/> 
+							{/*object-scale-down min-h-[700px] h-[calc(100vh-365px)]*/}
+						</Zoom>
+					)
+				})}
+
 			</div>
 		</div>
 	)
@@ -282,6 +333,32 @@ const HourSlider = (props) => {
     		/>
     </div>
 	)
+}
+
+const CircularProgressWithLabel = (props) => {
+  return (
+    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+      <CircularProgress variant="determinate" {...props} />
+      <Box
+        sx={{
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: 'absolute',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Typography
+          variant="caption"
+          component="div"
+          color="text.secondary"
+        >{`${Math.round(props.value)}%`}</Typography>
+      </Box>
+    </Box>
+  );
 }
 
 export default ImageDisplay
