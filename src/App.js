@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 
 import { NavBar } from "@atkingtornado/wpc-navbar-reactjs";
 
+
+import Moment from 'react-moment';
+import moment from 'moment';
 import Alert from '@mui/material/Alert';
 import InfoIcon from '@mui/icons-material/Info';
 import Dialog from '@mui/material/Dialog';
@@ -12,10 +15,122 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 
 import ImageDisplay from "./features/ImageDisplay"
+import SelectionMenu from './features/SelectionMenu'
+import HourSlider from './features/HourSlider'
+
+import { modelConf, ensemblesPQPFConf } from './conf.js';
+
+const prodConf = {
+  ...modelConf,
+  ...ensemblesPQPFConf
+}
+
 
 function App() {
 
   const [open, setOpen] = useState(false)
+
+  const initialProduct = Object.keys(prodConf)[0]
+  const initalRun = ""
+  const initialParameterGroup = Object.keys(prodConf[initialProduct]["parameters"])[0]
+  const initialParameter = Object.keys(prodConf[initialProduct]["parameters"][initialParameterGroup])[0]
+  console.log(initialParameter)
+
+  const [fcstHr, setFcstHr] = useState(0)
+  // const [maxHr, setMaxHr] = useState(prodConf[initialProduct]["num_fcst_hrs"])
+  const [menuSelections, setSelectedMenuSelections] = useState({
+    "selectedProduct": initialProduct,
+    "selectedRun": initalRun,
+    "selectedParameterGroup": initialParameterGroup,
+    "selectedParameter": initialParameter
+  })
+  const [dateOptions, setDateOptions] = useState([])
+
+  useEffect(() => {
+    genDateOptions()
+  },[])
+
+  const genDateOptions = () => {
+    let currentDate = moment().utc()
+    currentDate.subtract(1, 'hours');
+    let run_hrs = prodConf[menuSelections["selectedProduct"]]["run_hrs"]
+
+    let start_hr = null
+    run_hrs.forEach((hr) => {
+      if ( parseInt(hr) < currentDate.hour() ) {
+        start_hr = hr
+      }
+    })
+    currentDate.set({hour:start_hr, minute:0, second:0})
+
+    let freq = 1
+    if(run_hrs.length > 2) {
+      freq = parseInt(run_hrs[1]) - parseInt(run_hrs[0]) 
+    }
+
+    let endDate = moment(currentDate).subtract(4, 'days'); 
+    let dateArr = [currentDate]
+    let index = 0
+
+    while (dateArr[index] > endDate){
+      let tmpDate = moment(dateArr[index]).subtract(freq, 'hours');
+      dateArr.push(tmpDate)
+      index+=1
+    }
+    setDateOptions(dateArr)
+
+    if(menuSelections["selectedRun"] === ""){
+      let tmpMenuSelections = {...menuSelections}
+
+      tmpMenuSelections["selectedRun"] = dateArr[0].format('HH z ddd DD MMM YYYY')
+      setSelectedMenuSelections(tmpMenuSelections)
+    }
+  }
+
+  const handleMenuChange = (e, selectionID) => {
+    let tmpMenuSelections = {...menuSelections}
+    tmpMenuSelections[selectionID] = e.value
+
+    if (selectionID === "selectedProduct") {
+      genDateOptions()
+
+      let allParamGroups = []
+      let allParams = []
+
+      Object.keys(prodConf[e.value]["parameters"]).forEach((grp) => {
+        Object.keys(prodConf[e.value]["parameters"][grp]).forEach((param) => {
+          allParamGroups.push(grp)
+          allParams.push(param)
+        })
+      })
+
+      if(!allParams.includes(menuSelections["selectedParameter"])) {
+        tmpMenuSelections["selectedParameter"] = allParams[0]
+        tmpMenuSelections["selectedParameterGroup"] = allParamGroups[0]
+      }
+    }
+    else if (selectionID === "selectedParameter") {
+      let allParamGroups = []
+      let allParams = []
+      Object.keys(prodConf[menuSelections["selectedProduct"]]["parameters"]).forEach((grp) => {
+        Object.keys(prodConf[menuSelections["selectedProduct"]]["parameters"][grp]).forEach((param) => {
+          allParamGroups.push(grp)
+          allParams.push(param)
+        })
+      })
+
+      let index = allParams.indexOf(e.value)
+      tmpMenuSelections["selectedParameterGroup"] = allParamGroups[index]
+    }
+
+    console.log(tmpMenuSelections)
+    setSelectedMenuSelections(tmpMenuSelections)
+  }
+
+  const handleSliderChange = (e) => {
+    setFcstHr(e.target.value)
+  }
+
 
   const handleClose = () => {
     setOpen(false)
@@ -31,11 +146,6 @@ function App() {
         <h1 className="text-3xl font-bold text-center pt-4">WPC-HMT Realtime Webpage</h1>
         <InfoIcon className="cursor-pointer" color="primary" onClick={()=>{setOpen(true)}} sx={{ fontSize: 28 }}/>
       </div>
-
-      {/*<p className="text-xl text-center">Welcome to the Weather Prediction Center's Hydrometeorology Testbed (HMT) Webpage</p>*/}
-{/*      <div className="text-center">
-        <InfoIcon className="cursor-pointer" color="primary" onClick={()=>{setOpen(true)}} sx={{ fontSize: 28 }}/>
-      </div>*/}
 
       <Dialog onClose={handleClose} open={open}>
         <DialogContent>
@@ -64,7 +174,11 @@ function App() {
         </DialogContent>
       </Dialog>
 
-      <ImageDisplay/>
+      <div className="w-full flex flex-col justify-center items-center">
+        <SelectionMenu dateOptions={dateOptions} menuSelections={menuSelections} onChange={handleMenuChange}/>
+        <HourSlider onChange={handleSliderChange} value={fcstHr} run={menuSelections["selectedRun"]} maxHr={prodConf[menuSelections["selectedProduct"]]["num_fcst_hrs"]-1} minHr={prodConf[menuSelections["selectedProduct"]]["min_fcst_hr"]}/>
+        <ImageDisplay fcstHr={fcstHr} menuSelections={menuSelections} />
+      </div>
       
     </div>
   );

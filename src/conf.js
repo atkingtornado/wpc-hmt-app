@@ -6,7 +6,11 @@ export const modelConf = {
 		"run_hrs": ["00","06","12","18"],
 		"parameters": {
 			"QPF": {
-				"precip1": "1hr QPF"
+				"precip1": "1hr QPF",
+				"precip3": "3hr QPF",
+				"precip6": "6hr QPF",
+				"precip20": "20hr QPF",
+				"precip24": "24hr QPF"
 			},
 			"Reflectivity": {
 				"refc1": "Composite Reflectivity"
