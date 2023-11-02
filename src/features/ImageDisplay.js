@@ -30,39 +30,53 @@ const ImageDisplay = (props) => {
 	const [imgsAreLoading, setImgsAreLoading] = useState(false)
 	const [numLoaded, setNumLoaded] = useState(0)
 	const loadStatus = useRef(0)
+	const loadingId = useRef(null)
 
 	let currParamConf = prodConf[props.menuSelections["selectedProduct"]]["parameters"][props.menuSelections["selectedParameterGroup"]][props.menuSelections["selectedParameter"]]
 	let currProdConf = prodConf[props.menuSelections["selectedProduct"]]
 	
 	useEffect(() => {
-		console.log("LOADING IMGS", currParamConf)
 		if(currParamConf !== null && props.menuSelections["selectedRun"] !== "" && props.menuSelections["selectedProduct"] !== ""){
 			setImgsAreLoading(true)
+			setNumLoaded(0)
+			loadingId.current = props.menuSelections["selectedProduct"]+props.menuSelections["selectedRun"]+props.menuSelections["selectedParameter"]
+			loadStatus.current = 0
 
-		    const loadImage = image => {
-		      return new Promise((resolve, reject) => {
-		        image.onload = () => {
-					setTimeout(() => {
-						loadStatus.current = loadStatus.current + 1
-						setNumLoaded(loadStatus.current)
-						return(resolve(image.src))
-					}, 10)
-		        	
-		        }
-		        image.onerror = (err) => {
+			imgElements.forEach((obj)=>{
+				obj.img.src = ''
+				obj.img.onload = null
+				obj.img.onerror = null
+			})
+
+			// let tmpImgElements = imgElements.map((obj)=>({ ...obj, src: '',onload: null, onerror:null  }))
+			// console.log(tmpImgElements)
+			// setImgelements(tmpImgElements)
+
+	    const loadImage = (image, currLoadingId) => {
+	      return new Promise((resolve, reject) => {
+	      	console.log(currLoadingId, loadingId.current)
+	        image.onload = () => {
+	        	if(currLoadingId === loadingId.current){
+	        		loadStatus.current = loadStatus.current + 1
+							setNumLoaded(loadStatus.current)
+							return(resolve(image.src))
+	        	}
+	        }
+	        image.onerror = (err) => {
+	        	if(currLoadingId === loadingId.current){
 		        	loadStatus.current = loadStatus.current + 1
 		        	setNumLoaded(loadStatus.current)
 		        	return(reject(err))
 		        }
-		      })
-		    }
+	        }
+	      })
+	    }
 
-		    let tmpDate = moment(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
+	    let tmpDate = moment(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
 			let urlBase = prodConf[props.menuSelections["selectedProduct"]]["url_base"]
-		    let promises = []
-		    let tmpImgElements = []
+	    let promises = []
+	    let tmpImgElements = []
 
-		    
 			for(let i=currParamConf.min_fcst_hr; i<=currProdConf.num_fcst_hrs; i+=currParamConf.fcst_hr_step) {
 
 				let fcstHrStr = ""
@@ -77,21 +91,20 @@ const ImageDisplay = (props) => {
 
 				// let imgObj = {url:url, index:i}
 				const imageElement = new Image()
-		        imageElement.src = url
+		    imageElement.src = url
 				tmpImgElements.push({fcstHr:i, img:imageElement})
 
-				let promise = loadImage(imageElement)
+				let promise = loadImage(imageElement, loadingId.current)
 				promises.push(promise)
 			}
-			console.log(tmpImgElements)
-			setImgelements(tmpImgElements)
 
-		    Promise.allSettled(promises)
-		      .then(() => {
-		      	setImgsAreLoading(false)
-		      	setNumLoaded(0)
-		      	loadStatus.current = 0
-		      })
+			setImgelements(tmpImgElements)
+	    Promise.allSettled(promises)
+	      .then(() => {
+	      	setImgsAreLoading(false)
+	      	setNumLoaded(0)
+	      	loadStatus.current = 0
+	      })
 		}
 	}, [props.menuSelections])
 
@@ -99,7 +112,7 @@ const ImageDisplay = (props) => {
 		<div className="h-screen">
 			{imgsAreLoading ?
 				<div className='mt-10'>
-					<CircularProgressWithLabel size={'4rem'} value={(numLoaded / (currProdConf.num_fcst_hrs/currParamConf.fcst_hr_step))*100} />
+					<CircularProgressWithLabel size={'5rem'} value={(numLoaded / (currProdConf.num_fcst_hrs/currParamConf.fcst_hr_step))*100} />
 				</div>
 			:
 				null
