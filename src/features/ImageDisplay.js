@@ -31,9 +31,12 @@ const ImageDisplay = (props) => {
 	const [numLoaded, setNumLoaded] = useState(0)
 	const loadStatus = useRef(0)
 
-
+	let currParamConf = prodConf[props.menuSelections["selectedProduct"]]["parameters"][props.menuSelections["selectedParameterGroup"]][props.menuSelections["selectedParameter"]]
+	let currProdConf = prodConf[props.menuSelections["selectedProduct"]]
+	
 	useEffect(() => {
-		if(props.menuSelections["selectedRun"] !== "" && props.menuSelections["selectedProduct"] !== ""){
+		console.log("LOADING IMGS", currParamConf)
+		if(currParamConf !== null && props.menuSelections["selectedRun"] !== "" && props.menuSelections["selectedProduct"] !== ""){
 			setImgsAreLoading(true)
 
 		    const loadImage = image => {
@@ -58,7 +61,9 @@ const ImageDisplay = (props) => {
 			let urlBase = prodConf[props.menuSelections["selectedProduct"]]["url_base"]
 		    let promises = []
 		    let tmpImgElements = []
-			for(let i=0; i<prodConf[props.menuSelections["selectedProduct"]]["num_fcst_hrs"]; i++) {
+
+		    
+			for(let i=currParamConf.min_fcst_hr; i<=currProdConf.num_fcst_hrs; i+=currParamConf.fcst_hr_step) {
 
 				let fcstHrStr = ""
 				if(i < 10) {
@@ -73,11 +78,12 @@ const ImageDisplay = (props) => {
 				// let imgObj = {url:url, index:i}
 				const imageElement = new Image()
 		        imageElement.src = url
-				tmpImgElements.push(imageElement)
+				tmpImgElements.push({fcstHr:i, img:imageElement})
 
 				let promise = loadImage(imageElement)
 				promises.push(promise)
 			}
+			console.log(tmpImgElements)
 			setImgelements(tmpImgElements)
 
 		    Promise.allSettled(promises)
@@ -89,22 +95,21 @@ const ImageDisplay = (props) => {
 		}
 	}, [props.menuSelections])
 
-
 	return(
 		<div className="h-screen">
 			{imgsAreLoading ?
 				<div className='mt-10'>
-					<CircularProgressWithLabel size={'4rem'} value={(numLoaded / prodConf[props.menuSelections["selectedProduct"]]["num_fcst_hrs"])*100} />
+					<CircularProgressWithLabel size={'4rem'} value={(numLoaded / (currProdConf.num_fcst_hrs/currParamConf.fcst_hr_step))*100} />
 				</div>
 			:
 				null
 			}
 
-			{imgElements.map((imgEl, i) => {
-				let isVisible = (i === props.fcstHr) && !imgsAreLoading
+			{imgElements.map((imgEl) => {
+				let isVisible = (imgEl.fcstHr === props.fcstHr) && !imgsAreLoading
 				return (
-					<Zoom key={i+"img"} >
-						<img className={`${isVisible ? 'block' : 'hidden' } max-h-[700px] object-scale-down m-auto`} src={imgEl.src}/> 
+					<Zoom key={imgEl.fcstHr+"img"} >
+						<img className={`${isVisible ? 'block' : 'hidden' } max-h-[700px] object-scale-down m-auto`} src={imgEl.img.src}/> 
 						{/*object-scale-down min-h-[700px] h-[calc(100vh-365px)]*/}
 					</Zoom>
 				)

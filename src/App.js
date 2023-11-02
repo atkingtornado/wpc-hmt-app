@@ -34,9 +34,12 @@ function App() {
   const initalRun = ""
   const initialParameterGroup = Object.keys(prodConf[initialProduct]["parameters"])[0]
   const initialParameter = Object.keys(prodConf[initialProduct]["parameters"][initialParameterGroup])[0]
-  console.log(initialParameter)
 
-  const [fcstHr, setFcstHr] = useState(0)
+  const [fcstHr, setFcstHr] = useState(prodConf[initialProduct]["parameters"][initialParameterGroup][initialParameter]["min_fcst_hr"])
+  // const [fcstHrArr, setFcstHrArr] = useState([])
+  const [currParamConf, setCurrParamConf] = useState(null)
+  const [currProductConf, setCurrProductConf] = useState(null)
+
   // const [maxHr, setMaxHr] = useState(prodConf[initialProduct]["num_fcst_hrs"])
   const [menuSelections, setSelectedMenuSelections] = useState({
     "selectedProduct": initialProduct,
@@ -49,6 +52,21 @@ function App() {
   useEffect(() => {
     genDateOptions()
   },[])
+
+  useEffect(() => {
+    if(menuSelections["selectedRun"] !== '' && menuSelections["selectedProduct"] !== '' && menuSelections["selectedParameterGroup"] !== '' && menuSelections["selectedParameter"] !== ''){
+      let tmpCurrConf = prodConf[menuSelections["selectedProduct"]]["parameters"][menuSelections["selectedParameterGroup"]][menuSelections["selectedParameter"]]
+      let tmpCurrProdConf = prodConf[menuSelections["selectedProduct"]]
+      
+      if(fcstHr > tmpCurrProdConf.num_fcst_hrs) {
+        setFcstHr(tmpCurrProdConf.num_fcst_hrs)
+      } 
+      else if (fcstHr < tmpCurrConf["min_fcst_hr"]) {
+        setFcstHr(tmpCurrConf["min_fcst_hr"])
+      }
+
+    }
+  }, [menuSelections])
 
   const genDateOptions = () => {
     let currentDate = moment().utc()
@@ -131,7 +149,6 @@ function App() {
     setFcstHr(e.target.value)
   }
 
-
   const handleClose = () => {
     setOpen(false)
   }
@@ -176,7 +193,7 @@ function App() {
 
       <div className="w-full flex flex-col justify-center items-center">
         <SelectionMenu dateOptions={dateOptions} menuSelections={menuSelections} onChange={handleMenuChange}/>
-        <HourSlider onChange={handleSliderChange} value={fcstHr} run={menuSelections["selectedRun"]} maxHr={prodConf[menuSelections["selectedProduct"]]["num_fcst_hrs"]-1} minHr={prodConf[menuSelections["selectedProduct"]]["min_fcst_hr"]}/>
+        <HourSlider onChange={handleSliderChange} value={fcstHr} menuSelections={menuSelections}/>
         <ImageDisplay fcstHr={fcstHr} menuSelections={menuSelections} />
       </div>
       

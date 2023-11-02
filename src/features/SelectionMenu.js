@@ -24,13 +24,13 @@ const SelectionMenu = (props) => {
 		groupedParamOptions.push({label: grp, options: []})
 
 		Object.keys(prodConf[props.menuSelections["selectedProduct"]]["parameters"][grp]).map((param, j) => {
-			groupedParamOptions[i]['options'].push({label: prodConf[props.menuSelections["selectedProduct"]]["parameters"][grp][param], value: param})
+			groupedParamOptions[i]['options'].push({label: prodConf[props.menuSelections["selectedProduct"]]["parameters"][grp][param].label, value: param})
 		})
 	})
 
 	return (
 		<div className="m-2 flex w-full max-w-2xl">
-			<div className="m-2 w-1/4">
+			<div className="m-2 w-1/5">
 				<Select 
 					aria-label="product select"
 					options={groupedProductOptions}
@@ -39,7 +39,7 @@ const SelectionMenu = (props) => {
 					isSearchable
 				/>
 	   		</div>
-	   		<div className="m-2 w-2/4">
+	   		<div className="m-2 w-2/5">
 	   			<Select 
 					aria-label="run select"
 					options={runOptions}
@@ -48,11 +48,11 @@ const SelectionMenu = (props) => {
 					isSearchable
 				/>
 			</div>
-			<div className="m-2 w-1/4">
+			<div className="m-2 w-2/5">
 	   			<Select 
 					aria-label="parameter select"
 					options={groupedParamOptions}
-					value={{ value: props.menuSelections["selectedParameter"], label: prodConf[props.menuSelections["selectedProduct"]]["parameters"][props.menuSelections["selectedParameterGroup"]][props.menuSelections["selectedParameter"]]}}
+					value={{ value: props.menuSelections["selectedParameter"], label: prodConf[props.menuSelections["selectedProduct"]]["parameters"][props.menuSelections["selectedParameterGroup"]][props.menuSelections["selectedParameter"]].label}}
 					onChange={(e)=>{props.onChange(e, "selectedParameter")}}
 					isSearchable
 				/>
