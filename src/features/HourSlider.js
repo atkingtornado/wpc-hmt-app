@@ -3,11 +3,12 @@ import Slider from '@mui/material/Slider';
 import Moment from 'react-moment';
 import moment from 'moment';
 
-import { modelConf, ensemblesPQPFConf } from '../conf.js';
+import { modelConf, ensemblesPQPFConf, obsEroAriFfgConf } from '../conf.js';
 
 const prodConf = {
     ...modelConf,
-    ...ensemblesPQPFConf
+    ...ensemblesPQPFConf,
+    ...obsEroAriFfgConf
 }
 
 const HourSlider = (props) => {
@@ -23,9 +24,15 @@ const HourSlider = (props) => {
         } 
 
         let tmpDate = moment(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
-        tmpDate.add(value, "hours")
 
-        return `[+${formattedLabel}] VALID: ${tmpDate.format('HH z ddd DD MMM YYYY')}`;
+        if(props.menuSelections['selectedProduct'] === "Observations") {
+            tmpDate.subtract(value, "hours")
+            return `[-${formattedLabel}] VALID: ${tmpDate.format('HH z ddd DD MMM YYYY')}`;
+        } else {
+            tmpDate.add(value, "hours")
+            return `[+${formattedLabel}] VALID: ${tmpDate.format('HH z ddd DD MMM YYYY')}`;
+        }
+
     }
 
 

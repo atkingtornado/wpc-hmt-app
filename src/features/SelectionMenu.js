@@ -2,19 +2,22 @@ import { useState, useEffect, useRef } from 'react'
 
 import Select from 'react-select'
 
-import { modelConf, ensemblesPQPFConf } from '../conf.js';
+import { modelConf, ensemblesPQPFConf, obsEroAriFfgConf } from '../conf.js';
 
 const prodConf = {
 	...modelConf,
-	...ensemblesPQPFConf
+	...ensemblesPQPFConf, 
+	...obsEroAriFfgConf
 }
 
 const SelectionMenu = (props) => {
 	const modelOptions = Object.keys(modelConf).map((model)=>({value:model, label:model}))
 	const ensemblesPQPFOptions = Object.keys(ensemblesPQPFConf).map((prod)=>({value:prod, label:prod}))
+	const obsEroAriFfgOptions = Object.keys(obsEroAriFfgConf).map((prod)=>({value:prod, label:prod}))
 	const groupedProductOptions = [
 		{label: "Models", options: modelOptions},
-		{label: "Ensembles & PQPF", options: ensemblesPQPFOptions}
+		{label: "Ensembles & PQPF", options: ensemblesPQPFOptions},
+		{label: "Obs, EROs, ARIs, & FFGs", options: obsEroAriFfgOptions}
 	]
 
 	const runOptions = props.dateOptions.map((date)=>({value:date.format('HH z ddd DD MMM YYYY'), label:date.format('HH z ddd DD MMM YYYY')}))

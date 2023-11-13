@@ -16,11 +16,12 @@ import Select from 'react-select'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
-import { modelConf, ensemblesPQPFConf } from '../conf.js';
+import { modelConf, ensemblesPQPFConf, obsEroAriFfgConf } from '../conf.js';
 
 const prodConf = {
 	...modelConf,
-	...ensemblesPQPFConf
+	...ensemblesPQPFConf,
+	...obsEroAriFfgConf
 }
 
 
@@ -42,15 +43,12 @@ const ImageDisplay = (props) => {
 			loadingId.current = props.menuSelections["selectedProduct"]+props.menuSelections["selectedRun"]+props.menuSelections["selectedParameter"]
 			loadStatus.current = 0
 
+			// Try to force previous images to stop loading 
 			imgElements.forEach((obj)=>{
 				obj.img.src = ''
 				obj.img.onload = null
 				obj.img.onerror = null
 			})
-
-			// let tmpImgElements = imgElements.map((obj)=>({ ...obj, src: '',onload: null, onerror:null  }))
-			// console.log(tmpImgElements)
-			// setImgelements(tmpImgElements)
 
 	    const loadImage = (image, currLoadingId) => {
 	      return new Promise((resolve, reject) => {
@@ -72,22 +70,28 @@ const ImageDisplay = (props) => {
 	      })
 	    }
 
-	    let tmpDate = moment(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
+	    
 			let urlBase = prodConf[props.menuSelections["selectedProduct"]]["url_base"]
 	    let promises = []
 	    let tmpImgElements = []
 
 			for(let i=currParamConf.min_fcst_hr; i<=currProdConf.num_fcst_hrs; i+=currParamConf.fcst_hr_step) {
-
-				let fcstHrStr = ""
-				if(i < 10) {
-					fcstHrStr = "0"+i.toString()
-				} else {
-					fcstHrStr = i.toString()
-				}
-
+				let tmpDate = moment(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
 				let url = urlBase
-				url += props.menuSelections["selectedParameter"] + "_" + tmpDate.format("YYYYMMDDHH") + "f" + fcstHrStr + ".png"
+
+				if(props.menuSelections['selectedProduct'] === "Observations") {
+					tmpDate.subtract(i, "hours")
+					url += props.menuSelections["selectedParameter"] + "_" + tmpDate.format("YYYYMMDDHH") + ".png"
+					console.log(i, url)
+				} else {
+					let fcstHrStr = ""
+					if(i < 10) {
+						fcstHrStr = "0"+i.toString()
+					} else {
+						fcstHrStr = i.toString()
+					}
+					url += props.menuSelections["selectedParameter"] + "_" + tmpDate.format("YYYYMMDDHH") + "f" + fcstHrStr + ".png"
+				}	
 
 				// let imgObj = {url:url, index:i}
 				const imageElement = new Image()
@@ -123,7 +127,6 @@ const ImageDisplay = (props) => {
 				return (
 					<Zoom key={imgEl.fcstHr+"img"} >
 						<img className={`${isVisible ? 'block' : 'hidden' } max-h-[700px] object-scale-down m-auto`} src={imgEl.img.src}/> 
-						{/*object-scale-down min-h-[700px] h-[calc(100vh-365px)]*/}
 					</Zoom>
 				)
 			})}

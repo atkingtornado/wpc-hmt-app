@@ -1,4 +1,4 @@
-
+/// MODEL PARAMS
 const qpfParams = {
 	"precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
 	"precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
@@ -60,6 +60,13 @@ const verificationParams = {
 	"precip24v": {"label": "Verification 24 hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
 }
 
+// OBS PARAMS
+const qpfObsParams = {
+	"precip1": {"label": "MRMS Hourly Precipitation", "min_fcst_hr": 0, "fcst_hr_step": 1},
+}
+
+
+// Product Conf
 export const modelConf = {
 	"GFS": {
 		"url_base": "https://origin.wpc.ncep.noaa.gov/hmt/hmt_webpages/images/GFS/gfs_",
@@ -233,11 +240,12 @@ export const modelConf = {
 	},
 }
 
+
+
 export const ensemblesPQPFConf = {
 	"HREF": {
 		"url_base": "https://origin.wpc.ncep.noaa.gov/hmt/hmt_webpages/images/HREF/href_",
 		"num_fcst_hrs": 48,
-		"min_fcst_hr": 1,
 		"run_hrs": ["00","06","12","18"],
 		"parameters": {
 			"QPF": {
@@ -245,5 +253,17 @@ export const ensemblesPQPFConf = {
 			}	
 		}
 	},
+}
 
+export const obsEroAriFfgConf = {
+	"Observations": {
+		"url_base": "https://origin.wpc.ncep.noaa.gov/hmt/hmt_webpages/images/OBS/obs_",
+		"num_fcst_hrs": 83,
+		"run_hrs": [...Array(24).keys()].map((val) => (val < 10 ? "0" + val.toString() : val.toString())),
+		"parameters": {
+			"MRMS QPE Totals": {
+				"precip1": qpfObsParams['precip1']
+			}	
+		}
+	},
 }

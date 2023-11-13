@@ -18,13 +18,13 @@ import ImageDisplay from "./features/ImageDisplay"
 import SelectionMenu from './features/SelectionMenu'
 import HourSlider from './features/HourSlider'
 
-import { modelConf, ensemblesPQPFConf } from './conf.js';
+import { modelConf, ensemblesPQPFConf, obsEroAriFfgConf } from './conf.js';
 
 const prodConf = {
-  ...modelConf,
-  ...ensemblesPQPFConf
+    ...modelConf,
+    ...ensemblesPQPFConf,
+    ...obsEroAriFfgConf
 }
-
 
 function App() {
 
@@ -107,6 +107,7 @@ function App() {
 
   const handleMenuChange = (e, selectionID) => {
     let tmpMenuSelections = {...menuSelections}
+
     tmpMenuSelections[selectionID] = e.value
 
     if (selectionID === "selectedProduct") {
@@ -125,6 +126,9 @@ function App() {
       if(!allParams.includes(menuSelections["selectedParameter"])) {
         tmpMenuSelections["selectedParameter"] = allParams[0]
         tmpMenuSelections["selectedParameterGroup"] = allParamGroups[0]
+      } else {
+        let index = allParams.indexOf(tmpMenuSelections["selectedParameter"])
+        tmpMenuSelections["selectedParameterGroup"] = allParamGroups[index]
       }
     }
     else if (selectionID === "selectedParameter") {
@@ -141,7 +145,6 @@ function App() {
       tmpMenuSelections["selectedParameterGroup"] = allParamGroups[index]
     }
 
-    console.log(tmpMenuSelections)
     setSelectedMenuSelections(tmpMenuSelections)
   }
 
