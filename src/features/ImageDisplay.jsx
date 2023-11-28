@@ -33,9 +33,15 @@ const ImageDisplay = (props) => {
 	const loadStatus = useRef(0)
 	const loadingId = useRef(null)
 
+	const prevFcstHr = useRef(0)
+
 	let currParamConf = prodConf[props.menuSelections["selectedProduct"]]["parameters"][props.menuSelections["selectedParameterGroup"]][props.menuSelections["selectedParameter"]]
 	let currProdConf = prodConf[props.menuSelections["selectedProduct"]]
 	
+	  useEffect(() => {
+	    prevFcstHr.current = props.fcstHr;
+	  }, [props.fcstHr]);
+
 	useEffect(() => {
 		if(currParamConf !== null && props.menuSelections["selectedRun"] !== "" && props.menuSelections["selectedProduct"] !== ""){
 			setImgsAreLoading(true)
@@ -52,7 +58,6 @@ const ImageDisplay = (props) => {
 
 	    const loadImage = (image, currLoadingId) => {
 	      return new Promise((resolve, reject) => {
-	      	console.log(currLoadingId, loadingId.current)
 	        image.onload = () => {
 	        	if(currLoadingId === loadingId.current){
 	        		loadStatus.current = loadStatus.current + 1
@@ -112,8 +117,14 @@ const ImageDisplay = (props) => {
 		}
 	}, [props.menuSelections])
 
+	let tmpImgElements = [...imgElements]
+	// reverse order of img elements if scrubbing backwards so currently displayed image is removed prior to adding the new one
+	if (props.fcstHr < prevFcstHr.current) {
+		tmpImgElements.reverse()
+	}
+
 	return(
-		<div className="h-screen">
+		<div className="h-full">
 			{imgsAreLoading ?
 				<div className='mt-10'>
 					<CircularProgressWithLabel size={'5rem'} value={(numLoaded / (currProdConf.num_fcst_hrs/currParamConf.fcst_hr_step))*100} />
@@ -122,7 +133,7 @@ const ImageDisplay = (props) => {
 				null
 			}
 
-			{imgElements.map((imgEl) => {
+			{tmpImgElements.map((imgEl) => {
 				let isVisible = (imgEl.fcstHr === props.fcstHr) && !imgsAreLoading
 				return (
 					<Zoom key={imgEl.fcstHr+"img"} >

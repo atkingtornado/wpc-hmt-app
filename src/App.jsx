@@ -196,7 +196,7 @@ function App() {
 
       <div className="w-full flex flex-col justify-center items-center">
         <SelectionMenu dateOptions={dateOptions} menuSelections={menuSelections} onChange={handleMenuChange}/>
-        <HourSlider onChange={handleSliderChange} value={fcstHr} menuSelections={menuSelections}/>
+        <HourSlider onChange={handleSliderChange} fcstHr={fcstHr} menuSelections={menuSelections}/>
         <ImageDisplay fcstHr={fcstHr} menuSelections={menuSelections} />
       </div>
       
