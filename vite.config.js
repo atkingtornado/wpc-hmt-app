@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
             devServerPlugin(),
             sourcemapPlugin(),
             buildPathPlugin(),
-            basePlugin(),
+            // basePlugin(),
             importPrefixPlugin(),
             htmlPlugin(mode),
             svgrPlugin(),
@@ -26,6 +26,7 @@ export default defineConfig(({ mode }) => {
         resolve: {
             mainFields: [],
         },
+        base: './'
     };
 });
 function setEnv(mode) {
@@ -118,19 +119,19 @@ function buildPathPlugin() {
         },
     };
 }
-// Migration guide: Follow the guide below and remove homepage field in package.json
-// https://vitejs.dev/config/shared-options.html#base
-function basePlugin() {
-    return {
-        name: "base-plugin",
-        config(_, { mode }) {
-            const { PUBLIC_URL } = loadEnv(mode, ".", ["PUBLIC_URL"]);
-            return {
-                base: PUBLIC_URL || ".",
-            };
-        },
-    };
-}
+// // Migration guide: Follow the guide below and remove homepage field in package.json
+// // https://vitejs.dev/config/shared-options.html#base
+// function basePlugin() {
+//     return {
+//         name: "base-plugin",
+//         config(_, { mode }) {
+//             const { PUBLIC_URL } = loadEnv(mode, ".", ["PUBLIC_URL"]);
+//             return {
+//                 base: PUBLIC_URL || ".",
+//             };
+//         },
+//     };
+// }
 // To resolve modules from node_modules, you can prefix paths with ~
 // https://create-react-app.dev/docs/adding-a-sass-stylesheet
 // Migration guide: Follow the guide below
