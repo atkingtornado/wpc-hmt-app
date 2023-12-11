@@ -5,6 +5,7 @@ const qpfParams = {
 	"precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
 	"precip20": {"label": "20hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 24},
 	"precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+	"mean1": {"label": "1hr Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
 }
 const qpfExceedanceParams = {
 	"ari1": {"label": "QPF Exceedance of 1hr ARI", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -249,7 +250,7 @@ export const ensemblesPQPFConf = {
 		"run_hrs": ["00","06","12","18"],
 		"parameters": {
 			"QPF": {
-				"mean1": "1hr Mean"
+				"mean1": qpfParams['mean1']
 			}	
 		}
 	},
@@ -262,7 +263,7 @@ export const obsEroAriFfgConf = {
 		"run_hrs": [...Array(24).keys()].map((val) => (val < 10 ? "0" + val.toString() : val.toString())),
 		"parameters": {
 			"MRMS QPE Totals": {
-				"precip1": qpfObsParams['precip1']
+				"precip1": qpfObsParams['precip1'],
 			}	
 		}
 	},

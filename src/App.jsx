@@ -50,7 +50,8 @@ function App() {
   const [dateOptions, setDateOptions] = useState([])
 
   useEffect(() => {
-    genDateOptions()
+    let tmpMenuSelections = genDateOptions(menuSelections)
+    setSelectedMenuSelections(tmpMenuSelections)
   },[])
 
   useEffect(() => {
@@ -68,10 +69,10 @@ function App() {
     }
   }, [menuSelections])
 
-  const genDateOptions = () => {
+  const genDateOptions = (currMenuSelections) => {
     let currentDate = moment().utc()
     currentDate.subtract(1, 'hours');
-    let run_hrs = prodConf[menuSelections["selectedProduct"]]["run_hrs"]
+    let run_hrs = prodConf[currMenuSelections["selectedProduct"]]["run_hrs"]
 
     let start_hr = null
     run_hrs.forEach((hr) => {
@@ -96,23 +97,36 @@ function App() {
       index+=1
     }
     setDateOptions(dateArr)
+    console.log("SETTING DATES:")
+    console.log(dateArr)
 
-    if(menuSelections["selectedRun"] === ""){
-      let tmpMenuSelections = {...menuSelections}
+    // console.log(dateArr,moment(currMenuSelections["selectedRun"]), dateArr.includes(moment(currMenuSelections["selectedRun"])))
 
+    let selectedRun = moment.utc(menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
+    let dateArrContainsSelectedRun = false
+
+    dateArr.forEach((currDate) => {
+      if(currDate.format('HH z ddd DD MMM YYYY') === selectedRun.format('HH z ddd DD MMM YYYY')) {
+        dateArrContainsSelectedRun = true
+      }
+    }) 
+
+    let tmpMenuSelections = {...currMenuSelections}
+    if(currMenuSelections["selectedRun"] === "" || !dateArrContainsSelectedRun){
       tmpMenuSelections["selectedRun"] = dateArr[0].format('HH z ddd DD MMM YYYY')
       setSelectedMenuSelections(tmpMenuSelections)
     }
+    return tmpMenuSelections
   }
 
   const handleMenuChange = (e, selectionID) => {
     let tmpMenuSelections = {...menuSelections}
-
     tmpMenuSelections[selectionID] = e.value
 
+    // CHANGE PRODUCT
     if (selectionID === "selectedProduct") {
-      genDateOptions()
-
+      tmpMenuSelections = genDateOptions(tmpMenuSelections)
+      
       let allParamGroups = []
       let allParams = []
 
@@ -131,20 +145,30 @@ function App() {
         tmpMenuSelections["selectedParameterGroup"] = allParamGroups[index]
       }
     }
-    else if (selectionID === "selectedParameter") {
-      let allParamGroups = []
+    // CHANGE RUN
+    else if (selectionID === "selectedRun") {
+
+    }
+    // CHANGE PARMETER GROUP
+    else if (selectionID === "selectedParameterGroup") {
       let allParams = []
-      Object.keys(prodConf[menuSelections["selectedProduct"]]["parameters"]).forEach((grp) => {
-        Object.keys(prodConf[menuSelections["selectedProduct"]]["parameters"][grp]).forEach((param) => {
-          allParamGroups.push(grp)
-          allParams.push(param)
-        })
+      Object.keys(prodConf[menuSelections["selectedProduct"]]["parameters"][tmpMenuSelections["selectedParameterGroup"]]).forEach((param) => {
+        allParams.push(param)
       })
 
-      let index = allParams.indexOf(e.value)
-      tmpMenuSelections["selectedParameterGroup"] = allParamGroups[index]
+      if(!allParams.includes(menuSelections["selectedParameter"])) {
+        tmpMenuSelections["selectedParameter"] = allParams[0]
+      } else {
+        let index = allParams.indexOf(tmpMenuSelections["selectedParameter"])
+        tmpMenuSelections["selectedParameter"] = allParams[index]
+      }
+    }
+    // CHANGE PARAMETER
+    else if (selectionID === "selectedParameter") {
+
     }
 
+    console.log(tmpMenuSelections)
     setSelectedMenuSelections(tmpMenuSelections)
   }
 

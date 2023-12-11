@@ -81,13 +81,12 @@ const ImageDisplay = (props) => {
 	    let tmpImgElements = []
 
 			for(let i=currParamConf.min_fcst_hr; i<=currProdConf.num_fcst_hrs; i+=currParamConf.fcst_hr_step) {
-				let tmpDate = moment(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
+				let tmpDate = moment.utc(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
 				let url = urlBase
 
 				if(props.menuSelections['selectedProduct'] === "Observations") {
 					tmpDate.subtract(i, "hours")
 					url += props.menuSelections["selectedParameter"] + "_" + tmpDate.format("YYYYMMDDHH") + ".png"
-					console.log(i, url)
 				} else {
 					let fcstHrStr = ""
 					if(i < 10) {
@@ -137,7 +136,7 @@ const ImageDisplay = (props) => {
 				let isVisible = (imgEl.fcstHr === props.fcstHr) && !imgsAreLoading
 				return (
 					<Zoom key={imgEl.fcstHr+"img"} >
-						<img className={`${isVisible ? 'block' : 'hidden' } max-h-[700px] object-scale-down m-auto`} src={imgEl.img.src}/> 
+						<img className={`${isVisible ? 'block' : 'hidden' } max-h-screen object-scale-down m-auto`} src={imgEl.img.src}/> 
 					</Zoom>
 				)
 			})}

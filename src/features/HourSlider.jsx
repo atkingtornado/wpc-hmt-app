@@ -26,7 +26,7 @@ const HourSlider = (props) => {
             formattedLabel = '0'+formattedLabel
         } 
 
-        let tmpDate = moment(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
+        let tmpDate = moment.utc(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
 
         if(props.menuSelections['selectedProduct'] === "Observations") {
             tmpDate.subtract(value, "hours")
@@ -40,7 +40,7 @@ const HourSlider = (props) => {
     //VALID: ${tmpDate.format('HH z ddd DD MMM YYYY')}
 
     let validTimeLabel = ""
-    let tmpDate = moment(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
+    let tmpDate = moment.utc(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
 
     if(props.menuSelections['selectedProduct'] === "Observations") {
         tmpDate = tmpDate.subtract(props.fcstHr, "hours")
@@ -55,7 +55,7 @@ const HourSlider = (props) => {
     return (
         <>
             {currParamConf !== null ?
-                <div className="flex flex-col w-full max-w-2xl pb-2 pt-6 pl-[40px] pr-[40px] md:pl-0 md:pr-0">
+                <div className="flex flex-col w-full max-w-4xl pb-2 pt-6 pl-[40px] pr-[40px] lg:pl-0 lg:pr-0">
                     <Slider
                       // value={props.fcstHr}
                       track={false}
