@@ -4,6 +4,8 @@ import { NavBar } from "@atkingtornado/wpc-navbar-reactjs";
 
 import Moment from 'react-moment';
 import moment from 'moment';
+import parse from 'html-react-parser';
+
 import Alert from '@mui/material/Alert';
 import InfoIcon from '@mui/icons-material/Info';
 import Dialog from '@mui/material/Dialog';
@@ -22,17 +24,7 @@ import ImageDisplay from "./features/ImageDisplay"
 import SelectionMenu from './features/SelectionMenu'
 import HourSlider from './features/HourSlider'
 
-// import { modelConf, ensemblesPQPFConf, obsEroAriFfgConf } from './conf.js';
-
-// import externalLinks from './external_links.json';
-
-// const prodConf = {
-//     ...modelConf,
-//     ...ensemblesPQPFConf,
-//     ...obsEroAriFfgConf
-// }
-
-const confUrl = window.location.href.indexOf("localhost") != -1 ? "http://localhost:3001" : "produrl"
+const confUrl = window.location.href.indexOf("localhost") != -1 ? "http://localhost:3001" : window.location.href
 
 function App() {
 
@@ -234,7 +226,22 @@ function App() {
 }
 
 const AdditionalInfoDialog = (props) => {
+  const [infoJsonData, setInfoJsonData] = useState(null)
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    getInfoJson()
+  },[])
+
+  const getInfoJson = () => {
+    fetch(confUrl + '/conf/info_page_text.json')
+    .then((response) => response.json())
+    .then((jsonData) => {
+      setInfoJsonData(jsonData)
+      console.log(jsonData)
+    })
+  }
+
 
   const handleClose = () => {
     setOpen(false)
@@ -245,17 +252,33 @@ const AdditionalInfoDialog = (props) => {
       <Tooltip title="Additional Info">
         <InfoIcon className="cursor-pointer self-start" color="primary" onClick={()=>{setOpen(true)}} sx={{ fontSize: 28 }}/>
       </Tooltip>
-      <Dialog onClose={handleClose} open={open}>
+      <Dialog className="InfoDialog" onClose={handleClose} open={open}>
         <DialogContent>
           <DialogTitle className="text-center">
             <b>Welcome to the Weather Prediction Center's Hydrometeorology Testbed (HMT) Webpage</b>
           </DialogTitle>
-          <DialogContentText>
+
+          { infoJsonData ?
+            infoJsonData['info_text'].map((htmlStr) => {
+              return(
+                <>
+                  <DialogContentText>
+                    {parse(htmlStr)}
+                  </DialogContentText>
+                  <br/>
+                </>
+              )
+            })
+          :
+            null
+          }
+
+         {/* <DialogContentText>
             This is an experimental webpage that displays operational and experimental Models and Ensembles. This includes the Rapid Refresh Forecast System (RRFS) deterministic and ensemble data. Our website refers to the RRFS deterministic as RRFSp1, which EMC calls RRFSa. Experimental dataflow is sporadic, so if a model/ensemble is missing check to see if there is an earlier run. If the model/ensemble is still missing, we apologize and hope to have data available next time you visit.
           </DialogContentText>
           <br/>
           <DialogContentText>
-            The products shown on this webpage are <b>NOT</b> official NWS products. Information about WPC-HMT can be found <a href="https://www.wpc.ncep.noaa.gov/hmt/">here</a>. <b>If you have any questions about the webpage or HMT please contact Sarah Trojniak (sarah.trojniak@noaa.gov) or Jimmy Correia (james.correia@noaa.gov).</b>
+            The products shown on this webpage are <b>NOT</b> official NWS products. Information about WPC-HMT can be found <Link href="https://www.wpc.ncep.noaa.gov/hmt/">here</Link>. <b>If you have any questions about the webpage or HMT please contact Sarah Trojniak (sarah.trojniak@noaa.gov) or Jimmy Correia (james.correia@noaa.gov).</b>
           </DialogContentText>
           <br/>
           <DialogContentText>
@@ -268,7 +291,7 @@ const AdditionalInfoDialog = (props) => {
           </DialogContentText>
           <DialogContentText className="text-center">
             <b>This year's FFaIR seminar slides can be found <Link href="https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/seminars/2023/">here</Link>.</b>
-          </DialogContentText>
+          </DialogContentText>*/}
         </DialogContent>
       </Dialog>
     </>
