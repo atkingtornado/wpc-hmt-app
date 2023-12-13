@@ -76,7 +76,11 @@ const ImageDisplay = (props) => {
 	    }
 
 	    
-			let urlBase = props.prodConf[props.menuSelections["selectedProduct"]]["url_base"]
+			let urlBase = props.domain === 'conus' || !props.retro ? props.urlBase : props.urlBase  + props.domain + '/'
+			urlBase = urlBase + props.prodConf[props.menuSelections["selectedProduct"]]["url_end"]
+
+			console.log(props.urlBase )
+
 	    let promises = []
 	    let tmpImgElements = []
 
@@ -114,7 +118,7 @@ const ImageDisplay = (props) => {
 	      	loadStatus.current = 0
 	      })
 		}
-	}, [props.menuSelections])
+	}, [props.menuSelections, props.domain, props.retro])
 
 	let tmpImgElements = [...imgElements]
 	// reverse order of img elements if scrubbing backwards so currently displayed image is removed prior to adding the new one

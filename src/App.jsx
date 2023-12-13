@@ -28,15 +28,19 @@ const confUrl = window.location.href.indexOf("localhost") != -1 ? "http://localh
 
 function App() {
 
-  const [prodConf, setProdConf] = useState(null)
-  const [modelConf, setModelConf] = useState(null)
-  const [ensemblesPQPFConf, setEnsemblesPQPFConf] = useState(null)
-  const [obsEroAriFfgConf, setObsEroAriFfgConf] = useState(null)
+  const [urlBase, setUrlBase] = useState(null);
+  const [prodConf, setProdConf] = useState(null);
+  const [modelConf, setModelConf] = useState(null);
+  const [ensemblesPQPFConf, setEnsemblesPQPFConf] = useState(null);
+  const [obsEroAriFfgConf, setObsEroAriFfgConf] = useState(null);
 
-  const [fcstHr, setFcstHr] = useState()
+  const [fcstHr, setFcstHr] = useState();
+  const [retro, setRetro] = useState(false);
+  const [retroDate, setRetroDate] = useState(moment().utc());
+  const [domain, setDomain] = useState('conus');
 
-  const [menuSelections, setSelectedMenuSelections] = useState(null)
-  const [dateOptions, setDateOptions] = useState([])
+  const [menuSelections, setSelectedMenuSelections] = useState(null);
+  const [dateOptions, setDateOptions] = useState([]);
 
   useEffect(() => {
     fetch(confUrl + '/conf/product_conf.json')
@@ -52,6 +56,7 @@ function App() {
         ...tmpEnsemblesPQPFConf,
         ...tmpObsEroAriFfgConf
       }
+      setUrlBase(jsonData['url_base'])
       setModelConf(tmpModelConf)
       setEnsemblesPQPFConf(tmpEnsemblesPQPFConf)
       setObsEroAriFfgConf(tmpObsEroAriFfgConf)
@@ -98,15 +103,45 @@ function App() {
     }
   }, [menuSelections])
 
+  useEffect(() => {
+    if(prodConf) {
+      let tmpMenuSelections = genDateOptions(menuSelections)
+    }
+  },[retroDate, retro])
+
+  const handleRetroChange = (e, value) => {
+    if(value !== null) {
+      setRetro(value)
+    }
+  }
+
+  const handleRetroDateChange = (value) => {
+    let tmpDate = value
+    tmpDate.set({hour:12, minute:0, second:0})
+    setRetroDate(tmpDate)
+  }
+
+  const handleDomainChange = (e, value) => {
+    if(value !== null) {
+      setDomain(value)
+    }
+  } 
 
   const genDateOptions = (currMenuSelections) => {
-    let currentDate = moment().utc()
-    currentDate.subtract(1, 'hours');
+
+    let currentDate = null
+    if (retro) {
+      currentDate = retroDate.clone()
+    } else {
+      currentDate = moment().utc()
+      currentDate.subtract(1, 'hours');
+    }
+    
     let run_hrs = prodConf[currMenuSelections["selectedProduct"]]["run_hrs"]
 
     let start_hr = null
     run_hrs.forEach((hr) => {
-      if ( parseInt(hr) < currentDate.hour() ) {
+      if ( parseInt(hr) <= currentDate.hour() ) {
         start_hr = hr
       }
     })
@@ -138,9 +173,9 @@ function App() {
     }) 
 
     let tmpMenuSelections = {...currMenuSelections}
-    if(currMenuSelections["selectedRun"] === "" || !dateArrContainsSelectedRun){
+    if(currMenuSelections["selectedRun"] === "" || !dateArrContainsSelectedRun || retro){
       tmpMenuSelections["selectedRun"] = dateArr[0].format('HH z ddd DD MMM YYYY')
-      // setSelectedMenuSelections(tmpMenuSelections)
+      setSelectedMenuSelections(tmpMenuSelections)
     }
     return tmpMenuSelections
   }
@@ -214,9 +249,35 @@ function App() {
 
       {prodConf && menuSelections ?
         <div className="w-full flex flex-col justify-center items-center">
-          <SelectionMenu prodConf={prodConf} obsEroAriFfgConf={obsEroAriFfgConf} ensemblesPQPFConf={ensemblesPQPFConf} modelConf={modelConf} dateOptions={dateOptions} menuSelections={menuSelections} onChange={handleMenuChange}/>
-          <HourSlider prodConf={prodConf} onChange={handleSliderChange} fcstHr={fcstHr} menuSelections={menuSelections}/>
-          <ImageDisplay prodConf={prodConf} fcstHr={fcstHr} menuSelections={menuSelections} />
+          <SelectionMenu 
+            domain={domain}
+            handleDomainChange={handleDomainChange}
+            retroDate={retroDate} 
+            handleRetroDateChange={handleRetroDateChange} 
+            retro={retro} 
+            handleRetroChange={handleRetroChange} 
+            prodConf={prodConf} 
+            obsEroAriFfgConf={obsEroAriFfgConf} 
+            ensemblesPQPFConf={ensemblesPQPFConf} 
+            modelConf={modelConf} 
+            dateOptions={dateOptions} 
+            menuSelections={menuSelections} 
+            onChange={handleMenuChange}
+          />
+          <HourSlider 
+            prodConf={prodConf} 
+            onChange={handleSliderChange} 
+            fcstHr={fcstHr} 
+            menuSelections={menuSelections}
+          />
+          <ImageDisplay 
+            retro={retro}
+            urlBase={urlBase}
+            domain={domain}
+            prodConf={prodConf}
+            fcstHr={fcstHr}
+            menuSelections={menuSelections} 
+          />
         </div>
       :
         null
@@ -259,39 +320,19 @@ const AdditionalInfoDialog = (props) => {
           </DialogTitle>
 
           { infoJsonData ?
-            infoJsonData['info_text'].map((htmlStr) => {
+            infoJsonData['info_text'].map((htmlStr, i) => {
               return(
-                <>
+                <div key={i}>
                   <DialogContentText>
                     {parse(htmlStr)}
                   </DialogContentText>
                   <br/>
-                </>
+                </div>
               )
             })
           :
             null
           }
-
-         {/* <DialogContentText>
-            This is an experimental webpage that displays operational and experimental Models and Ensembles. This includes the Rapid Refresh Forecast System (RRFS) deterministic and ensemble data. Our website refers to the RRFS deterministic as RRFSp1, which EMC calls RRFSa. Experimental dataflow is sporadic, so if a model/ensemble is missing check to see if there is an earlier run. If the model/ensemble is still missing, we apologize and hope to have data available next time you visit.
-          </DialogContentText>
-          <br/>
-          <DialogContentText>
-            The products shown on this webpage are <b>NOT</b> official NWS products. Information about WPC-HMT can be found <Link href="https://www.wpc.ncep.noaa.gov/hmt/">here</Link>. <b>If you have any questions about the webpage or HMT please contact Sarah Trojniak (sarah.trojniak@noaa.gov) or Jimmy Correia (james.correia@noaa.gov).</b>
-          </DialogContentText>
-          <br/>
-          <DialogContentText>
-            If you are interested in other developmental websites we support please see the Experiment Websites - Data Visualization tab in the HMT and NOAA Websites dropdown. This includes an interactive soundings viewer that displays HRRR and RRFSp1 soundings.
-          </DialogContentText>
-          <br/>
-          <br/>
-          <DialogContentText className="text-center">
-            <b>Find the 2022 FFaIR Final Report <Link href="https://www.wpc.ncep.noaa.gov/hmt/2022_FFaIR_Final_Report.pdf">here</Link> and the 2023 FFaIR Operations Plan <Link href="https://origin.wpc.ncep.noaa.gov/hmt/hmt_webpages/2023_FFaIR_Operations_Plan.pdf">here</Link>.</b>
-          </DialogContentText>
-          <DialogContentText className="text-center">
-            <b>This year's FFaIR seminar slides can be found <Link href="https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/seminars/2023/">here</Link>.</b>
-          </DialogContentText>*/}
         </DialogContent>
       </Dialog>
     </>
@@ -371,7 +412,7 @@ const ExternalLinkDialog = (props) => {
           </DialogTitle>
             {menuItemDataArray.map((menuItem) => {
               return(
-                <div className="w-full p-2">
+                <div key={menuItem.label} className="w-full p-2">
                   <NestedDropdown
                     menuItemsData={menuItem}
                     MenuProps={{elevation: 3}}
