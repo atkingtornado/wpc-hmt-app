@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 
 import { NavBar } from "@atkingtornado/wpc-navbar-reactjs";
 
-
 import Moment from 'react-moment';
 import moment from 'moment';
 import Alert from '@mui/material/Alert';
@@ -13,52 +12,90 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContentText from '@mui/material/DialogContentText';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
+import IconButton from '@mui/material/IconButton';
+import LinkIcon from '@mui/icons-material/Link';
+import Tooltip from '@mui/material/Tooltip';
+
+import { NestedDropdown } from 'mui-nested-menu';
 
 import ImageDisplay from "./features/ImageDisplay"
 import SelectionMenu from './features/SelectionMenu'
 import HourSlider from './features/HourSlider'
 
-import { modelConf, ensemblesPQPFConf, obsEroAriFfgConf } from './conf.js';
+// import { modelConf, ensemblesPQPFConf, obsEroAriFfgConf } from './conf.js';
 
-const prodConf = {
-    ...modelConf,
-    ...ensemblesPQPFConf,
-    ...obsEroAriFfgConf
-}
+// import externalLinks from './external_links.json';
+
+// const prodConf = {
+//     ...modelConf,
+//     ...ensemblesPQPFConf,
+//     ...obsEroAriFfgConf
+// }
+
+const confUrl = window.location.href.indexOf("localhost") != -1 ? "http://localhost:3001" : "produrl"
 
 function App() {
 
-  const [open, setOpen] = useState(false)
+  const [prodConf, setProdConf] = useState(null)
+  const [modelConf, setModelConf] = useState(null)
+  const [ensemblesPQPFConf, setEnsemblesPQPFConf] = useState(null)
+  const [obsEroAriFfgConf, setObsEroAriFfgConf] = useState(null)
 
-  const initialProduct = Object.keys(prodConf)[0]
-  const initalRun = ""
-  const initialParameterGroup = Object.keys(prodConf[initialProduct]["parameters"])[0]
-  const initialParameter = Object.keys(prodConf[initialProduct]["parameters"][initialParameterGroup])[0]
+  const [fcstHr, setFcstHr] = useState()
 
-  const [fcstHr, setFcstHr] = useState(prodConf[initialProduct]["parameters"][initialParameterGroup][initialParameter]["min_fcst_hr"])
-  // const [fcstHrArr, setFcstHrArr] = useState([])
-  const [currParamConf, setCurrParamConf] = useState(null)
-  const [currProductConf, setCurrProductConf] = useState(null)
-
-  // const [maxHr, setMaxHr] = useState(prodConf[initialProduct]["num_fcst_hrs"])
-  const [menuSelections, setSelectedMenuSelections] = useState({
-    "selectedProduct": initialProduct,
-    "selectedRun": initalRun,
-    "selectedParameterGroup": initialParameterGroup,
-    "selectedParameter": initialParameter
-  })
+  const [menuSelections, setSelectedMenuSelections] = useState(null)
   const [dateOptions, setDateOptions] = useState([])
 
   useEffect(() => {
-    let tmpMenuSelections = genDateOptions(menuSelections)
-    setSelectedMenuSelections(tmpMenuSelections)
+    fetch(confUrl + '/conf/product_conf.json')
+    .then((response) => response.json())
+    .then((jsonData) => {
+
+      let tmpModelConf = jsonData['models']
+      let tmpEnsemblesPQPFConf = jsonData['ensembles_PQPF']
+      let tmpObsEroAriFfgConf = jsonData['obs_ero_ari_ffg']
+
+      let tmpProdConf = {
+        ...tmpModelConf,
+        ...tmpEnsemblesPQPFConf,
+        ...tmpObsEroAriFfgConf
+      }
+      setModelConf(tmpModelConf)
+      setEnsemblesPQPFConf(tmpEnsemblesPQPFConf)
+      setObsEroAriFfgConf(tmpObsEroAriFfgConf)
+      setProdConf(tmpProdConf)
+    })
   },[])
 
   useEffect(() => {
-    if(menuSelections["selectedRun"] !== '' && menuSelections["selectedProduct"] !== '' && menuSelections["selectedParameterGroup"] !== '' && menuSelections["selectedParameter"] !== ''){
+    if(prodConf) {
+      const initialProduct = Object.keys(prodConf)[0]
+      const initalRun = ""
+      const initialParameterGroup = Object.keys(prodConf[initialProduct]["parameters"])[0]
+      const initialParameter = Object.keys(prodConf[initialProduct]["parameters"][initialParameterGroup])[0]
+      const initialFcstHr = prodConf[initialProduct]["parameters"][initialParameterGroup][initialParameter]["min_fcst_hr"]
+
+      let tmpMenuSelections = {
+        "selectedProduct": initialProduct,
+        "selectedRun": initalRun,
+        "selectedParameterGroup": initialParameterGroup,
+        "selectedParameter": initialParameter
+      }
+
+      let tmpFcstHr = prodConf[initialProduct]["parameters"][initialParameterGroup][initialParameter]["min_fcst_hr"]
+
+      setFcstHr(tmpFcstHr)
+
+      tmpMenuSelections = genDateOptions(tmpMenuSelections)
+      setSelectedMenuSelections(tmpMenuSelections)
+    }
+  },[prodConf])
+
+  useEffect(() => {
+    if(prodConf && menuSelections["selectedRun"] !== '' && menuSelections["selectedProduct"] !== '' && menuSelections["selectedParameterGroup"] !== '' && menuSelections["selectedParameter"] !== ''){
       let tmpCurrConf = prodConf[menuSelections["selectedProduct"]]["parameters"][menuSelections["selectedParameterGroup"]][menuSelections["selectedParameter"]]
       let tmpCurrProdConf = prodConf[menuSelections["selectedProduct"]]
-      
+
       if(fcstHr > tmpCurrProdConf.num_fcst_hrs) {
         setFcstHr(tmpCurrProdConf.num_fcst_hrs)
       } 
@@ -68,6 +105,7 @@ function App() {
 
     }
   }, [menuSelections])
+
 
   const genDateOptions = (currMenuSelections) => {
     let currentDate = moment().utc()
@@ -97,12 +135,8 @@ function App() {
       index+=1
     }
     setDateOptions(dateArr)
-    console.log("SETTING DATES:")
-    console.log(dateArr)
 
-    // console.log(dateArr,moment(currMenuSelections["selectedRun"]), dateArr.includes(moment(currMenuSelections["selectedRun"])))
-
-    let selectedRun = moment.utc(menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
+    let selectedRun = moment.utc(currMenuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
     let dateArrContainsSelectedRun = false
 
     dateArr.forEach((currDate) => {
@@ -114,7 +148,7 @@ function App() {
     let tmpMenuSelections = {...currMenuSelections}
     if(currMenuSelections["selectedRun"] === "" || !dateArrContainsSelectedRun){
       tmpMenuSelections["selectedRun"] = dateArr[0].format('HH z ddd DD MMM YYYY')
-      setSelectedMenuSelections(tmpMenuSelections)
+      // setSelectedMenuSelections(tmpMenuSelections)
     }
     return tmpMenuSelections
   }
@@ -167,17 +201,11 @@ function App() {
     else if (selectionID === "selectedParameter") {
 
     }
-
-    console.log(tmpMenuSelections)
     setSelectedMenuSelections(tmpMenuSelections)
   }
 
   const handleSliderChange = (e) => {
     setFcstHr(e.target.value)
-  }
-
-  const handleClose = () => {
-    setOpen(false)
   }
 
   return (
@@ -186,11 +214,37 @@ function App() {
         <NavBar/>
       </div>
       <Alert sx={{ display: "flex", justifyContent: "center"}} severity="error">****THIS IS A NON-OPERATIONAL WEBSITE****</Alert>
-      <div className="flex justify-center items-center">
-        <h1 className="text-3xl font-bold text-center pt-4">WPC-HMT Realtime Webpage</h1>
-        <InfoIcon className="cursor-pointer" color="primary" onClick={()=>{setOpen(true)}} sx={{ fontSize: 28 }}/>
+      <div className="flex justify-center items-center pt-4">
+        <h1 className="text-3xl font-bold text-center ">WPC-HMT Realtime Webpage</h1>
+        <AdditionalInfoDialog/>
+        <ExternalLinkDialog  />
       </div>
 
+      {prodConf && menuSelections ?
+        <div className="w-full flex flex-col justify-center items-center">
+          <SelectionMenu prodConf={prodConf} obsEroAriFfgConf={obsEroAriFfgConf} ensemblesPQPFConf={ensemblesPQPFConf} modelConf={modelConf} dateOptions={dateOptions} menuSelections={menuSelections} onChange={handleMenuChange}/>
+          <HourSlider prodConf={prodConf} onChange={handleSliderChange} fcstHr={fcstHr} menuSelections={menuSelections}/>
+          <ImageDisplay prodConf={prodConf} fcstHr={fcstHr} menuSelections={menuSelections} />
+        </div>
+      :
+        null
+      }
+    </div>
+  );
+}
+
+const AdditionalInfoDialog = (props) => {
+  const [open, setOpen] = useState(false)
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  return(
+    <>
+      <Tooltip title="Additional Info">
+        <InfoIcon className="cursor-pointer self-start" color="primary" onClick={()=>{setOpen(true)}} sx={{ fontSize: 28 }}/>
+      </Tooltip>
       <Dialog onClose={handleClose} open={open}>
         <DialogContent>
           <DialogTitle className="text-center">
@@ -201,7 +255,7 @@ function App() {
           </DialogContentText>
           <br/>
           <DialogContentText>
-            The products shown on this webpage are <b>NOT</b> official NWS products. Information about WPC-HMT can be found <Link href="https://www.wpc.ncep.noaa.gov/hmt/">here</Link>. <b>If you have any questions about the webpage or HMT please contact Sarah Trojniak (sarah.trojniak@noaa.gov) or Jimmy Correia (james.correia@noaa.gov).</b>
+            The products shown on this webpage are <b>NOT</b> official NWS products. Information about WPC-HMT can be found <a href="https://www.wpc.ncep.noaa.gov/hmt/">here</a>. <b>If you have any questions about the webpage or HMT please contact Sarah Trojniak (sarah.trojniak@noaa.gov) or Jimmy Correia (james.correia@noaa.gov).</b>
           </DialogContentText>
           <br/>
           <DialogContentText>
@@ -217,15 +271,96 @@ function App() {
           </DialogContentText>
         </DialogContent>
       </Dialog>
+    </>
+  )
+}
 
-      <div className="w-full flex flex-col justify-center items-center">
-        <SelectionMenu dateOptions={dateOptions} menuSelections={menuSelections} onChange={handleMenuChange}/>
-        <HourSlider onChange={handleSliderChange} fcstHr={fcstHr} menuSelections={menuSelections}/>
-        <ImageDisplay fcstHr={fcstHr} menuSelections={menuSelections} />
+const ExternalLinkDialog = (props) => {
+  const [open, setOpen] = useState(false)
+  const [menuItemDataArray, setMenuItemDataArray] = useState([])
+  const [linkJsonData, setLinkJsonData] = useState({})
+
+
+  useEffect(() => {
+    getLinkJson()
+  },[])
+
+  useEffect(() => {
+    genMenuItemData()
+  },[linkJsonData])
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  const getLinkJson = () => {
+    fetch(confUrl + '/conf/external_links.json')
+    .then((response) => response.json())
+    .then((jsonData) => {
+      setLinkJsonData(jsonData)
+    })
+  }
+
+  const genMenuItemData = () =>{
+    let tmpMenuItemDataArray = []
+
+    Object.keys(linkJsonData).forEach((label) => {
+      let tmpMenuItemData = {}
+      tmpMenuItemData['label'] = label
+      tmpMenuItemData['items'] = []
+
+      Object.keys(linkJsonData[label]).forEach((categoryLabel) => {
+        let tmpInnerMenuItemData = {}
+        tmpInnerMenuItemData['label'] = categoryLabel
+        tmpInnerMenuItemData['items'] = []
+
+        linkJsonData[label][categoryLabel].forEach((linkData) => {
+          tmpInnerMenuItemData['items'].push(
+            {
+              label: linkData['label'],
+              callback: (event, item) => window.open(linkData['link'])
+            }
+          )
+        })
+
+        tmpMenuItemData['items'].push(tmpInnerMenuItemData)
+      })
+
+      tmpMenuItemDataArray.push(tmpMenuItemData)
+    })  
+
+    setMenuItemDataArray(tmpMenuItemDataArray)
+  }
+
+  return(
+    <>
+      <div className="h-full align-middle">
+        <Tooltip title="External Links">
+          <IconButton onClick={()=>{setOpen(true)}} aria-label="links">
+            <LinkIcon fontSize="large" />
+          </IconButton>
+        </Tooltip>
       </div>
-      
-    </div>
-  );
+      <Dialog onClose={handleClose} open={open}>
+        <DialogContent>
+          <DialogTitle className="text-center">
+            <b>External Links:</b>
+          </DialogTitle>
+            {menuItemDataArray.map((menuItem) => {
+              return(
+                <div className="w-full p-2">
+                  <NestedDropdown
+                    menuItemsData={menuItem}
+                    MenuProps={{elevation: 3}}
+                    ButtonProps={{variant: 'outlined', sx: {width:'100%'}}}
+                  />
+                </div>
+              )
+            })}  
+        </DialogContent>
+      </Dialog>
+    </>
+  )
 }
 
 export default App;

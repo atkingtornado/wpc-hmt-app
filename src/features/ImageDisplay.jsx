@@ -16,13 +16,13 @@ import Select from 'react-select'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
-import { modelConf, ensemblesPQPFConf, obsEroAriFfgConf } from '../conf.js';
+// import { modelConf, ensemblesPQPFConf, obsEroAriFfgConf } from '../conf.js';
 
-const prodConf = {
-	...modelConf,
-	...ensemblesPQPFConf,
-	...obsEroAriFfgConf
-}
+// const prodConf = {
+// 	...modelConf,
+// 	...ensemblesPQPFConf,
+// 	...obsEroAriFfgConf
+// }
 
 
 const ImageDisplay = (props) => {
@@ -35,12 +35,12 @@ const ImageDisplay = (props) => {
 
 	const prevFcstHr = useRef(0)
 
-	let currParamConf = prodConf[props.menuSelections["selectedProduct"]]["parameters"][props.menuSelections["selectedParameterGroup"]][props.menuSelections["selectedParameter"]]
-	let currProdConf = prodConf[props.menuSelections["selectedProduct"]]
+	let currParamConf = props.prodConf[props.menuSelections["selectedProduct"]]["parameters"][props.menuSelections["selectedParameterGroup"]][props.menuSelections["selectedParameter"]]
+	let currProdConf = props.prodConf[props.menuSelections["selectedProduct"]]
 	
-	  useEffect(() => {
-	    prevFcstHr.current = props.fcstHr;
-	  }, [props.fcstHr]);
+  useEffect(() => {
+    prevFcstHr.current = props.fcstHr;
+  }, [props.fcstHr]);
 
 	useEffect(() => {
 		if(currParamConf !== null && props.menuSelections["selectedRun"] !== "" && props.menuSelections["selectedProduct"] !== ""){
@@ -76,7 +76,7 @@ const ImageDisplay = (props) => {
 	    }
 
 	    
-			let urlBase = prodConf[props.menuSelections["selectedProduct"]]["url_base"]
+			let urlBase = props.prodConf[props.menuSelections["selectedProduct"]]["url_base"]
 	    let promises = []
 	    let tmpImgElements = []
 

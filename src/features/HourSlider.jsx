@@ -4,18 +4,18 @@ import Typography from '@mui/material/Typography';
 import Moment from 'react-moment';
 import moment from 'moment';
 
-import { modelConf, ensemblesPQPFConf, obsEroAriFfgConf } from '../conf.js';
+// import { modelConf, ensemblesPQPFConf, obsEroAriFfgConf } from '../conf.js';
 
-const prodConf = {
-    ...modelConf,
-    ...ensemblesPQPFConf,
-    ...obsEroAriFfgConf
-}
+// const prodConf = {
+//     ...modelConf,
+//     ...ensemblesPQPFConf,
+//     ...obsEroAriFfgConf
+// }
 
 const HourSlider = (props) => {
 
-    let currParamConf = prodConf[props.menuSelections["selectedProduct"]]["parameters"][props.menuSelections["selectedParameterGroup"]][props.menuSelections["selectedParameter"]]
-    let currProdConf = prodConf[props.menuSelections["selectedProduct"]]
+    let currParamConf = props.prodConf[props.menuSelections["selectedProduct"]]["parameters"][props.menuSelections["selectedParameterGroup"]][props.menuSelections["selectedParameter"]]
+    let currProdConf = props.prodConf[props.menuSelections["selectedProduct"]]
 
 
 
