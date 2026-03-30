@@ -1,0 +1,22 @@
+{
+	"HMT and NOAA Websites": {
+		"Experiment Websites - Data Visualization": [
+			{
+				"label":"HMT Pyscript Deterministic Dashboard",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/drawingtools/dashboardv2.html"
+			},
+			{
+				"label":"HMT Pyscript Ensemble Dashboard",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/drawingtools/ensemble_dashv2.html"
+			}
+		]
+	},
+	"External Weather Websites": {
+		"HMT Partner's Websites": [
+			{
+				"label":"CAPS Realtime Plotter",
+				"link":"https://caps.ou.edu/forecast/realtime/"
+			}
+		]
+	}
+}

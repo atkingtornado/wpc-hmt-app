@@ -1,0 +1,1650 @@
+{
+    "url_base": "https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/images/",
+    "models": {
+        "experimental": {
+            "GFS": {
+                "url_end": "GFS/[RUN]/gfs_",
+                "run_hrs": ["00","12"],
+                "num_fcst_hrs": 192,
+                "groups": [],
+                "parameters": {
+                    "QPF": {
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                    }
+                }
+            },
+            "AR-AFS": {
+                "url_end": "AR_AFS/[RUN]/ar_afs_",
+                "run_hrs": ["00","12"],
+                "num_fcst_hrs": 120,
+                "groups": [],
+                "parameters": {
+                    "QPF": {
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                    }
+                }
+            },
+            "UFS-AR": {
+                "url_end": "UFS_AR/[RUN]/ufs_ar_",
+                "run_hrs": ["00"],
+                "num_fcst_hrs": 60,
+                "groups": [],
+                "parameters": {
+                    "QPF": {
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                    }
+                }
+            },
+            "West-WRF": {
+                "url_end": "WEST_WRF/[RUN]/west_wrf_",
+                "run_hrs": ["00"],
+                "num_fcst_hrs": 192,
+                "groups": [],
+                "parameters": {
+                    "QPF": {
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                    }
+                }
+            }
+        },
+        "default": {
+            "GFS": {
+                "url_end": "GFS/[RUN]/gfs_",
+                "run_hrs": ["00","06","12","18"],
+                "num_fcst_hrs": 84,
+                "groups": [],
+                "parameters": {
+                    "QPF": {
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "precip20": {"label": "20hr QPF", "min_fcst_hr": 20, "fcst_hr_step": 24},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 24}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    }
+                }
+            },
+            "HRRR": {
+                "url_end": "HRRR/[RUN]/hrrr_",
+                "run_hrs": ["00","06","12","18"],
+                "num_fcst_hrs": 48,
+                "groups": [],
+                "parameters": {
+                    "24hr Precip.": {
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "6hr Precip.": {
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari6": {"label": "6hr QPF ARI", "min_fcst_hr": 6, "fcst_hr_step": 1}
+                    },	
+                    "1hr Precip.": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "1hr QPF ARI", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },	
+                    "QPF": {
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "prate": {"label": "1hr Inst. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pmax": {"label": "1hr Max. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "1hr QPF ARI", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari3": {"label": "3hr QPF ARI", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "ari6": {"label": "6hr QPF ARI", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "refl1": {"label": "1km AGL Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    },
+                    "Severe Weather": {
+                        "uh": {"label": "1hr Min/Max Updraft Helicity", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature (degC) with MSLP", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "td": {"label": "2m Dewpoint", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "cape": {"label": "1hr MUCAPE (255-0mb layer)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fgen850": {"label": "850mb Frontogenesis and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "tadv850": {"label": "850mb Temp. Advection and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fgen700": {"label": "700mb Frontogenesis and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "tadv700": {"label": "700mb Temp. Advection and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "wind300": {"label": "300mb Wind and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Snow": {
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow3": {"label": "3hr Snowfall (Var. Density)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod3": {"label": "3hr Snow Depth Change", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe3": {"label": "3hr Snow Water Equiv.", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Ice Pellets": {
+                        "frozr": {"label": "Run-Total Ice Pellet QPF", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Freezing Rain": {
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr3": {"label": "3hr Freezing Rain QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram3": {"label": "3hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },
+                    "Winter Weather - Environment": {
+                        "vis": {"label": "1hr Surface Visibility", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "dgz": {"label": "1hr Dendritic Growth Zone Depth", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frz": {"label": "1hr Freezing Level", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "les": {"label": "Ice Cover and 850mb-Sfc. Temp. Difference", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    }
+                }
+            },
+            "GSL MPAS": {
+                "url_end": "MPAS/[RUN]/mpas_",
+                "run_hrs": ["00","06","12","18"],
+                "num_fcst_hrs": 60,
+                "groups": [],
+                "parameters": {
+                    "24hr Precip.": {
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "6hr Precip.": {
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari6": {"label": "6hr QPF ARI", "min_fcst_hr": 6, "fcst_hr_step": 1}
+                    },	
+                    "1hr Precip.": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "1hr QPF ARI", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },	
+                    "QPF": {
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "prate": {"label": "1hr Inst. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pmax": {"label": "1hr Max. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "1hr QPF ARI", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari3": {"label": "3hr QPF ARI", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "ari6": {"label": "6hr QPF ARI", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "refl1": {"label": "1km AGL Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    },
+                    "Severe Weather": {
+                        "uh": {"label": "1hr Min/Max Updraft Helicity", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature (degC) with MSLP", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "td": {"label": "2m Dewpoint", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "cape": {"label": "1hr MUCAPE (255-0mb layer)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fgen850": {"label": "850mb Frontogenesis and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "tadv850": {"label": "850mb Temp. Advection and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fgen700": {"label": "700mb Frontogenesis and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "tadv700": {"label": "700mb Temp. Advection and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "wind300": {"label": "300mb Wind and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Snow": {
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow3": {"label": "3hr Snowfall (Var. Density)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod3": {"label": "3hr Snow Depth Change", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe3": {"label": "3hr Snow Water Equiv.", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Ice Pellets": {
+                        "frozr": {"label": "Run-Total Ice Pellet QPF", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Freezing Rain": {
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr3": {"label": "3hr Freezing Rain QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram3": {"label": "3hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },
+                    "Winter Weather - Environment": {
+                        "vis": {"label": "1hr Surface Visibility", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "dgz": {"label": "1hr Dendritic Growth Zone Depth", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frz": {"label": "1hr Freezing Level", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    }
+                }
+            },
+            "NSSL MPAS": {
+                "url_end": "NSSL/[RUN]/nssl_",
+                "run_hrs": ["00","12"],
+                "num_fcst_hrs": 48,
+                "groups": [],
+                "parameters": {
+                    "24hr Precip.": {
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "6hr Precip.": {
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari6": {"label": "6hr QPF ARI", "min_fcst_hr": 6, "fcst_hr_step": 1}
+                    },	
+                    "1hr Precip.": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "1hr QPF ARI", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },	
+                    "QPF": {
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "prate": {"label": "1hr Inst. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pmax": {"label": "1hr Max. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "1hr QPF ARI", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari3": {"label": "3hr QPF ARI", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "ari6": {"label": "6hr QPF ARI", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "refl1": {"label": "1km AGL Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    },
+                    "Severe Weather": {
+                        "uh": {"label": "1hr Min/Max Updraft Helicity", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature (degC) with MSLP", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "td": {"label": "2m Dewpoint", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "cape": {"label": "1hr MUCAPE (255-0mb layer)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fgen850": {"label": "850mb Frontogenesis and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "tadv850": {"label": "850mb Temp. Advection and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fgen700": {"label": "700mb Frontogenesis and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "tadv700": {"label": "700mb Temp. Advection and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "wind300": {"label": "300mb Wind and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Snow": {
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow3": {"label": "3hr Snowfall (Var. Density)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod3": {"label": "3hr Snow Depth Change", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe3": {"label": "3hr Snow Water Equiv.", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snowc": {"label": "Snow Cover", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Ice Pellets": {
+                        "frozr": {"label": "Run-Total Ice Pellet QPF", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Freezing Rain": {
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr3": {"label": "3hr Freezing Rain QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram3": {"label": "3hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },
+                    "Winter Weather - Environment": {
+                        "vis": {"label": "1hr Surface Visibility", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "dgz": {"label": "1hr Dendritic Growth Zone Depth", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frz": {"label": "1hr Freezing Level", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "les": {"label": "Ice Cover and 850mb-Sfc. Temp. Difference", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    }
+                }
+            },
+            "RRFSp1": {
+                "url_end": "RRFSp1/[RUN]/rrfsp1_",
+                "run_hrs": ["00","06","12","18"],
+                "num_fcst_hrs": 60,
+                "groups": [],
+                "parameters": {
+                    "24hr Precip.": {
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "6hr Precip.": {
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari6": {"label": "6hr QPF ARI", "min_fcst_hr": 6, "fcst_hr_step": 1}
+                    },	
+                    "1hr Precip.": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "1hr QPF ARI", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },	
+                    "QPF": {
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "prate": {"label": "1hr Inst. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pmax": {"label": "1hr Max. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "QPF Exceedance of 1hr ARI", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari3": {"label": "QPF Exceedance of 3hr ARI", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "ari6": {"label": "QPF Exceedance of 6hr ARI", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari24": {"label": "QPF Exceedance of 24hr ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    },
+                    "Severe Weather": {
+                        "uh": {"label": "1hr Min/Max Updraft Helicity", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature (degC) with MSLP", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "td": {"label": "2m Dewpoint", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "rh": {"label": "2m Rel. Hum., 2m Dew Point", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "cape": {"label": "1hr MUCAPE (255-0mb layer)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fgen850": {"label": "850mb Frontogenesis and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "tadv850": {"label": "850mb Temp. Advection and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fgen700": {"label": "700mb Frontogenesis and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "tadv700": {"label": "700mb Temp. Advection and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "wind300": {"label": "300mb Wind and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Snow": {
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow3": {"label": "3hr Snowfall (Var. Density)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod3": {"label": "3hr Snow Depth Change", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe3": {"label": "3hr Snow Water Equiv.", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Ice Pellets": {
+                        "frozr": {"label": "Run-Total Ice Pellet QPF", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Freezing Rain": {
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr3": {"label": "3hr Freezing Rain QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram3": {"label": "3hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },
+                    "Winter Weather - Environment": {
+                        "vis": {"label": "1hr Surface Visibility", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "dgz": {"label": "1hr Dendritic Growth Zone Depth", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frz": {"label": "1hr Freezing Level", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    }
+                }
+            },
+            "UUtah CTL": {
+                "url_end": "UTAH/[RUN]/utahctl_",
+                "run_hrs": ["00","12"],
+                "num_fcst_hrs": 60,
+                "groups": [],
+                "parameters": {
+                    "QPF": {
+                        "precip6": {"label": "6hr QPF (RRFSp1)", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "precip24": {"label": "24hr QPF (RRFSp1)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Snow": {
+                        "snow6": {"label": "6hr Snowfall (ML SLR)", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "snow24": {"label": "24hr Snowfall (ML SLR)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "slr": {"label": "1hr Snow/Liquid Ratio (ML SLR)", "min_fcst_hr": 6, "fcst_hr_step": 6}
+                    },
+                    "Winter Weather - Environment": {
+                        "wbz": {"label": "1hr Inst. Wet-Bulb 0.5degC Height", "min_fcst_hr": 6, "fcst_hr_step": 6}
+                    }
+                }
+            },
+            "CAPS Det. (FV3)": {
+                "url_end": "CAPSdet/[RUN]/capsdet_",
+                "run_hrs": ["00"],
+                "num_fcst_hrs": 84,
+                "groups": [],
+                "parameters": {
+                    "24hr Precip.": {
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "6hr Precip.": {
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari6": {"label": "6hr QPF ARI", "min_fcst_hr": 6, "fcst_hr_step": 1}
+                    },	
+                    "1hr Precip.": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "1hr QPF ARI", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },	
+                    "QPF": {
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "prate": {"label": "1hr Inst. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pmax": {"label": "1hr Max. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "QPF Exceedance of 1hr ARI", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari3": {"label": "QPF Exceedance of 3hr ARI", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "ari6": {"label": "QPF Exceedance of 6hr ARI", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari24": {"label": "QPF Exceedance of 24hr ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    },
+                    "Severe Weather": {
+                        "uh": {"label": "1hr Min/Max Updraft Helicity", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature (degC) with MSLP", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "td": {"label": "2m Dewpoint", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "cape": {"label": "1hr MUCAPE (255-0mb layer)", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Snow": {
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow3": {"label": "3hr Snowfall (Var. Density)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod3": {"label": "3hr Snow Depth Change", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe3": {"label": "3hr Snow Water Equiv.", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Ice Pellets": {
+                        "frozr": {"label": "Run-Total Ice Pellet QPF", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Freezing Rain": {
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr3": {"label": "3hr Freezing Rain QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram3": {"label": "3hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    }
+                }
+            },
+            "RRFSm2": {
+                "url_end": "RRFSm2/[RUN]/rrfsm2_",
+                "run_hrs": ["00","06","12","18"],
+                "num_fcst_hrs": 60,
+                "groups": [],
+                "parameters": {
+                    "24hr Precip.": {
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "6hr Precip.": {
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari6": {"label": "6hr QPF ARI", "min_fcst_hr": 6, "fcst_hr_step": 1}
+                    },	
+                    "1hr Precip.": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "1hr QPF ARI", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },	
+                    "QPF": {
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "prate": {"label": "1hr Inst. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pmax": {"label": "1hr Max. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "QPF Exceedance of 1hr ARI", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari3": {"label": "QPF Exceedance of 3hr ARI", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "ari6": {"label": "QPF Exceedance of 6hr ARI", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari24": {"label": "QPF Exceedance of 24hr ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    },
+                    "Severe Weather": {
+                        "uh": {"label": "1hr Min/Max Updraft Helicity", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature (degC) with MSLP", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "td": {"label": "2m Dewpoint", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "cape": {"label": "1hr MUCAPE (255-0mb layer)", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Snow": {
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow3": {"label": "3hr Snowfall (Var. Density)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod3": {"label": "3hr Snow Depth Change", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe3": {"label": "3hr Snow Water Equiv.", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Ice Pellets": {
+                        "frozr": {"label": "Run-Total Ice Pellet QPF", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Freezing Rain": {
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr3": {"label": "3hr Freezing Rain QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram3": {"label": "3hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },
+                    "Winter Weather - Environment": {
+                        "vis": {"label": "1hr Surface Visibility", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "dgz": {"label": "1hr Dendritic Growth Zone Depth", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frz": {"label": "1hr Freezing Level", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    }
+                }
+            },
+            "RRFSm3": {
+                "url_end": "RRFSm3/[RUN]/rrfsm3_",
+                "run_hrs": ["00","06","12","18"],
+                "num_fcst_hrs": 60,
+                "groups": [],
+                "parameters": {
+                    "24hr Precip.": {
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "6hr Precip.": {
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari6": {"label": "6hr QPF ARI", "min_fcst_hr": 6, "fcst_hr_step": 1}
+                    },	
+                    "1hr Precip.": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "1hr QPF ARI", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },	
+                    "QPF": {
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "prate": {"label": "1hr Inst. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pmax": {"label": "1hr Max. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "QPF Exceedance of 1hr ARI", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari3": {"label": "QPF Exceedance of 3hr ARI", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "ari6": {"label": "QPF Exceedance of 6hr ARI", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari24": {"label": "QPF Exceedance of 24hr ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    },
+                    "Severe Weather": {
+                        "uh": {"label": "1hr Min/Max Updraft Helicity", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature (degC) with MSLP", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "td": {"label": "2m Dewpoint", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "cape": {"label": "1hr MUCAPE (255-0mb layer)", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Snow": {
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow3": {"label": "3hr Snowfall (Var. Density)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod3": {"label": "3hr Snow Depth Change", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe3": {"label": "3hr Snow Water Equiv.", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Ice Pellets": {
+                        "frozr": {"label": "Run-Total Ice Pellet QPF", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Freezing Rain": {
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr3": {"label": "3hr Freezing Rain QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram3": {"label": "3hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },
+                    "Winter Weather - Environment": {
+                        "vis": {"label": "1hr Surface Visibility", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "dgz": {"label": "1hr Dendritic Growth Zone Depth", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frz": {"label": "1hr Freezing Level", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    }
+                }
+            },
+            "RRFSm4": {
+                "url_end": "RRFSm4/[RUN]/rrfsm4_",
+                "run_hrs": ["00","06","12","18"],
+                "num_fcst_hrs": 60,
+                "groups": [],
+                "parameters": {
+                    "24hr Precip.": {
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "6hr Precip.": {
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari6": {"label": "6hr QPF ARI", "min_fcst_hr": 6, "fcst_hr_step": 1}
+                    },	
+                    "1hr Precip.": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "1hr QPF ARI", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },	
+                    "QPF": {
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "prate": {"label": "1hr Inst. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pmax": {"label": "1hr Max. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "QPF Exceedance of 1hr ARI", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari3": {"label": "QPF Exceedance of 3hr ARI", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "ari6": {"label": "QPF Exceedance of 6hr ARI", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari24": {"label": "QPF Exceedance of 24hr ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    },
+                    "Severe Weather": {
+                        "uh": {"label": "1hr Min/Max Updraft Helicity", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature (degC) with MSLP", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "td": {"label": "2m Dewpoint", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "cape": {"label": "1hr MUCAPE (255-0mb layer)", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Snow": {
+                        "snow1": {"label": "1hr Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow3": {"label": "3hr Snowfall (Var. Density)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snowfall (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snod1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snod3": {"label": "3hr Snow Depth Change", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snod6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "swe1": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "swe3": {"label": "3hr Snow Water Equiv.", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "swe6": {"label": "6hr Snow Water Equiv.", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "slr1": {"label": "1hr Snow/Liquid Ratio", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Ice Pellets": {
+                        "frozr": {"label": "Run-Total Ice Pellet QPF", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Freezing Rain": {
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzr3": {"label": "3hr Freezing Rain QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "frzr6": {"label": "6hr Freezing Rain QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "fram1": {"label": "1hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "fram3": {"label": "3hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "fram6": {"label": "6hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },
+                    "Winter Weather - Environment": {
+                        "vis": {"label": "1hr Surface Visibility", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "dgz": {"label": "1hr Dendritic Growth Zone Depth", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frz": {"label": "1hr Freezing Level", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    }
+                }
+            },
+            "NAMnest": {
+                "url_end": "NAM/[RUN]/nam_",
+                "run_hrs": ["00","06","12","18"],
+                "num_fcst_hrs": 60,
+                "groups": [],
+                "parameters": {
+                    "QPF": {
+                        "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "precip20": {"label": "20hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "pmax": {"label": "1hr Max. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari1": {"label": "QPF Exceedance of 1hr ARI", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ari3": {"label": "QPF Exceedance of 3hr ARI", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "ari6": {"label": "QPF Exceedance of 6hr ARI", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "ari24": {"label": "QPF Exceedance of 24hr ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "refl1": {"label": "1km AGL Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    },
+                    "Severe Weather": {
+                        "uh": {"label": "1hr Min/Max Updraft Helicity", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Synoptic": {
+                        "tmpc": {"label": "2m Temperature (degC) with MSLP", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "td": {"label": "2m Dewpoint", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "cape": {"label": "1hr MUCAPE (255-0mb layer)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "wind300": {"label": "300mb Wind and Geo. Height", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },
+                    "Snow": {
+                        "snow1": {"label": "1hr Snow Depth Change", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snow3": {"label": "3hr Snow Depth Change", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snow6": {"label": "6hr Snow Depth Change", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snow24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },
+                    "Freezing Rain": {
+                        "ptype": {"label": "1hr Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    }
+                }
+            }
+        }
+    },
+    "ensembles_PQPF": {
+        "experimental": {},
+        "default": {
+            "REFS": {
+                "url_end": "REFS/[RUN]/refs_",
+                "num_fcst_hrs": 60,
+                "run_hrs": ["00","06","12","18"],
+                "groups": [],
+                "parameters": {
+                    "24h Precip.": {
+                        "mean24": {"label": "24hr Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "pmm24": {"label": "24hr Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "lpmm24": {"label": "24hr Local Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "asnow24": {"label": "24hr Snowfall Mean (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snmean24": {"label": "24hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "6h Precip.": {
+                        "mean6": {"label": "6hr Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "pmm6": {"label": "6hr Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "lpmm6": {"label": "6hr Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "asnow6": {"label": "6hr Snowfall Mean (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snmean6": {"label": "6hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 6, "fcst_hr_step": 1}
+                    },	
+                    "QPF Mean": {
+                        "mean1": {"label": "1hr Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mean3": {"label": "3hr Mean", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "mean6": {"label": "6hr Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "mean12": {"label": "12hr Mean", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "mean20": {"label": "20hr Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "mean24": {"label": "24hr Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "QPF PMM": {
+                        "pmm1": {"label": "1hr Prob. Matched Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pmm3": {"label": "3hr Prob. Matched Mean", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "pmm6": {"label": "6hr Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "pmm12": {"label": "12hr Prob. Matched Mean", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "pmm20": {"label": "20hr Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "pmm24": {"label": "24hr Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "QPF LPMM": {
+                        "lpmm1": {"label": "1hr Local Prob. Matched Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "lpmm3": {"label": "3hr Local Prob. Matched Mean", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "lpmm6": {"label": "6hr Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "lpmm12": {"label": "12hr Local Prob. Matched Mean", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "lpmm20": {"label": "20hr Local Prob. Matched Mean", "min_fcst_hr": 20, "fcst_hr_step": 6},
+                        "lpmm24": {"label": "24hr Local Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "QPF Probs.": {
+                        "0.5in1hr": {"label": "1hr NProb. (~39 km) QPF > 0.5 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "1in1hr": {"label": "1hr NProb. (~39 km) QPF > 1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "2in1hr": {"label": "1hr NProb. (~39 km) QPF > 2 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "0.5in3hr": {"label": "3hr NProb. (~39 km) QPF > 0.5 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "1in3hr": {"label": "3hr NProb. (~39 km) QPF > 1 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "2in3hr": {"label": "3hr NProb. (~39 km) QPF > 2 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "3in3hr": {"label": "3hr NProb. (~39 km) QPF > 3 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "0.5in6hr": {"label": "6hr NProb. (~39 km) QPF > 0.5 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "1in6hr": {"label": "6hr NProb. (~39 km) QPF > 1 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "2in6hr": {"label": "6hr NProb. (~39 km) QPF > 2 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "3in6hr": {"label": "6hr NProb. (~39 km) QPF > 3 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "5in6hr": {"label": "6hr NProb. (~39 km) QPF > 5 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "1in12hr": {"label": "12hr NProb. (~39 km) QPF > 1 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "2in12hr": {"label": "12hr NProb. (~39 km) QPF > 2 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "3in12hr": {"label": "12hr NProb. (~39 km) QPF > 3 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "5in12hr": {"label": "12hr NProb. (~39 km) QPF > 5 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "8in12hr": {"label": "12hr NProb. (~39 km) QPF > 8 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "1in24hr": {"label": "24hr NProb. (~39 km) QPF > 1 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "2in24hr": {"label": "24hr NProb. (~39 km) QPF > 2 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "3in24hr": {"label": "24hr NProb. (~39 km) QPF > 3 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "5in24hr": {"label": "24hr NProb. (~39 km) QPF > 5 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "8in24hr": {"label": "24hr NProb. (~39 km) QPF > 8 in", "min_fcst_hr": 24, "fcst_hr_step": 3}
+                    },	
+                    "QPF EAS": {
+                        "eas0.25in1hr": {"label": "1hr Ens. Agreement QPF Probs. > 0.25 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "eas0.5in1hr": {"label": "1hr Ens. Agreement QPF Probs. > 0.5 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "eas1in1hr": {"label": "1hr Ens. Agreement QPF Probs. > 1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "eas2in1hr": {"label": "1hr Ens. Agreement QPF Probs. > 2 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "eas0.25in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 0.25 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas0.5in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 0.5 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas1in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 1 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas2in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 2 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas3in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 3 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas5in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 5 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas0.25in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 0.25 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas0.5in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 0.5 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas1in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 1 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas2in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 2 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas3in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 3 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas5in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 5 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas1in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 1 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas2in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 2 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas3in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 3 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas5in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 5 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas6in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 6 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas8in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 8 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas1in24hr": {"label": "24hr Ens. Agreement QPF Probs. > 1 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "eas2in24hr": {"label": "24hr Ens. Agreement QPF Probs. > 2 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "eas3in24hr": {"label": "24hr Ens. Agreement QPF Probs. > 3 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "eas5in24hr": {"label": "24hr Ens. Agreement QPF Probs. > 5 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "eas8in24hr": {"label": "24hr Ens. Agreement QPF Probs. > 8 in", "min_fcst_hr": 24, "fcst_hr_step": 3}
+                    },	
+                    "QPF FFG Exceedance": {
+                        "ffg1hr": {"label": "1hr NProb (~39 km) QPF Exceeding FFG", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ffg3hr": {"label": "3hr NProb (~39 km) QPF Exceeding FFG", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "ffg6hr": {"label": "6hr NProb (~39 km) QPF Exceeding FFG", "min_fcst_hr": 6, "fcst_hr_step": 3}
+                    },	
+                    "QPF ARI Exceedance": {
+                        "2yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 2yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "5yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 5yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "10yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 10yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "25yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 25yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "50yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 50yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "100yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 100yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "2yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 2yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "5yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 5yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "10yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 10yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "25yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 25yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "50yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 50yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "100yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 100yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3}
+                    },
+                    "Snow Mean": {
+                        "snmean1": {"label": "1hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snmean3": {"label": "3hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snmean6": {"label": "6hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snmean12": {"label": "12hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "snmean24": {"label": "24hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "asnow1": {"label": "1hr Snowfall Mean (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "asnow3": {"label": "3hr Snowfall Mean (Var. Density)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "asnow6": {"label": "6hr Snowfall Mean (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "asnow12": {"label": "12hr Snowfall Mean (Var. Density)", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "asnow24": {"label": "24hr Snowfall Mean (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Precip. Type": {
+                        "categorical": {"label": "1hr Categorical Precip. Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "probcrain": {"label": "1hr NProb. (~18 km) of Categorical Rain", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "probcsnow": {"label": "1hr NProb. (~18 km) of Categorical Snow", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "probcice": {"label": "1hr NProb. (~18 km) of Categorical Ice Pellets", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "probcfrz": {"label": "1hr NProb. (~18 km) of Categorical Freezing Rain", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },	
+                    "Snow Probs.": {
+                        "ts1in1hr": {"label": "1hr NProb. (~18 km) of Snowfall (Var. Density) > 1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ts3in1hr": {"label": "1hr NProb. (~18 km) of Snowfall (Var. Density) > 3 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ts1in3hr": {"label": "3hr NProb. (~18 km) of Snowfall (Var. Density) > 1 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "ts3in3hr": {"label": "3hr NProb. (~18 km) of Snowfall (Var. Density) > 3 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "ts6in3hr": {"label": "3hr NProb. (~18 km) of Snowfall (Var. Density) > 6 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "ts3in6hr": {"label": "6hr NProb. (~18 km) of Snowfall (Var. Density) > 3 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "ts6in6hr": {"label": "6hr NProb. (~18 km) of Snowfall (Var. Density) > 6 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "ts12in6hr": {"label": "6hr NProb. (~18 km) of Snowfall (Var. Density) > 12 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "ts3in12hr": {"label": "12hr NProb. (~18 km) of Snowfall (Var. Density) > 3 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "ts6in12hr": {"label": "12hr NProb. (~18 km) of Snowfall (Var. Density) > 6 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "ts12in12hr": {"label": "12hr NProb. (~18 km) of Snowfall (Var. Density) > 12 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "ts18in12hr": {"label": "12hr NProb. (~18 km) of Snowfall (Var. Density) > 18 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "ts6in24hr": {"label": "24hr NProb. (~18 km) of Snowfall (Var. Density) > 6 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "ts12in24hr": {"label": "24hr NProb. (~18 km) of Snowfall (Var. Density) > 12 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "ts18in24hr": {"label": "24hr NProb. (~18 km) of Snowfall (Var. Density) > 18 in", "min_fcst_hr": 24, "fcst_hr_step": 3}
+                    },	
+                    "Snow EAS": {
+                        "sneas1in1hr": {"label": "1hr Ens. Agreement Prob. of Snowfall (Var. Density) > 1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "sneas3in1hr": {"label": "1hr Ens. Agreement Prob. of Snowfall (Var. Density) > 3 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "sneas1in3hr": {"label": "3hr Ens. Agreement Prob. of Snowfall (Var. Density) > 1 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "sneas3in3hr": {"label": "3hr Ens. Agreement Prob. of Snowfall (Var. Density) > 3 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "sneas3in6hr": {"label": "6hr Ens. Agreement Prob. of Snowfall (Var. Density) > 3 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "sneas6in6hr": {"label": "6hr Ens. Agreement Prob. of Snowfall (Var. Density) > 6 in", "min_fcst_hr": 6, "fcst_hr_step": 3}
+                    },
+                    "Freezing Rain Probs.": {
+                        "frzprob0.01in1hr": {"label": "1hr NProb. (~18 km) of FZRA QPF > 0.01 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzprob0.1in1hr": {"label": "1hr NProb. (~18 km) of FZRA QPF > 0.1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzprob0.25in1hr": {"label": "1hr NProb. (~18 km) of FZRA QPF > 0.25 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "frzprob0.01in3hr": {"label": "3hr NProb. (~18 km) of FZRA QPF > 0.01 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "frzprob0.1in3hr": {"label": "3hr NProb. (~18 km) of FZRA QPF > 0.1 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "frzprob0.25in3hr": {"label": "3hr NProb. (~18 km) of FZRA QPF > 0.25 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "frzprob0.01in6hr": {"label": "6hr NProb. (~18 km) of FZRA QPF > 0.01 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "frzprob0.1in6hr": {"label": "6hr NProb. (~18 km) of FZRA QPF > 0.1 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "frzprob0.25in6hr": {"label": "6hr NProb. (~18 km) of FZRA QPF > 0.25 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "frzprob0.5in6hr": {"label": "6hr NProb. (~18 km) of FZRA QPF > 0.5 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "frzprob0.01in12hr": {"label": "12hr NProb. (~18 km) of FZRA QPF > 0.01 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "frzprob0.1in12hr": {"label": "12hr NProb. (~18 km) of FZRA QPF > 0.1 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "frzprob0.25in12hr": {"label": "12hr NProb. (~18 km) of FZRA QPF > 0.25 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "frzprob0.5in12hr": {"label": "12hr NProb. (~18 km) of FZRA QPF > 0.5 in", "min_fcst_hr": 12, "fcst_hr_step": 3}
+                    }	
+                }
+            },
+            "CAPS Ens.": {
+                "url_end": "CAPS/[RUN]/caps_",
+                "num_fcst_hrs": 84,
+                "run_hrs": ["00"],
+                "groups": [],
+                "parameters": {
+                    "24h Precip.": {
+                        "mean24": {"label": "24hr Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "pmm24": {"label": "24hr Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "lpmm24": {"label": "24hr Local Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "asnow24": {"label": "24hr Snowfall Mean (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snpmm24": {"label": "24hr Snowfall (Var. Density) Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snlpmm24": {"label": "24hr Snowfall (Var. Density) Local Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "6h Precip.": {
+                        "mean6": {"label": "6hr Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "pmm6": {"label": "6hr Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "lpmm6": {"label": "6hr Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "sam6": {"label": "6hr Spatially Aligned Mean", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "samlpm6": {"label": "6hr Spatially Aligned and Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "asnow6": {"label": "6hr Snowfall Mean (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snpmm6": {"label": "6hr Snowfall (Var. Density) Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snlpmm6": {"label": "6hr Snowfall (Var. Density) Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snsam6": {"label": "6hr Snowfall Spatially Aligned Mean", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "snsamlpm6": {"label": "6hr Snowfall Spatially Aligned and Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "snmlpmean6": {"label": "6hr ML Mean Snowfall", "min_fcst_hr": 6, "fcst_hr_step": 6}
+                    },	
+                    "QPF Mean": {
+                        "mean1": {"label": "1hr Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mean3": {"label": "3hr Mean", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "mean6": {"label": "6hr Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "mean12": {"label": "12hr Mean", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "mean24": {"label": "24hr Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "QPF PMM": {
+                        "pmm1": {"label": "1hr Prob. Matched Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pmm3": {"label": "3hr Prob. Matched Mean", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "pmm6": {"label": "6hr Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "pmm12": {"label": "12hr Prob. Matched Mean", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "pmm24": {"label": "24hr Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "QPF LPMM": {
+                        "lpmm1": {"label": "1hr Local Prob. Matched Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "lpmm3": {"label": "3hr Local Prob. Matched Mean", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "lpmm6": {"label": "6hr Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "lpmm12": {"label": "12hr Local Prob. Matched Mean", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "lpmm24": {"label": "24hr Local Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "QPF SAM": {
+                        "sam6": {"label": "6hr Spatially Aligned Mean", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "samlpm6": {"label": "6hr Spatially Aligned and Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 6}
+                    },	
+                    "QPF Probs.": {
+                        "0.5in1hr": {"label": "1hr NProb. QPF > 0.5 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "1in1hr": {"label": "1hr NProb. QPF > 1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "2in1hr": {"label": "1hr NProb. QPF > 2 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "0.5in3hr": {"label": "3hr NProb. QPF > 0.5 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "1in3hr": {"label": "3hr NProb. QPF > 1 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "2in3hr": {"label": "3hr NProb. QPF > 2 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "3in3hr": {"label": "3hr NProb. QPF > 3 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "0.5in6hr": {"label": "6hr NProb. QPF > 0.5 in", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "1in6hr": {"label": "6hr NProb. QPF > 1 in", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "2in6hr": {"label": "6hr NProb. QPF > 2 in", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "3in6hr": {"label": "6hr NProb. QPF > 3 in", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "0.5in12hr": {"label": "12hr NProb. QPF > 0.5 in", "min_fcst_hr": 12, "fcst_hr_step": 12},
+                        "1in12hr": {"label": "12hr NProb. QPF > 1 in", "min_fcst_hr": 12, "fcst_hr_step": 12},
+                        "2in12hr": {"label": "12hr NProb. QPF > 2 in", "min_fcst_hr": 12, "fcst_hr_step": 12},
+                        "3in12hr": {"label": "12hr NProb. QPF > 3 in", "min_fcst_hr": 12, "fcst_hr_step": 12},
+                        "5in12hr": {"label": "12hr NProb. QPF > 5 in", "min_fcst_hr": 12, "fcst_hr_step": 12},
+                        "0.5in24hr": {"label": "24hr NProb. QPF > 0.5 in", "min_fcst_hr": 24, "fcst_hr_step": 12},
+                        "1in24hr": {"label": "24hr NProb. QPF > 1 in", "min_fcst_hr": 24, "fcst_hr_step": 12},
+                        "2in24hr": {"label": "24hr NProb. QPF > 2 in", "min_fcst_hr": 24, "fcst_hr_step": 12},
+                        "3in24hr": {"label": "24hr NProb. QPF > 3 in", "min_fcst_hr": 24, "fcst_hr_step": 12},
+                        "5in24hr": {"label": "24hr NProb. QPF > 5 in", "min_fcst_hr": 24, "fcst_hr_step": 12}
+                    },	
+                    "QPF FFG Exceedance": {
+                        "ffg1hr": {"label": "1hr NProb QPF Exceeding FFG", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ffg3hr": {"label": "3hr NProb QPF Exceeding FFG", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "ffg6hr": {"label": "6hr NProb QPF Exceeding FFG", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "ffg24hr": {"label": "24hr NProb QPF Exceeding FFG", "min_fcst_hr": 24, "fcst_hr_step": 24}
+                    },	
+                    "Snow Mean": {
+                        "asnow1": {"label": "1hr Snowfall Mean (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "asnow3": {"label": "3hr Snowfall Mean (Var. Density)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "asnow6": {"label": "6hr Snowfall Mean (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "asnow12": {"label": "12hr Snowfall Mean (Var. Density)", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "asnow24": {"label": "24hr Snowfall Mean (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Snow PMM": {
+                        "snpmm1": {"label": "1hr Snowfall (Var. Density) Prob. Matched Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snpmm3": {"label": "3hr Snowfall (Var. Density) Prob. Matched Mean", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snpmm6": {"label": "6hr Snowfall (Var. Density) Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snpmm12": {"label": "12hr Snowfall (Var. Density) Prob. Matched Mean", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "snpmm24": {"label": "24hr Snowfall (Var. Density) Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Snow LPMM": {
+                        "snlpmm1": {"label": "1hr Snowfall (Var. Density) Local Prob. Matched Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snlpmm3": {"label": "3hr Snowfall (Var. Density) Local Prob. Matched Mean", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snlpmm6": {"label": "6hr Snowfall (Var. Density) Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snlpmm12": {"label": "12hr Snowfall (Var. Density) Local Prob. Matched Mean", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "snlpmm24": {"label": "24hr Snowfall (Var. Density) Local Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Snow SAM": {
+                        "snsam6": {"label": "6hr Snowfall Spatially Aligned Mean", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "snsamlpm6": {"label": "6hr Snowfall Spatially Aligned and Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 6}
+                    },	
+                    "Snow Probs.": {
+                        "ts0.1in1hr": {"label": "1hr NProb. of Snowfall (Var. Density) > 0.1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ts1in1hr": {"label": "1hr NProb. of Snowfall (Var. Density) > 1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ts2in1hr": {"label": "1hr NProb. of Snowfall (Var. Density) > 2 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ts3in1hr": {"label": "1hr NProb. of Snowfall (Var. Density) > 3 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ts0.1in6hr": {"label": "6hr NProb. of Snowfall (Var. Density) > 0.1 in", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "ts1in6hr": {"label": "6hr NProb. of Snowfall (Var. Density) > 1 in", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "ts2in6hr": {"label": "6hr NProb. of Snowfall (Var. Density) > 2 in", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "ts4in6hr": {"label": "6hr NProb. of Snowfall (Var. Density) > 4 in", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "ts6in6hr": {"label": "6hr NProb. of Snowfall (Var. Density) > 6 in", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "ts0.1in24hr": {"label": "24hr NProb. of Snowfall (Var. Density) > 0.1 in", "min_fcst_hr": 24, "fcst_hr_step": 12},
+                        "ts1in24hr": {"label": "24hr NProb. of Snowfall (Var. Density) > 1 in", "min_fcst_hr": 24, "fcst_hr_step": 12},
+                        "ts2in24hr": {"label": "24hr NProb. of Snowfall (Var. Density) > 2 in", "min_fcst_hr": 24, "fcst_hr_step": 12},
+                        "ts4in24hr": {"label": "24hr NProb. of Snowfall (Var. Density) > 4 in", "min_fcst_hr": 24, "fcst_hr_step": 12},
+                        "ts6in24hr": {"label": "24hr NProb. of Snowfall (Var. Density) > 6 in", "min_fcst_hr": 24, "fcst_hr_step": 12}
+                    }	
+                }
+            },
+            "CAPS ML Ensemble": {
+                "url_end": "CAPS/[RUN]/caps_",
+                "num_fcst_hrs": 36,
+                "run_hrs": ["00"],
+                "groups": [],
+                "parameters": {
+                    "Snow": {
+                        "snmlpmean6": {"label": "6hr ML Mean Snowfall", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "mlp1in6h": {"label": "6hr ML NProb. of Snowfall > 1 in", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "mlp2in6h": {"label": "6hr ML NProb. of Snowfall > 2 in", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "mlp3in6h": {"label": "6hr ML NProb. of Snowfall > 3 in", "min_fcst_hr": 6, "fcst_hr_step": 6}
+                    }	
+                }
+            },
+            "UUtah ML Ensemble": {
+                "url_end": "UTAH/[RUN]/utahens_",
+                "num_fcst_hrs": 60,
+                "run_hrs": ["00","12"],
+                "groups": [],
+                "parameters": {
+                    "REFS QPF": {
+                        "min6": {"label": "6hr Ens. Min. QPF", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "mean6": {"label": "6hr Mean QPF", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "max6": {"label": "6hr Ens. Max. QPF", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "diff6": {"label": "6hr Ens. Range QPF (Max-Min)", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "min24": {"label": "24hr Ens. Min. QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "mean24": {"label": "24hr Mean QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "max24": {"label": "24hr Ens. Max. QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "diff24": {"label": "24hr Ens. Range QPF (Max-Min)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "ML SLR": {
+                        "slrmin": {"label": "1hr Ens. Min. SLR", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "slrmean": {"label": "1hr Mean SLR", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "slrmax": {"label": "1hr Ens. Max. SLR", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "slrdiff": {"label": "1hr Ens. Range SLR (Max-Min)", "min_fcst_hr": 6, "fcst_hr_step": 6}
+                    },	
+                    "ML Snow": {
+                        "snmin6": {"label": "6hr Ens. Min. Snow", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "snmean6": {"label": "6hr Mean Snow", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "snmax6": {"label": "6hr Ens. Max. Snow", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "sndiff6": {"label": "6hr Ens. Range Snow (Max-Min)", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "snmin24": {"label": "24hr Ens. Min. Snow", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snmean24": {"label": "24hr Mean Snow", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snmax24": {"label": "24hr Ens. Max. Snow", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "sndiff24": {"label": "24hr Ens. Range Snow (Max-Min)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Winter Weather - Environment": {
+                        "wbzmin": {"label": "1hr Inst. Ens. Min. Wet-Bulb 0.5degC Height", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "wbzmean": {"label": "1hr Inst. Ens. Mean Wet-Bulb 0.5degC Height", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                        "wbzmax": {"label": "1hr Inst. Ens. Max. Wet-Bulb 0.5degC Height", "min_fcst_hr": 6, "fcst_hr_step": 6}
+                    }	
+                }
+            },
+            "HREF": {
+                "url_end": "HREF/[RUN]/href_",
+                "num_fcst_hrs": 48,
+                "run_hrs": ["00","06","12","18"],
+                "groups": [],
+                "parameters": {
+                    "24h Precip.": {
+                        "mean24": {"label": "24hr Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "pmm24": {"label": "24hr Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "lpmm24": {"label": "24hr Local Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "snmean24": {"label": "24hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "6h Precip.": {
+                        "mean6": {"label": "6hr Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "pmm6": {"label": "6hr Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "lpmm6": {"label": "6hr Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snmean6": {"label": "6hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 6, "fcst_hr_step": 1}
+                    },	
+                    "QPF Mean": {
+                        "mean1": {"label": "1hr Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "mean3": {"label": "3hr Mean", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "mean6": {"label": "6hr Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "mean12": {"label": "12hr Mean", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "mean20": {"label": "20hr Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "mean24": {"label": "24hr Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "QPF PMM": {
+                        "pmm1": {"label": "1hr Prob. Matched Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "pmm3": {"label": "3hr Prob. Matched Mean", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "pmm6": {"label": "6hr Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "pmm12": {"label": "12hr Prob. Matched Mean", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "pmm20": {"label": "20hr Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "pmm24": {"label": "24hr Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "QPF LPMM": {
+                        "lpmm1": {"label": "1hr Local Prob. Matched Mean", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "lpmm3": {"label": "3hr Local Prob. Matched Mean", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "lpmm6": {"label": "6hr Local Prob. Matched Mean", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "lpmm12": {"label": "12hr Local Prob. Matched Mean", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "lpmm20": {"label": "20hr Local Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                        "lpmm24": {"label": "24hr Local Prob. Matched Mean", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "QPF Probs.": {
+                        "0.5in1hr": {"label": "1hr NProb. (~39 km) QPF > 0.5 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "1in1hr": {"label": "1hr NProb. (~39 km) QPF > 1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "2in1hr": {"label": "1hr NProb. (~39 km) QPF > 2 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "0.5in3hr": {"label": "3hr NProb. (~39 km) QPF > 0.5 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "1in3hr": {"label": "3hr NProb. (~39 km) QPF > 1 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "2in3hr": {"label": "3hr NProb. (~39 km) QPF > 2 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "3in3hr": {"label": "3hr NProb. (~39 km) QPF > 3 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "0.5in6hr": {"label": "6hr NProb. (~39 km) QPF > 0.5 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "1in6hr": {"label": "6hr NProb. (~39 km) QPF > 1 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "2in6hr": {"label": "6hr NProb. (~39 km) QPF > 2 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "3in6hr": {"label": "6hr NProb. (~39 km) QPF > 3 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "5in6hr": {"label": "6hr NProb. (~39 km) QPF > 5 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "1in12hr": {"label": "12hr NProb. (~39 km) QPF > 1 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "2in12hr": {"label": "12hr NProb. (~39 km) QPF > 2 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "3in12hr": {"label": "12hr NProb. (~39 km) QPF > 3 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "5in12hr": {"label": "12hr NProb. (~39 km) QPF > 5 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "8in12hr": {"label": "12hr NProb. (~39 km) QPF > 8 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "1in24hr": {"label": "24hr NProb. (~39 km) QPF > 1 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "2in24hr": {"label": "24hr NProb. (~39 km) QPF > 2 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "3in24hr": {"label": "24hr NProb. (~39 km) QPF > 3 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "5in24hr": {"label": "24hr NProb. (~39 km) QPF > 5 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "8in24hr": {"label": "24hr NProb. (~39 km) QPF > 8 in", "min_fcst_hr": 24, "fcst_hr_step": 3}
+                    },	
+                    "QPF EAS": {
+                        "eas0.25in1hr": {"label": "1hr Ens. Agreement QPF Probs. > 0.25 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "eas0.5in1hr": {"label": "1hr Ens. Agreement QPF Probs. > 0.5 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "eas1in1hr": {"label": "1hr Ens. Agreement QPF Probs. > 1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "eas2in1hr": {"label": "1hr Ens. Agreement QPF Probs. > 2 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "eas0.25in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 0.25 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas0.5in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 0.5 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas1in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 1 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas2in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 2 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas3in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 3 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas5in3hr": {"label": "3hr Ens. Agreement QPF Probs. > 5 in", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "eas0.25in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 0.25 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas0.5in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 0.5 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas1in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 1 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas2in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 2 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas3in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 3 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas5in6hr": {"label": "6hr Ens. Agreement QPF Probs. > 5 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "eas1in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 1 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas2in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 2 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas3in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 3 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas5in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 5 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas6in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 6 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas8in12hr": {"label": "12hr Ens. Agreement QPF Probs. > 8 in", "min_fcst_hr": 12, "fcst_hr_step": 3},
+                        "eas1in24hr": {"label": "24hr Ens. Agreement QPF Probs. > 1 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "eas2in24hr": {"label": "24hr Ens. Agreement QPF Probs. > 2 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "eas3in24hr": {"label": "24hr Ens. Agreement QPF Probs. > 3 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "eas5in24hr": {"label": "24hr Ens. Agreement QPF Probs. > 5 in", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "eas8in24hr": {"label": "24hr Ens. Agreement QPF Probs. > 8 in", "min_fcst_hr": 24, "fcst_hr_step": 3}
+                    },	
+                    "QPF FFG Exceedance": {
+                        "ffg1hr": {"label": "1hr NProb (~39 km) QPF Exceeding FFG", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "ffg3hr": {"label": "3hr NProb (~39 km) QPF Exceeding FFG", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "ffg6hr": {"label": "6hr NProb (~39 km) QPF Exceeding FFG", "min_fcst_hr": 6, "fcst_hr_step": 3}
+                    },	
+                    "QPF ARI Exceedance": {
+                        "2yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 2yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "5yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 5yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "10yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 10yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "25yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 25yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "50yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 50yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "100yrari6hr": {"label": "6hr NProb (~39 km) QPF Exceeding 100yr ARI", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "2yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 2yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "5yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 5yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "10yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 10yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "25yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 25yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "50yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 50yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3},
+                        "100yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 100yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3}
+                    },	
+                    "Snow Mean": {
+                        "snmean1": {"label": "1hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "snmean3": {"label": "3hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 3, "fcst_hr_step": 1},
+                        "snmean6": {"label": "6hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 6, "fcst_hr_step": 1},
+                        "snmean12": {"label": "12hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                        "snmean24": {"label": "24hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 24, "fcst_hr_step": 6}
+                    },	
+                    "Precip. Type": {
+                        "categorical": {"label": "1hr Categorical Precip. Type", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "probcrain": {"label": "1hr NProb. (~18 km) of Categorical Rain", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "probcsnow": {"label": "1hr NProb. (~18 km) of Categorical Snow", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "probcice": {"label": "1hr NProb. (~18 km) of Categorical Ice Pellets", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "probcfrz": {"label": "1hr NProb. (~18 km) of Categorical Freezing Rain", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    },	
+                    "Snow Probs.": {
+                        "sn1in1hr": {"label": "1hr NProb. (~18 km) of Snowfall (10:1) > 1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "sn3in1hr": {"label": "1hr NProb. (~18 km) of Snowfall (10:1) > 3 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "sn1in3hr": {"label": "3hr NProb. (~18 km) of Snowfall (10:1) > 1 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "sn3in3hr": {"label": "3hr NProb. (~18 km) of Snowfall (10:1) > 3 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "sn6in3hr": {"label": "3hr NProb. (~18 km) of Snowfall (10:1) > 6 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "sn3in6hr": {"label": "6hr NProb. (~18 km) of Snowfall (10:1) > 3 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "sn6in6hr": {"label": "6hr NProb. (~18 km) of Snowfall (10:1) > 6 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "sn12in6hr": {"label": "6hr NProb. (~18 km) of Snowfall (10:1) > 12 in", "min_fcst_hr": 6, "fcst_hr_step": 3}
+                    },	
+                    "Snow EAS": {
+                        "sneas1in1hr": {"label": "1hr Ens. Agreement Prob. of Snowfall (10:1) > 1 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "sneas3in1hr": {"label": "1hr Ens. Agreement Prob. of Snowfall (10:1) > 3 in", "min_fcst_hr": 1, "fcst_hr_step": 1},
+                        "sneas1in3hr": {"label": "3hr Ens. Agreement Prob. of Snowfall (10:1) > 1 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "sneas3in3hr": {"label": "3hr Ens. Agreement Prob. of Snowfall (10:1) > 3 in", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                        "sneas3in6hr": {"label": "6hr Ens. Agreement Prob. of Snowfall (10:1) > 3 in", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                        "sneas6in6hr": {"label": "6hr Ens. Agreement Prob. of Snowfall (10:1) > 6 in", "min_fcst_hr": 6, "fcst_hr_step": 3}
+                    }
+                }
+            }
+        }
+    },
+    "obs_ero_ari_ffg": {
+        "experimental": {
+            "Observations": {
+                "url_end": "OBS/[VALID]/obs_",
+                "num_fcst_hrs": 83,
+                "archive": true,
+                "run_hrs": ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+                "groups": ["fac"],
+                "parameters": {
+                    "MRMS QPE Totals": {
+                        "precip1": {"label": "MRMS Hourly Precipitation", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "precip6": {"label": "MRMS 6-Hourly Precipitation", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "precip24": {"label": "MRMS 24-Hourly Precipitation", "min_fcst_hr": 0, "fcst_hr_step": 6}
+                    }
+                }
+            },
+            "CIRA": {
+                "url_end": "CIRA/[VALID]/cira_",
+                "num_fcst_hrs": 83,
+                "archive": true,
+                "run_hrs": ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+                "groups": ["fac"],
+                "parameters": {
+                    "CIRA Products": {
+                        "alpw": {"label": "Layer PWAT", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "alpwrank": {"label": "Layer PWAT Percentile", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "lvt": {"label": "Layer Vapor Transport", "min_fcst_hr": 0, "fcst_hr_step": 3}
+                    }
+                }
+            }
+        },
+        "default": {
+            "Precipitation": {
+                "url_end": "OBS/[VALID]/obs_", 
+                "num_fcst_hrs": 83,
+                "archive": true,
+                "run_hrs": ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+                "groups": [],
+                "parameters": {
+                    "MRMS QPE Totals": {
+                        "precip1": {"label": "MRMS Hourly Precipitation", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "precip3": {"label": "MRMS 3-Hourly Precipitation", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "precip6": {"label": "MRMS 6-Hourly Precipitation", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "precip24": {"label": "MRMS 24-Hourly Precipitation", "min_fcst_hr": 0, "fcst_hr_step": 6}
+                    },
+                    "MRMS ARI Exceedance": {
+                        "ari1": {"label": "MRMS QPE Exceeding 1hr ARI", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ari3": {"label": "MRMS QPE Exceeding 3hr ARI", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ari6": {"label": "MRMS QPE Exceeding 6hr ARI", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ari24": {"label": "MRMS QPE Exceeding 24hr ARI", "min_fcst_hr": 0, "fcst_hr_step": 6},
+                        "ari48": {"label": "MRMS QPE Exceeding 48hr ARI", "min_fcst_hr": 0, "fcst_hr_step": 6},
+                        "ari72": {"label": "MRMS QPE Exceeding 72hr ARI", "min_fcst_hr": 0, "fcst_hr_step": 6}
+                    },
+                    "MRMS Reflectivity": {
+                        "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "refl1": {"label": "Base Reflectivity", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    }
+                }
+            },
+            "Snowfall": {
+                "url_end": "OBS/[VALID]/obs_", 
+                "num_fcst_hrs": 83,
+                "archive": true,
+                "run_hrs": ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+                "groups": [],
+                "parameters": {
+                    "NOHRSC Snow": {
+                        "snow6": {"label": "NOHRSC 6h Snowfall", "min_fcst_hr": 0, "fcst_hr_step": 6},
+                        "snow24": {"label": "NOHRSC 24h Snowfall", "min_fcst_hr": 0, "fcst_hr_step": 12},
+                        "snow48": {"label": "NOHRSC 48h Snowfall", "min_fcst_hr": 0, "fcst_hr_step": 12},
+                        "snow72": {"label": "NOHRSC 72h Snowfall", "min_fcst_hr": 0, "fcst_hr_step": 12}
+                    }
+                }
+            },
+            "Freezing Rain": {
+                "url_end": "FRANA/[VALID]/frana_", 
+                "num_fcst_hrs": 83,
+                "archive": true,
+                "run_hrs": ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+                "groups": [],
+                "parameters": {
+                    "FRANA": {
+                        "flat6": {"label": "FRANA 6h Flat Ice", "min_fcst_hr": 0, "fcst_hr_step": 6},
+                        "flat24": {"label": "FRANA 24h Flat Ice", "min_fcst_hr": 0, "fcst_hr_step": 6}
+                    }
+	        }
+	    },
+            "Precipitation Type": {
+                "url_end": "MPING/[VALID]/mping_", 
+                "num_fcst_hrs": 83,
+                "archive": true,
+                "run_hrs": ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+                "groups": [],
+                "parameters": {
+                    "mPING Reports": {
+                        "ptype1": {"label": "mPING P-Types Last 1h", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ptype6": {"label": "mPING P-Types Last 6h", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    }
+	        }
+	    },
+            "Surface Observations": {
+                "url_end": "OBS/[VALID]/obs_", 
+                "num_fcst_hrs": 83,
+                "archive": true,
+                "run_hrs": ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+                "groups": [],
+                "parameters": {
+                    "Winter Weather Obs.": {
+                        "ptype": {"label": "ASOS Precip. Type and LSRs", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "sfc": {"label": "ASOS Wet Bulb Temp. and MSLP", "min_fcst_hr": 0, "fcst_hr_step": 1}
+                    }
+	        }
+	    },
+            "NWS Products": {
+                "url_end": "OBS/[VALID]/obs_", 
+                "num_fcst_hrs": 83,
+                "archive": true,
+                "run_hrs": ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"],
+                "groups": [],
+                "parameters": {
+                    "Winter Weather MDs": {
+                        "wwmcd3": {"label": "MDs Issued Last 3hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "wwmcd6": {"label": "MDs Issued Last 6hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "wwmcd20": {"label": "MDs Issued Last 20hr", "min_fcst_hr": 0, "fcst_hr_step": 24},
+                        "wwmcd24": {"label": "MDs Issued Last 24hr", "min_fcst_hr": 0, "fcst_hr_step": 6}
+                    },
+                    "Flash Flood MDs": {
+                        "ffmcd3": {"label": "MDs Issued Last 3hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ffmcd6": {"label": "MDs Issued Last 6hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ffmcd20": {"label": "MDs Issued Last 20hr", "min_fcst_hr": 0, "fcst_hr_step": 24},
+                        "ffmcd24": {"label": "MDs Issued Last 24hr", "min_fcst_hr": 0, "fcst_hr_step": 6}
+                    },
+                    "NWS Watches, Warnings, Advisories": {
+                        "wwwarn1": {"label": "Winter Warnings - Last 1hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "wwwarn3": {"label": "Winter Warnings - Last 3hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "wwwarn6": {"label": "Winter Warnings - Last 6hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "wwwarn24": {"label": "Winter Warnings - Last 24hr", "min_fcst_hr": 0, "fcst_hr_step": 6},
+                        "wwwatch1": {"label": "Winter Watches - Last 1hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "wwwatch3": {"label": "Winter Watches - Last 3hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "wwwatch6": {"label": "Winter Watches - Last 6hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "wwwatch24": {"label": "Winter Watches - Last 24hr", "min_fcst_hr": 0, "fcst_hr_step": 6},
+                        "ffwarn1": {"label": "Flash Flood Warnings - Last 1hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ffwarn3": {"label": "Flash Flood Warnings - Last 3hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ffwarn6": {"label": "Flash Flood Warnings - Last 6hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ffwarn24": {"label": "Flash Flood Warnings - Last 24hr", "min_fcst_hr": 0, "fcst_hr_step": 6},
+                        "ffwatch1": {"label": "Flash Flood Watches - Last 1hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ffwatch3": {"label": "Flash Flood Watches - Last 3hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ffwatch6": {"label": "Flash Flood Watches - Last 6hr", "min_fcst_hr": 0, "fcst_hr_step": 1},
+                        "ffwatch24": {"label": "Flash Flood Watches - Last 24hr", "min_fcst_hr": 0, "fcst_hr_step": 6}
+                    }
+	        }
+	    }
+        }
+    }
+}

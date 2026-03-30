@@ -1,0 +1,9 @@
+{
+	"info_text": [
+		"<p>This is an experimental graphics webpage for the Weather Prediction Center's Hydrometeorology Testbed that displays operational and experimental models. This includes data from the Rapid Refresh Forecast System (RRFS) and Model for Prediction Across Scales (MPAS). Experimental dataflow is sporadic, so if a model/ensemble is missing, check to see if there is an earlier run. If the model/ensemble is still missing, we apologize and hope to have data available next time you visit.</p>",
+		"<p>The products shown on this webpage are <b>NOT</b> official NWS products. Information about WPC-HMT can be found <a href='https://www.wpc.ncep.noaa.gov/hmt/'>here</a>. <b>If you have any questions about the webpage or HMT please contact Jimmy Correia (james.correia@noaa.gov), Massey Bartolini (massey.bartolini@noaa.gov) or Sarah Trojniak (sarah.trojniak@noaa.gov).</b></p>",
+		"<p>If you are interested in other developmental websites we support, please see the various Experiment Websites - Data Visualization tabs in the links menu under the HMT Websites dropdown. This includes an interactive sounding viewer that displays HREF and REFS soundings.</p>",
+		"<p>This page was co-developed by Austin King and Tomer Burg.</p>"
+
+	]
+}

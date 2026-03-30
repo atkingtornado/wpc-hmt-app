@@ -9,14 +9,16 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 
 const SelectionMenu = (props) => {
 
-	const categories = ["Models", "Ensembles & PQPF", "Obs, EROs, ARIs, & FFGs"]
+	const categories = ["Models", "AI Models", "Ensembles", "Obs, EROs, ARIs, & FFGs"]
 	const categoryOptions = Object.keys(categories).map((category)=>({value:category, label:category}))
 	const modelOptions = Object.keys(props.modelConf).map((model)=>({value:model, label:model}))
+	const aiModelOptions = Object.keys(props.aiModelConf).map((model)=>({value:model, label:model}))
 	const ensemblesPQPFOptions = Object.keys(props.ensemblesPQPFConf).map((prod)=>({value:prod, label:prod}))
 	const obsEroAriFfgOptions = Object.keys(props.obsEroAriFfgConf).map((prod)=>({value:prod, label:prod}))
 	const groupedProductOptions = [
 		{label: "Models", options: modelOptions},
-		{label: "Ensembles & PQPF", options: ensemblesPQPFOptions},
+		{label: "AI Models", options: aiModelOptions},
+        {label: "Ensembles", options: ensemblesPQPFOptions},
 		{label: "Obs, EROs, ARIs, & FFGs", options: obsEroAriFfgOptions}
 	]
 
@@ -42,7 +44,7 @@ const SelectionMenu = (props) => {
 
 				    >
 				      <ToggleButton value={true}><b>Retro</b></ToggleButton>
-				      <ToggleButton value={false}><b>Current</b></ToggleButton>
+				      <ToggleButton value={false}><b>Realtime</b></ToggleButton>
 				    </ToggleButtonGroup>
 				</div>
 				<div>
@@ -52,7 +54,7 @@ const SelectionMenu = (props) => {
 							<LocalizationProvider dateAdapter={AdapterMoment}>
 								<DatePicker 
 									value={props.retroDate}
-									label="Valid forecast end time (12z)" 
+									label="Model cycle date" 
 									onChange={props.handleRetroDateChange}
 									disableFuture 
 								/>
@@ -78,8 +80,8 @@ const SelectionMenu = (props) => {
 						      fullWidth
 						    >
 						      <ToggleButton value="conus"><b>CONUS</b></ToggleButton>
-						      <ToggleButton value="zoomed"><b>Domain 1</b></ToggleButton>
-						      <ToggleButton value="zoomed2"><b>Domain 2</b></ToggleButton>
+						      <ToggleButton value="nepac"><b>NE Pacific</b></ToggleButton>
+						      <ToggleButton value="west"><b>West</b></ToggleButton>
 						    </ToggleButtonGroup>
 						</div>
 					</div>

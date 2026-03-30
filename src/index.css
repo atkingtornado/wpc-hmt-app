@@ -21,3 +21,7 @@ code {
   font-weight: bold;
   text-decoration: underline!important;
 }
+
+img {
+    width: 95%;
+}

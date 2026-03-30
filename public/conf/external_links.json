@@ -1,0 +1,422 @@
+{
+	"HMT Websites": {
+		"General Information": [
+			{
+				"label":"HMT Homepage",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/"
+			},
+			{
+				"label":"HMT Seminars",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/seminars.shtml"
+			},
+			{
+				"label":"HMT News",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/news.shtml"
+			}
+		],
+		"Winter Weather Experiment (WWE) Websites - Data Visualization": [
+			{
+				"label":"MSTP Forecast Activity",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/drawingtools/forecast.php?activity=mstp"
+			},
+			{
+				"label":"HMT Sounding Viewer - HREF Models",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/soundingViewer/main.php?group=href&experiment=wwe"
+			},
+			{
+				"label":"HMT Sounding Viewer - REFS Models",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/soundingViewer/main.php?group=refs&experiment=wwe"
+			}
+		],
+		"Winter Weather Experiment (WWE) Websites - Verification": [
+			{
+				"label":"WWE Snow Verification",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/mode/wwe/wwemode.php"
+			},
+			{
+				"label":"ASOS METAR Precip-Type Viewer",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/drawingtools/metar_chart.html"
+			}
+		],
+		"Flash Flood and Intense Rainfall (FFaIR) Experiment Websites - Data Visualization": [
+			{
+				"label":"ERO Forecast Activity",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/drawingtools/forecast.php?activity=ero"
+			},
+            {
+                "label":"REFS Clusters",
+                "link":"https://www.wpc.ncep.noaa.gov/wpc_ensemble_clusters/ffair_2025_rrfse_clusters/view.php"
+            },
+			{
+				"label":"HMT Sounding Viewer - HREF Models",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/soundingViewer/main.php?group=href&experiment=ffair"
+			},
+			{
+				"label":"HMT Sounding Viewer - REFS Models",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/soundingViewer/main.php?group=refs&experiment=ffair"
+			},
+            {
+                "label":"Original HMT Webpage",
+                "link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/hmt_webpage.php"
+            }
+		],
+		"Flash Flood and Intense Rainfall (FFaIR) Experiment Websites - Verification": [
+            {
+                "label":"2025 FFaIR Verification Webpage",
+                "link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/verification/ffair_dev/"
+            },
+            {
+                "label":"2025 FFaIR Verification Survey",
+                "link":"https://docs.google.com/forms/d/e/1FAIpQLScQjZRJS0a8GTHubc7Q_AgMF2GSLqSntiHj57VfGUOg5_nNcA/viewform?usp=dialog"
+            },
+			{
+				"label":"2024 FFaIR Verification Webpage",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/verification/ffair/"
+			}
+		],
+		"Precipitation Experiment for Atmospheric Rivers (PEAR) Websites - Data Visualization": [
+			{
+				"label":"PEAR Forecast Activity",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/drawingtools/forecast.php?activity=pear"
+			},
+			{
+				"label":"PEAR Forecast Graphics",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/pear/"
+			}
+		],
+		"Other HMT Websites - Data Visualization": [
+			{
+				"label":"HMT Pyscript Deterministic Dashboard",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/drawingtools/dashboard_new.html"
+			},
+			{
+				"label":"HMT Pyscript Ensemble Dashboard",
+				"link":"https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/drawingtools/ensemble_dashv2.html"
+			}
+		]
+	},
+	"NOAA Websites": {
+		"WPC Experimental Websites": [
+			{
+				"label":"Probabilistic Precipitation Portal",
+				"link":"https://www.wpc.ncep.noaa.gov/Prob_Precip/"
+			},
+			{
+				"label":"Experimental Winter Storm Outlook",
+				"link":"https://www.wpc.ncep.noaa.gov/wwd/wso/"
+			},
+			{
+				"label":"Experimental Intense Rainfall and Flash Flood Reports",
+				"link":"https://www.wpc.ncep.noaa.gov/rainfallreports/"
+			},
+			{
+				"label":"Experimental Local Storm Reports",
+				"link":"https://www.wpc.ncep.noaa.gov/exper/lsr/lsr.php"
+			},
+			{
+				"label":"QPF Cluster Prototype Webpage",
+				"link":"https://www.wpc.ncep.noaa.gov/wpc_ensemble_clusters/qpf_clusters/view.php"
+			},
+			{
+				"label":"Day 3-9 Cluster Prototype Webpage",
+				"link":"https://www.wpc.ncep.noaa.gov/wpc_ensemble_clusters/day_3_7/view.php"
+			},
+			{
+				"label":"Tracking Heavy Precipitation Objects (THePrO) - Original Site",
+				"link":"https://www.wpc.ncep.noaa.gov/verification/mtd/view.php"
+			},
+			{
+				"label":"Tracking Heavy Precipitation Objects (THePrO) - HRRR Subhourly",
+				"link":"https://www.wpc.ncep.noaa.gov/verification/HRRRSubHr/view.php"
+			},
+			{
+				"label":"Analog Forecasting of Precipitation Objects (AnaPrO)",
+				"link":"https://www.wpc.ncep.noaa.gov/verification/mtd_exp/view.php"
+			},
+			{
+				"label":"Snowband Probability Tracker Prototype Webpage",
+				"link":"https://www.wpc.ncep.noaa.gov/snowbands/view.php"
+			}
+		],
+		"WPC Operational Tools": [
+			{
+				"label":"WPC Surface Analysis",
+				"link":"https://www.wpc.ncep.noaa.gov/#page=sfc"
+			},
+			{
+				"label":"WPC Probabilistic Winter Precipitation",
+				"link":"https://www.wpc.ncep.noaa.gov/pwpf/wwd_accum_probs.php"
+			},
+			{
+				"label":"The Winter Storm Severity Index (WSSI)",
+				"link":"https://www.wpc.ncep.noaa.gov/wwd/wssi/wssi.php"
+			},
+			{
+				"label":"The Probabilistic Winter Storm Severity Index (WSSI-P)",
+				"link":"https://www.wpc.ncep.noaa.gov/wwd/wssi/prob_wssi.php"
+			},
+			{
+				"label":"WPC MODE Snowfall Verification",
+				"link":"https://www.wpc.ncep.noaa.gov/snowmode/modeview_v2.php"
+			},
+			{
+				"label":"Interactive WPC Excessive Rainfall Outlooks (ERO)",
+				"link":"https://www.wpc.ncep.noaa.gov/qpf/excessive_rainfall_outlook_ero.php"
+			},
+			{
+				"label":"WPC Probabilistic QPF Graphics",
+				"link":"https://www.wpc.ncep.noaa.gov/pqpf/conus_hpc_pqpf.php"
+			},
+			{
+				"label":"Extreme Precipitation Monitor",
+				"link":"https://www.wpc.ncep.noaa.gov/qpf/epm/extreme_precip_monitor.php"
+			}
+		],
+		"Precipitation and Guidance Assessment Tools": [
+			{
+				"label":"MRMS Product Viewer",
+				"link":"https://mrms.nssl.noaa.gov/qvs/product_viewer/"
+			},
+			{
+				"label":"National Gridded Snowfall Analysis (NOHRSC)",
+				"link":"https://www.nohrsc.noaa.gov/snowfall/"
+			},
+			{
+				"label":"Ensemble Situational Awareness Tables",
+				"link":"https://satable.ncep.noaa.gov/"
+			}
+		],
+		"NWS Forecast Websites and Guidance": [
+            {
+                "label":"WSUP Viewer for NBM and NBMX [CAC]",
+                "link":"https://wsup.mdl.nws.noaa.gov/?darkMode=false"
+            },
+            {
+                "label":"DESI for REFS [CAC]",
+                "link":"https://sites.gsl.noaa.gov/desi"
+            },
+			{
+				"label":"SPC HRRR Viewer",
+				"link":"https://www.spc.noaa.gov/exper/hrrr/"
+			},
+			{
+				"label":"SPC HREF Viewer",
+				"link":"https://www.spc.noaa.gov/exper/href/"
+			},
+			{
+				"label":"HREF Probabilities of Exceedance",
+				"link":"https://www.emc.ncep.noaa.gov/mmb/mpyle/hrefv3/00_exp/main_conus.php"
+			},
+			{
+				"label":"SPC Surface and Upper Air Maps",
+				"link":"https://www.spc.noaa.gov/obswx/maps/"
+			},
+			{
+				"label":"SPC Experimental Sounding Climatology",
+				"link":"https://www.spc.noaa.gov/exper/soundingclimov2/"
+			},
+			{
+				"label":"Cloud-Based Warn-on-Forecast System Viewer",
+				"link":"https://cbwofs.nssl.noaa.gov/Forecast"
+			},
+			{
+				"label":"EMC RRFS Graphics",
+				"link":"https://www.emc.ncep.noaa.gov/users/emc.campara/rrfs/"
+			},
+			{
+				"label":"EMC GEFS Plumes",
+				"link":"https://www.emc.ncep.noaa.gov/users/meg/gefs_plumes/index.html"
+			}
+		],
+		"Local Storm Reports (LSRs) and Situational Awareness": [
+			{
+				"label":"NWS LSR Viewer",
+				"link":"https://www.weather.gov/source/crh/lsrmap.html"
+			},
+			{
+				"label":"NWS Snowfall LSR Viewer",
+				"link":"https://www.weather.gov/source/crh/snowmap.html"
+			},
+			{
+				"label":"NWS Freezing Rain LSR Viewer",
+				"link":"https://www.weather.gov/source/crh/icemap.html"
+			},
+			{
+				"label":"NWS Weather and Hazards Data Viewer",
+				"link":"https://www.wrh.noaa.gov/map/"
+			},
+			{
+				"label":"SPC Storm Reports",
+				"link":"https://www.spc.noaa.gov/exper/reports/"
+			}
+		],
+		"National Water Prediction Service": [
+			{
+				"label":"NWPS Webpage",
+				"link":"https://water.noaa.gov/"
+			},
+			{
+				"label":"National Water Center",
+				"link":"https://water.noaa.gov/owp/operations"
+			},
+			{
+				"label":"Experimental Flood Hazard Outlook",
+				"link":"https://water.noaa.gov/operations/fho"
+			}
+		],
+		"Satellite": [
+			{
+				"label":"NESDIS GOES Image Viewer",
+				"link":"https://star.nesdis.noaa.gov/GOES/conus.php"
+			}
+		],
+		"Fire and Burn Scar Information": [
+			{
+				"label":"NOAA Burn Area Forecast Precipitation",
+				"link":"https://www.wrh.noaa.gov/wrh/debrisflow/qpf/?id=experimental"
+			}
+		],
+		"Other Sites": [
+			{
+				"label":"NOAA nowCoast",
+				"link":"https://nowcoast.noaa.gov"
+			}
+		]
+	},
+	"External Weather Websites": {
+		"HMT Partners' Websites": [
+			{
+				"label":"Univ. of Utah Snow Ensemble",
+				"link":"https://weather.utah.edu/index.php?t=ensgefsds&r=WE&d=240HS"
+			},
+			{
+				"label":"Univ. of Utah ML Snow (HRRR)",
+				"link":"https://weather.utah.edu/index.php?t=hrrrqsf&r=WE&d=48HS"
+			},
+			{
+				"label":"CAPS Realtime Plotter",
+				"link":"https://caps.ou.edu/forecast/realtime/"
+			},
+			{
+				"label":"CSU First-Guess ERO Website",
+				"link":"https://schumacher.atmos.colostate.edu/hilla/csu_mlp/index.php"
+			}
+		],
+		"Model Data Viewers": [
+			{
+				"label":"PolarWx",
+				"link":"https://polarwx.com/models/"
+			},
+			{
+				"label":"Pivotal Weather",
+				"link":"https://pivotalweather.com/model.php"
+			},
+			{
+				"label":"Tropical Tidbits",
+				"link":"https://www.tropicaltidbits.com/analysis/models/"
+			},
+			{
+				"label":"College of DuPage",
+				"link":"https://weather.cod.edu/forecast/"
+			},
+			{
+				"label":"CIPS",
+				"link":"https://www.eas.slu.edu/CIPS/MODEL/WXmodel.php"
+			}
+		],
+		"Precipitation and Water Guidance": [
+			{
+				"label":"CW3E Atmospheric River Forecast Products",
+				"link":"https://cw3e.ucsd.edu/iwv-and-ivt-forecasts/"
+			},
+			{
+				"label":"USGS National Water Dashboard",
+				"link":"https://dashboard.waterdata.usgs.gov/app/nwd/en/?aoi=default"
+			},
+			{
+				"label":"USGS Real-Time Flood Impact Map",
+				"link":"https://test.wim.usgs.gov/thresholds/#/"
+			}
+		],
+		"Observations": [
+			{
+				"label":"CoCoRAHS Data",
+				"link":"https://maps.cocorahs.org"
+			},
+			{
+				"label":"Iowa Environmental Mesonet",
+				"link":"https://mesonet.agron.iastate.edu"
+			},
+			{
+				"label":"New York State Mesonet",
+				"link":"https://nysmesonet.org"
+			},
+			{
+				"label":"Real-Time Radiosonde Tracker",
+				"link":"https://sondehub.org"
+			}
+		],
+		"Radar and Satellite": [
+			{
+				"label":"College of DuPage Satellite",
+				"link":"https://weather.cod.edu/satrad/"
+			},
+			{
+				"label":"CIRA SLIDER Viewer",
+				"link":"https://rammb-slider.cira.colostate.edu/"
+			},
+			{
+				"label":"CIRA Blended TPW",
+				"link":"https://cat.cira.colostate.edu/btpw_2020/"
+			},
+			{
+				"label":"CIRA Advected Layered PWAT",
+				"link":"https://cat.cira.colostate.edu/SPoRT/Layered/Advected/LPW_alt.htm"
+			},
+			{
+				"label":"CIRA Advected Layered PWAT - Percentiles",
+				"link":"https://cat.cira.colostate.edu/ALPX/ALPW_Percentile/Percentile.html"
+			},
+			{
+				"label":"CIRA Advected TPW (SAB Mercator)",
+				"link":"https://cdat.cira.colostate.edu/CAT/aTPW/aTPW.htm"
+			},
+			{
+				"label":"CIRA Layered Water Vapor Transport",
+				"link":"https://cat.cira.colostate.edu/ALPX/LVT/LVT.htm"
+			},
+			{
+				"label":"NASA Worldview",
+				"link":"https://worldview.earthdata.nasa.gov"
+			},
+			{
+				"label":"NASA SPoRT Viewer",
+				"link":"https://weather.ndc.nasa.gov/sport/viewer/"
+			},
+			{
+				"label":"Joint VIIRS-ABI Floodwater Fraction Map",
+				"link":"https://fema.maps.arcgis.com/apps/webappviewer/index.html?id=8332b01063a949399ba846e93e6ee26f"
+			}
+		],
+		"Fire and Burn Scar Information": [
+			{
+				"label":"InciWeb Active Fires",
+				"link":"https://inciweb.wildfire.gov"
+			},
+			{
+				"label":"Intterra Fire and Burn Scar Map",
+				"link":"https://maps.wildfire.gov/sa/"
+			},
+			{
+				"label":"CIMSS BRIDGE Burn Scar Map",
+				"link":"https://cimss.ssec.wisc.edu/bridge/google-earth-engine-app/"
+			}
+		],
+		"Other Sites": [
+			{
+				"label":"Earth Nullschool",
+				"link":"https://earth.nullschool.net"
+			}
+		]
+	}
+}
