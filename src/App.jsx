@@ -620,23 +620,40 @@ function App() {
   const handleComparisonModeChange = (e, value) => {
     if (value === null) return
     setComparisonMode(value)
+    if (!value && panels && panels[0]) {
+      // Switching back to single: sync menuSelections from panel 0
+      const p0 = panels[0]
+      const tmpMenuSelections = {
+        ...menuSelections,
+        selectedProduct: p0.selectedProduct,
+        selectedParameterGroup: p0.selectedParameterGroup,
+        selectedParameter: p0.selectedParameter,
+        selectedRun: p0.selectedRun
+      }
+      // genDateOptions regenerates dateOptions and returns the final menuSelections
+      // (it handles selectedRun validation and calls setDateOptions internally)
+      const finalSelections = genDateOptions(tmpMenuSelections)
+      setSelectedMenuSelections(finalSelections)
+    }
     if (value && menuSelections) {
       const panelCount = value === "4-panel" ? 4 : 2
       let newPanels = []
-      for (let i = 0; i < panelCount; i++) {
+
+      // Always sync panel 0 with current single-panel selections
+      const { dateArr: p0DateArr, selectedRun: p0Run } = genDateOptionsForProduct(menuSelections.selectedProduct, menuSelections.selectedRun)
+      const panel0 = {
+        selectedProduct: menuSelections.selectedProduct,
+        selectedParameterGroup: menuSelections.selectedParameterGroup,
+        selectedParameter: menuSelections.selectedParameter,
+        selectedRun: p0Run,
+        dateOptions: p0DateArr
+      }
+      newPanels.push(panel0)
+
+      for (let i = 1; i < panelCount; i++) {
         if (panels && panels[i]) {
           // Preserve existing panel selections
           newPanels.push(panels[i])
-        } else if (i === 0 && (!panels || panels.length === 0)) {
-          // First panel from single mode: carry over current single-panel selections
-          const { dateArr, selectedRun } = genDateOptionsForProduct(menuSelections.selectedProduct, menuSelections.selectedRun)
-          newPanels.push({
-            selectedProduct: menuSelections.selectedProduct,
-            selectedParameterGroup: menuSelections.selectedParameterGroup,
-            selectedParameter: menuSelections.selectedParameter,
-            selectedRun: selectedRun,
-            dateOptions: dateArr
-          })
         } else {
           // Create new panel with defaults
           const allProducts = Object.keys(prodConf)
