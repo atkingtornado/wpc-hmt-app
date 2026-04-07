@@ -6,13 +6,14 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import ComparisonToggle from './ComparisonToggle';
 
 const SelectionMenuTop = (props) => {
 
 	return (
         <>
 		<div className="m-1 flex flex-col w-full max-w-5xl">
-			<div className="m-1 flex w-full justify-center">
+			<div className="m-1 flex w-full justify-center items-center">
 
 				<div className="flex m-2">
 					<ToggleButtonGroup
@@ -21,22 +22,30 @@ const SelectionMenuTop = (props) => {
 				      exclusive
 				      onChange={props.handleRetroChange}
 				      aria-label="retro"
-
+				      size="small"
 				    >
-				      <ToggleButton value={true}><b>Retro</b></ToggleButton>
-				      <ToggleButton value={false}><b>Realtime</b></ToggleButton>
+				      <ToggleButton value={true} sx={{ textTransform: 'none', px: 1.5 }}><b>Retro</b></ToggleButton>
+				      <ToggleButton value={false} sx={{ textTransform: 'none', px: 1.5 }}><b>Realtime</b></ToggleButton>
 				    </ToggleButtonGroup>
 				</div>
+				{props.comparisonMode !== undefined &&
+					<ComparisonToggle comparisonMode={props.comparisonMode} onChange={props.handleComparisonModeChange} />
+				}
 				<div>
 
 				    {props.retro ?
 				    	<div className="flex grow justify-center m-2">
 							<LocalizationProvider dateAdapter={AdapterMoment}>
-								<DatePicker 
+								<DatePicker
 									value={props.retroDate}
-									label="Model cycle date" 
+									label="Model cycle date"
 									onChange={props.handleRetroDateChange}
-									disableFuture 
+									disableFuture
+									slotProps={{
+										textField: {
+											size: 'small'
+										}
+									}}
 								/>
 							</LocalizationProvider>
 						</div>

@@ -214,7 +214,7 @@ const ImageDisplay = (props) => {
                 loadStatus.current = 0
             })
         }
-    }, [props.menuSelections, props.domain, props.retro])
+    }, [props.menuSelections["selectedProduct"], props.menuSelections["selectedRun"], props.menuSelections["selectedParameter"], props.menuSelections["selectedParameterGroup"], props.domain, props.retro])
 
     let tmpImgElements = [...imgElements]
     // reverse order of img elements if scrubbing backwards so currently displayed image is removed prior to adding the new one
@@ -237,10 +237,19 @@ const ImageDisplay = (props) => {
             }
 
             {tmpImgElements.map((imgEl) => {
-                let isVisible = (imgEl.fcstHr === props.fcstHr) && !imgsAreLoading
+                let isVisible
+                if (props.comparisonMode && tmpImgElements.length > 0) {
+                    // In comparison mode, snap to closest available forecast hour
+                    let closestHr = tmpImgElements.reduce((prev, curr) =>
+                        Math.abs(curr.fcstHr - props.fcstHr) < Math.abs(prev.fcstHr - props.fcstHr) ? curr : prev
+                    ).fcstHr
+                    isVisible = (imgEl.fcstHr === closestHr) && !imgsAreLoading
+                } else {
+                    isVisible = (imgEl.fcstHr === props.fcstHr) && !imgsAreLoading
+                }
                 return (
                     <Zoom key={imgEl.fcstHr+"img"} >
-                        <img className={`${isVisible ? 'block' : 'hidden' } max-h-screen object-scale-down m-auto`} src={imgEl.img.src} /> 
+                        <img className={`${isVisible ? 'block' : 'hidden' } max-h-screen object-scale-down m-auto`} src={imgEl.img.src} />
                     </Zoom>
                 )
             })}

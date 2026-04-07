@@ -17,6 +17,8 @@ import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import LinkIcon from '@mui/icons-material/Link';
 import Tooltip from '@mui/material/Tooltip';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 import { NestedDropdown } from 'mui-nested-menu';
 
@@ -24,6 +26,8 @@ import ImageDisplay from "./features/ImageDisplay"
 import SelectionMenuTop from './features/SelectionMenuTop'
 import SelectionMenuBottom from './features/SelectionMenuBottom'
 import HourSlider from './features/HourSlider'
+import ComparisonView from './features/ComparisonView'
+import ReactSelect from 'react-select'
 
 let confUrl2 = window.location.href.indexOf("localhost") != -1 ? "http://localhost:3000" : window.location.href
 if (confUrl2.includes('.html')) {
@@ -116,6 +120,10 @@ function App() {
 
   const [menuSelections, setSelectedMenuSelections] = useState(null);
   const [dateOptions, setDateOptions] = useState([]);
+  const [comparisonMode, setComparisonMode] = useState(false);
+  const [panels, setPanels] = useState([]);
+  const [sharedCycle, setSharedCycle] = useState(true);
+  const [referencePanel, setReferencePanel] = useState(0);
 
   // Input arguments from URL
   const display = inputParams.getDisplay()  //display is for season
@@ -345,6 +353,68 @@ function App() {
     return array
   }
 
+  // Generate date options for a given product, returning { dateArr, selectedRun }
+  // without side effects. Used for per-panel cycle generation.
+  const genDateOptionsForProduct = (productName, currentSelectedRun) => {
+    let currentDate = null
+    if (retro) {
+      currentDate = retroDate.clone()
+    } else {
+      currentDate = moment().utc()
+      currentDate.subtract(1, 'hours')
+    }
+    let run_hrs = prodConf[productName]["run_hrs"]
+    let start_hr = null
+    run_hrs.forEach((hr) => {
+      if (parseInt(hr) <= currentDate.hour()) {
+        start_hr = hr
+      }
+    })
+    currentDate.set({ hour: start_hr, minute: 0, second: 0 })
+    let freq = 1
+    if (run_hrs.length >= 2) {
+      freq = parseInt(run_hrs[1]) - parseInt(run_hrs[0])
+    } else {
+      freq = 24
+    }
+    let endDate = moment(currentDate).subtract(5, 'days')
+    let dateArr = [currentDate]
+    let index = 0
+    if (run_hrs.length >= 1) {
+      while (dateArr[index] > endDate) {
+        let tmpDate = moment(dateArr[index]).subtract(freq, 'hours')
+        dateArr.push(tmpDate)
+        index += 1
+      }
+    }
+    // Find closest run
+    let selectedRun = currentSelectedRun || ""
+    let selectedRunMoment = moment.utc(selectedRun, 'HH z ddd DD MMM YYYY')
+    let dateArrContainsSelectedRun = false
+    dateArr.forEach((currDate) => {
+      if (currDate.format('HH z ddd DD MMM YYYY') === selectedRunMoment.format('HH z ddd DD MMM YYYY')) {
+        dateArrContainsSelectedRun = true
+      }
+    })
+    if (selectedRun === "" || !dateArrContainsSelectedRun || retro) {
+      if (selectedRun === "") {
+        selectedRun = dateArr[0].format('HH z ddd DD MMM YYYY')
+      } else {
+        let diffArray = []
+        dateArr.forEach(iDate => {
+          diffArray.push(Math.abs(iDate.diff(moment.utc(selectedRun, 'HH z ddd DD MMM YYYY'), 'hours')))
+        })
+        let minVal = Math.min(...diffArray)
+        let minIdx = diffArray.indexOf(minVal)
+        if (minVal > 192) {
+          minIdx = 0
+        }
+        selectedRun = dateArr[minIdx].format('HH z ddd DD MMM YYYY')
+      }
+    }
+    return { dateArr, selectedRun }
+  }
+
   const genDateOptions = (currMenuSelections) => {
 
     let currentDate = null
@@ -547,6 +617,134 @@ function App() {
     setSelectedMenuSelections(tmpMenuSelections)
   }
 
+  const handleComparisonModeChange = (e, value) => {
+    if (value === null) return
+    setComparisonMode(value)
+    if (value && menuSelections) {
+      const panelCount = value === "4-panel" ? 4 : 2
+      let newPanels = []
+      for (let i = 0; i < panelCount; i++) {
+        if (panels && panels[i]) {
+          // Preserve existing panel selections
+          newPanels.push(panels[i])
+        } else if (i === 0 && (!panels || panels.length === 0)) {
+          // First panel from single mode: carry over current single-panel selections
+          const { dateArr, selectedRun } = genDateOptionsForProduct(menuSelections.selectedProduct, menuSelections.selectedRun)
+          newPanels.push({
+            selectedProduct: menuSelections.selectedProduct,
+            selectedParameterGroup: menuSelections.selectedParameterGroup,
+            selectedParameter: menuSelections.selectedParameter,
+            selectedRun: selectedRun,
+            dateOptions: dateArr
+          })
+        } else {
+          // Create new panel with defaults
+          const allProducts = Object.keys(prodConf)
+          const currentIdx = allProducts.indexOf(menuSelections.selectedProduct)
+          const prod = allProducts[(currentIdx + i) % allProducts.length]
+          const pg = Object.keys(prodConf[prod]["parameters"])[0]
+          const p = Object.keys(prodConf[prod]["parameters"][pg])[0]
+          const { dateArr, selectedRun } = genDateOptionsForProduct(prod, menuSelections.selectedRun)
+          newPanels.push({
+            selectedProduct: prod,
+            selectedParameterGroup: pg,
+            selectedParameter: p,
+            selectedRun: selectedRun,
+            dateOptions: dateArr
+          })
+        }
+      }
+      setPanels(newPanels)
+      // If reference panel index exceeds new panel count, reset to 0
+      if (referencePanel >= panelCount) {
+        setReferencePanel(0)
+      }
+    }
+  }
+
+  // Get cycle options from the reference panel
+  const getReferenceCycleOptions = () => {
+    if (!panels || panels.length === 0) return []
+    let refPanel = panels[referencePanel] || panels[0]
+    return refPanel.dateOptions || []
+  }
+
+  const handleSharedCycleChange = (e, value) => {
+    if (value === null) return
+    setSharedCycle(value)
+    if (value) {
+      // Switching to shared: use closest cycle from reference panel
+      let refOptions = getReferenceCycleOptions()
+      let currentRun = menuSelections.selectedRun
+      let bestRun = currentRun
+      if (refOptions.length > 0) {
+        let currentMoment = moment.utc(currentRun, 'HH z ddd DD MMM YYYY')
+        let diffArray = refOptions.map(d => Math.abs(d.diff(currentMoment, 'hours')))
+        let minIdx = diffArray.indexOf(Math.min(...diffArray))
+        bestRun = refOptions[minIdx].format('HH z ddd DD MMM YYYY')
+      }
+      let newPanels = panels.map(panel => ({
+        ...panel,
+        selectedRun: bestRun
+      }))
+      setPanels(newPanels)
+      setSelectedMenuSelections({...menuSelections, selectedRun: bestRun})
+    }
+  }
+
+  const handleReferencePanelChange = (idx) => {
+    setReferencePanel(idx)
+    if (sharedCycle && panels[idx]) {
+      // When reference changes in shared mode, adopt that panel's current init time
+      const newRun = panels[idx].selectedRun || menuSelections.selectedRun
+      setSelectedMenuSelections({...menuSelections, selectedRun: newRun})
+    }
+  }
+
+  const handlePanelChange = (panelIndex, selectionID, value) => {
+    let newPanels = [...panels]
+    let panel = { ...newPanels[panelIndex] }
+
+    if (selectionID === "selectedProduct") {
+      panel.selectedProduct = value
+      // Resolve parameter group and parameter for new model
+      let allParamGroups = []
+      let allParams = []
+      Object.keys(prodConf[value]["parameters"]).forEach((grp) => {
+        Object.keys(prodConf[value]["parameters"][grp]).forEach((param) => {
+          allParamGroups.push(grp)
+          allParams.push(param)
+        })
+      })
+      if (!allParams.includes(panel.selectedParameter)) {
+        panel.selectedParameter = allParams[0]
+        panel.selectedParameterGroup = allParamGroups[0]
+      } else {
+        let index = allParams.indexOf(panel.selectedParameter)
+        panel.selectedParameterGroup = allParamGroups[index]
+      }
+      // Regenerate date options for this panel's new model
+      const { dateArr, selectedRun } = genDateOptionsForProduct(value, panel.selectedRun || menuSelections.selectedRun)
+      panel.dateOptions = dateArr
+      if (!sharedCycle) {
+        panel.selectedRun = selectedRun
+      }
+    } else if (selectionID === "selectedParameterGroup") {
+      panel.selectedParameterGroup = value
+      let allParams = Object.keys(prodConf[panel.selectedProduct]["parameters"][value])
+      if (!allParams.includes(panel.selectedParameter)) {
+        panel.selectedParameter = allParams[0]
+      }
+    } else if (selectionID === "selectedParameter") {
+      panel.selectedParameter = value
+    } else if (selectionID === "selectedRun") {
+      panel.selectedRun = value
+    }
+
+    newPanels[panelIndex] = panel
+    setPanels(newPanels)
+  }
+
   const handleSliderChange = (e) => {
     setFcstHr(e.target.value)
   }
@@ -556,27 +754,100 @@ function App() {
       <div className="z-10 relative">
       </div>
       <Alert sx={{ display: "flex", justifyContent: "center"}} severity="error">****THIS IS A NON-OPERATIONAL WEBSITE****</Alert>
-      <div className="flex justify-center items-center pt-4">
+      <div className={`flex justify-center items-center pt-4 ${!comparisonMode ? 'pl-[280px]' : ''}`}>
         <h1 className="text-3xl font-bold text-center ">WPC-HMT Model Webpage</h1>
         <AdditionalInfoDialog/>
         <ExternalLinkDialog  />
       </div>
 
       {prodConf && menuSelections ?
+        comparisonMode ?
+          <div className="w-full xl:w-[95%] mx-auto">
+            <div className="w-full flex flex-col justify-center items-center">
+                <SelectionMenuTop
+                    domain={domain}
+                    handleDomainChange={handleDomainChange}
+                    retroDate={retroDate}
+                    handleRetroDateChange={handleRetroDateChange}
+                    retro={retro}
+                    handleRetroChange={handleRetroChange}
+                    onChange={handleMenuChange}
+                    comparisonMode={comparisonMode}
+                    handleComparisonModeChange={handleComparisonModeChange}
+                />
+                <div className="flex items-center gap-3 py-2 pb-4">
+                    <ToggleButtonGroup
+                        value={sharedCycle}
+                        exclusive
+                        onChange={handleSharedCycleChange}
+                        size="small"
+                        color="primary"
+                    >
+                        <ToggleButton value={true} sx={{ textTransform: 'none', px: 1.5 }}>Shared Cycle</ToggleButton>
+                        <ToggleButton value={false} sx={{ textTransform: 'none', px: 1.5 }}>Independent Cycles</ToggleButton>
+                    </ToggleButtonGroup>
+                    {sharedCycle &&
+                        <div style={{ minWidth: '220px' }}>
+                            <ReactSelect
+                                aria-label="shared cycle select"
+                                options={getReferenceCycleOptions().map((date) => ({ value: date.format('HH z ddd DD MMM YYYY'), label: date.format('HH z ddd DD MMM YYYY') }))}
+                                value={{ value: menuSelections.selectedRun, label: menuSelections.selectedRun }}
+                                onChange={(e) => handleMenuChange(e, "selectedRun")}
+                                isSearchable
+                            />
+                        </div>
+                    }
+                </div>
+                <HourSlider
+                    prodConf={prodConf}
+                    onChange={handleSliderChange}
+                    fcstHr={fcstHr}
+                    menuSelections={menuSelections}
+                    display={display}
+                    filterHourThresh={filterHourThresh}
+                    comparisonPanels={panels}
+                    referencePanel={referencePanel}
+                />
+            </div>
+            <ComparisonView
+                comparisonMode={comparisonMode}
+                panels={panels}
+                prodConf={prodConf}
+                modelConf={modelConf}
+                subModelConf={subModelConf}
+                aiModelConf={aiModelConf}
+                ensemblesPQPFConf={ensemblesPQPFConf}
+                obsConf={obsConf}
+                eroConf={eroConf}
+                ariFfgConf={ariFfgConf}
+                menuSelections={menuSelections}
+                fcstHr={fcstHr}
+                urlBase={urlBase}
+                domain={domain}
+                retro={retro}
+                display={display}
+                filterHourThresh={filterHourThresh}
+                onPanelChange={handlePanelChange}
+                sharedCycle={sharedCycle}
+                referencePanel={referencePanel}
+                onReferencePanelChange={handleReferencePanelChange}
+            />
+          </div>
+        :
         <div className="flex w-full xl:w-[95%] mx-auto">
             <div className="w-[280px] sticky top-10" style={{alignSelf: "flex-start"}}>
                 <div className="w-full flex flex-col justify-center items-center">
                     <SelectionMenuBottom
-                        prodConf={prodConf} 
+                        prodConf={prodConf}
                         obsConf={obsConf}
                         eroConf={eroConf}
                         ariFfgConf={ariFfgConf}
-                        ensemblesPQPFConf={ensemblesPQPFConf} 
-                        modelConf={modelConf} 
-                        subModelConf={subModelConf} 
+                        ensemblesPQPFConf={ensemblesPQPFConf}
+                        modelConf={modelConf}
+                        subModelConf={subModelConf}
                         aiModelConf={aiModelConf}
-                        dateOptions={dateOptions} 
-                        menuSelections={menuSelections} 
+                        dateOptions={dateOptions}
+                        menuSelections={menuSelections}
                         onChange={handleMenuChange}
                     />
                 </div>
@@ -586,27 +857,29 @@ function App() {
                     <SelectionMenuTop
                         domain={domain}
                         handleDomainChange={handleDomainChange}
-                        retroDate={retroDate} 
-                        handleRetroDateChange={handleRetroDateChange} 
-                        retro={retro} 
-                        handleRetroChange={handleRetroChange} 
+                        retroDate={retroDate}
+                        handleRetroDateChange={handleRetroDateChange}
+                        retro={retro}
+                        handleRetroChange={handleRetroChange}
                         onChange={handleMenuChange}
+                        comparisonMode={comparisonMode}
+                        handleComparisonModeChange={handleComparisonModeChange}
                     />
-                    <HourSlider 
-                        prodConf={prodConf} 
-                        onChange={handleSliderChange} 
-                        fcstHr={fcstHr} 
+                    <HourSlider
+                        prodConf={prodConf}
+                        onChange={handleSliderChange}
+                        fcstHr={fcstHr}
                         menuSelections={menuSelections}
                         display={display}
                         filterHourThresh={filterHourThresh}
                     />
-                    <ImageDisplay 
+                    <ImageDisplay
                         retro={retro}
                         urlBase={urlBase}
                         domain={domain}
                         prodConf={prodConf}
                         fcstHr={fcstHr}
-                        menuSelections={menuSelections} 
+                        menuSelections={menuSelections}
                         display={display}
                         filterHourThresh={filterHourThresh}
                     />
