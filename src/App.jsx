@@ -695,9 +695,19 @@ function App() {
   const handleReferencePanelChange = (idx) => {
     setReferencePanel(idx)
     if (sharedCycle && panels[idx]) {
-      // When reference changes in shared mode, adopt that panel's current init time
-      const newRun = panels[idx].selectedRun || menuSelections.selectedRun
-      setSelectedMenuSelections({...menuSelections, selectedRun: newRun})
+      // Compute what this panel's effective run actually is (nearest-not-after the current shared cycle)
+      const currentSharedMoment = moment.utc(menuSelections.selectedRun, 'HH z ddd DD MMM YYYY')
+      const panelDateOptions = panels[idx].dateOptions || []
+      let bestRun = menuSelections.selectedRun
+      let bestDiff = Infinity
+      panelDateOptions.forEach((d) => {
+        const diff = currentSharedMoment.diff(d, 'minutes')
+        if (diff >= 0 && diff < bestDiff) {
+          bestDiff = diff
+          bestRun = d.format('HH z ddd DD MMM YYYY')
+        }
+      })
+      setSelectedMenuSelections({...menuSelections, selectedRun: bestRun})
     }
   }
 
