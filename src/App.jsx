@@ -119,7 +119,7 @@ function App() {
   const [domain, setDomain] = useState('conus');
 
   const [menuSelections, setSelectedMenuSelections] = useState(null);
-  const [dateOptions, setDateOptions] = useState([]);
+
   const [comparisonMode, setComparisonMode] = useState(false);
   const [panels, setPanels] = useState([]);
   const [sharedCycle, setSharedCycle] = useState(true);
@@ -323,7 +323,20 @@ function App() {
 
   useEffect(() => {
     if(prodConf) {
-      let tmpMenuSelections = genDateOptions(menuSelections)
+      // Reset selectedRun so genDateOptions snaps to the most recent cycle for the new date
+      let tmpMenuSelections = genDateOptions({...menuSelections, selectedRun: ""})
+      // Also update per-panel dateOptions for multi-panel mode
+      if (panels && panels.length > 0) {
+        let newPanels = panels.map(panel => {
+          const { dateArr, selectedRun } = genDateOptionsForProduct(panel.selectedProduct, "")
+          return {
+            ...panel,
+            dateOptions: dateArr,
+            selectedRun: sharedCycle ? panel.selectedRun : selectedRun
+          }
+        })
+        setPanels(newPanels)
+      }
     }
   },[retroDate, retro])
 
@@ -460,20 +473,18 @@ function App() {
         index+=1
         }
     }
-    setDateOptions(dateArr)
-
     // check if the cycle currently selected by the user is included in the cycle array we just created (e.g., when changing models,
-    // not all models will have the same cycles) 
+    // not all models will have the same cycles)
     let selectedRun = moment.utc(currMenuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
     let dateArrContainsSelectedRun = false
     dateArr.forEach((currDate) => {
       if(currDate.format('HH z ddd DD MMM YYYY') === selectedRun.format('HH z ddd DD MMM YYYY')) {
         dateArrContainsSelectedRun = true
       }
-    }) 
+    })
 
     // IF dateArrContainsSelectedRun IS FALSE, we need to find the closest cycle to it and change it to that cycle
-    let tmpMenuSelections = {...currMenuSelections}
+    let tmpMenuSelections = {...currMenuSelections, dateOptions: dateArr}
     if(currMenuSelections["selectedRun"] === "" || !dateArrContainsSelectedRun || retro){
         if (currMenuSelections["selectedRun"] === "") {
             tmpMenuSelections["selectedRun"] = dateArr[0].format('HH z ddd DD MMM YYYY')
@@ -489,8 +500,8 @@ function App() {
             }
             tmpMenuSelections["selectedRun"] = dateArr[minIdx].format('HH z ddd DD MMM YYYY')
         }
-        setSelectedMenuSelections(tmpMenuSelections)
     }
+    setSelectedMenuSelections(tmpMenuSelections)
     return tmpMenuSelections
   }
   // //sarah
@@ -706,6 +717,32 @@ function App() {
       }))
       setPanels(newPanels)
       setSelectedMenuSelections({...menuSelections, selectedRun: bestRun})
+    } else {
+      // Switching to independent: snap each panel's selectedRun to a valid option in its own dateOptions.
+      // Use the same "nearest init not after the shared cycle" logic used for display in shared mode,
+      // so the UI stays stable through the transition.
+      const sharedMoment = moment.utc(menuSelections.selectedRun, 'HH z ddd DD MMM YYYY')
+      let newPanels = panels.map(panel => {
+        const panelDateOptions = panel.dateOptions || []
+        if (panelDateOptions.length === 0) return panel
+        let bestRun = menuSelections.selectedRun
+        let bestDiff = Infinity
+        panelDateOptions.forEach(d => {
+          const diff = sharedMoment.diff(d, 'minutes')
+          if (diff >= 0 && diff < bestDiff) {
+            bestDiff = diff
+            bestRun = d.format('HH z ddd DD MMM YYYY')
+          }
+        })
+        // Fallback: if no cycle is at or before the shared cycle, use the closest overall
+        if (bestDiff === Infinity) {
+          let diffArray = panelDateOptions.map(d => Math.abs(d.diff(sharedMoment, 'minutes')))
+          let minIdx = diffArray.indexOf(Math.min(...diffArray))
+          bestRun = panelDateOptions[minIdx].format('HH z ddd DD MMM YYYY')
+        }
+        return { ...panel, selectedRun: bestRun }
+      })
+      setPanels(newPanels)
     }
   }
 
@@ -873,7 +910,7 @@ function App() {
                         modelConf={modelConf}
                         subModelConf={subModelConf}
                         aiModelConf={aiModelConf}
-                        dateOptions={dateOptions}
+                        dateOptions={menuSelections.dateOptions || []}
                         menuSelections={menuSelections}
                         onChange={handleMenuChange}
                     />
