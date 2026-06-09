@@ -19,6 +19,7 @@ const ComparisonPanel = ({
     fcstHr,
     urlBase,
     domain,
+    realtimeDomain,
     retro,
     display,
     filterHourThresh,
@@ -226,6 +227,7 @@ const ComparisonPanel = ({
                         retro={retro}
                         urlBase={urlBase}
                         domain={domain}
+                        realtimeDomain={realtimeDomain}
                         prodConf={prodConf}
                         fcstHr={isStatic ? 1 : panelFcstHr}
                         menuSelections={panelMenuSelections}

@@ -143,8 +143,10 @@ const ImageDisplay = (props) => {
                 }
 
                 let domain = ''
-                if ((props.domain !== 'conus') & (props.retro)) {
+                if ((props.domain !== 'conus') && (props.retro)) {
                     domain = props.domain + "_"
+                } else if (!props.retro && props.realtimeDomain && props.realtimeDomain !== 'conus') {
+                    domain = props.realtimeDomain + "_"
                 }
 
                 // special mode: static image
@@ -214,7 +216,7 @@ const ImageDisplay = (props) => {
                 loadStatus.current = 0
             })
         }
-    }, [props.menuSelections["selectedProduct"], props.menuSelections["selectedRun"], props.menuSelections["selectedParameter"], props.menuSelections["selectedParameterGroup"], props.domain, props.retro])
+    }, [props.menuSelections["selectedProduct"], props.menuSelections["selectedRun"], props.menuSelections["selectedParameter"], props.menuSelections["selectedParameterGroup"], props.domain, props.realtimeDomain, props.retro])
 
     let tmpImgElements = [...imgElements]
     // reverse order of img elements if scrubbing backwards so currently displayed image is removed prior to adding the new one

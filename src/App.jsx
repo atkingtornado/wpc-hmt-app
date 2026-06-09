@@ -50,7 +50,7 @@ const inputParams = (function() {
         const defaultActivity = `winter` // Set it here!
         // Set it above!
         let inputActivity = params.get(`display`) || defaultActivity
-        const allowedInputs = [`default`, `summer`, `winter`, `experimental`]
+        const allowedInputs = [`default`, `summer`, `winter`, `experimental`, `regional`]
         if (!allowedInputs.includes(inputActivity)) {
             inputActivity = defaultActivity
         }
@@ -117,6 +117,7 @@ function App() {
   const [retro, setRetro] = useState(false);
   const [retroDate, setRetroDate] = useState(moment().utc());
   const [domain, setDomain] = useState('conus');
+  const [realtimeDomain, setRealtimeDomain] = useState('conus');
 
   const [menuSelections, setSelectedMenuSelections] = useState(null);
 
@@ -356,7 +357,13 @@ function App() {
     if(value !== null) {
       setDomain(value)
     }
-  } 
+  }
+
+  const handleRealtimeDomainChange = (e, value) => {
+    if(value !== null) {
+      setRealtimeDomain(value)
+    }
+  }
 
   function arange(start, stop, increment=1) {
     let array = []
@@ -831,6 +838,9 @@ function App() {
                 <SelectionMenuTop
                     domain={domain}
                     handleDomainChange={handleDomainChange}
+                    realtimeDomain={realtimeDomain}
+                    handleRealtimeDomainChange={handleRealtimeDomainChange}
+                    display={display}
                     retroDate={retroDate}
                     handleRetroDateChange={handleRetroDateChange}
                     retro={retro}
@@ -888,6 +898,7 @@ function App() {
                 fcstHr={fcstHr}
                 urlBase={urlBase}
                 domain={domain}
+                realtimeDomain={realtimeDomain}
                 retro={retro}
                 display={display}
                 filterHourThresh={filterHourThresh}
@@ -921,6 +932,9 @@ function App() {
                     <SelectionMenuTop
                         domain={domain}
                         handleDomainChange={handleDomainChange}
+                        realtimeDomain={realtimeDomain}
+                        handleRealtimeDomainChange={handleRealtimeDomainChange}
+                        display={display}
                         retroDate={retroDate}
                         handleRetroDateChange={handleRetroDateChange}
                         retro={retro}
@@ -941,6 +955,7 @@ function App() {
                         retro={retro}
                         urlBase={urlBase}
                         domain={domain}
+                        realtimeDomain={realtimeDomain}
                         prodConf={prodConf}
                         fcstHr={fcstHr}
                         menuSelections={menuSelections}

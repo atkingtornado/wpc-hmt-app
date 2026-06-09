@@ -75,6 +75,26 @@ const SelectionMenuTop = (props) => {
 						</div>
 					</div>
 				</>
+			: props.display === 'regional' ?
+				<div className="flex justify-center mt-2 mb-2 w-full">
+					<div className="max-w-3xl grow ">
+						<ToggleButtonGroup
+						  color="primary"
+					      value={props.realtimeDomain}
+					      exclusive
+					      onChange={props.handleRealtimeDomainChange}
+					      aria-label="realtime-domain"
+					      size="small"
+					      fullWidth
+					    >
+					      <ToggleButton value="conus"><b>CONUS</b></ToggleButton>
+					      <ToggleButton value="greatlakes"><b>Great Lakes</b></ToggleButton>
+					      <ToggleButton value="monsoon"><b>Monsoon</b></ToggleButton>
+					      <ToggleButton value="float1"><b>Float 1</b></ToggleButton>
+					      <ToggleButton value="float2"><b>Float 2</b></ToggleButton>
+					    </ToggleButtonGroup>
+					</div>
+				</div>
 			:
 				null
 			}

@@ -15,6 +15,7 @@ const ComparisonView = ({
     fcstHr,
     urlBase,
     domain,
+    realtimeDomain,
     retro,
     display,
     filterHourThresh,
@@ -48,6 +49,7 @@ const ComparisonView = ({
                     fcstHr={fcstHr}
                     urlBase={urlBase}
                     domain={domain}
+                    realtimeDomain={realtimeDomain}
                     retro={retro}
                     display={display}
                     filterHourThresh={filterHourThresh}
