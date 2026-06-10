@@ -142,11 +142,15 @@ const ImageDisplay = (props) => {
                     }
                 }
 
-                let domain = ''
-                if ((props.domain !== 'conus') && (props.retro)) {
+                let domain = ''        // retro standard domains (nepac/west): inserted AFTER the parameter (e.g. precip1_nepac_...)
+                let domainPrefix = ''  // regional domains: inserted AFTER the model name (e.g. refs_Float1_...)
+                if (props.display === 'regional') {
+                    // regional domains apply in both retro and realtime
+                    if (props.realtimeDomain && props.realtimeDomain !== 'conus') {
+                        domainPrefix = props.realtimeDomain + "_"
+                    }
+                } else if ((props.domain !== 'conus') && (props.retro)) {
                     domain = props.domain + "_"
-                } else if (!props.retro && props.realtimeDomain && props.realtimeDomain !== 'conus') {
-                    domain = props.realtimeDomain + "_"
                 }
 
                 // special mode: static image
@@ -175,7 +179,7 @@ const ImageDisplay = (props) => {
                     let min_fcst_hr = props.filterHourThresh(currParamConf.min_fcst_hr, props.display)
                     for(let i=min_fcst_hr; i<=num_fcst_hrs; i+=fcst_hr_step) {
                         let tmpDate = moment.utc(props.menuSelections["selectedRun"], 'HH z ddd DD MMM YYYY')
-                        let url = urlBase
+                        let url = urlBase + domainPrefix
         
                         if((`archive` in props.prodConf[props.menuSelections['selectedProduct']]) && (props.prodConf[props.menuSelections['selectedProduct']].archive)) {
                             tmpDate.subtract(i, "hours")
