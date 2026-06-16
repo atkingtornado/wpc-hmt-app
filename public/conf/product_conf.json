@@ -136,7 +136,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 60,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "QPF": {
                     "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -223,7 +223,7 @@
             "run_hrs": ["00","12"],
             "num_fcst_hrs": 60,
             "groups": [],
-            "skip_display": ["experimental","summer","winter","default"],
+            "skip_display": ["experimental","summer","winter","default","regional"],
             "parameters": {
                 "QPF": {
                     "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -255,7 +255,7 @@
             "run_hrs": ["00","12"],
             "num_fcst_hrs": 48,
             "groups": [],
-            "skip_display": ["experimental","summer","winter","default"],
+            "skip_display": ["experimental","summer","winter","default","regional"],
             "parameters": {
                 "QPF": {
                     "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -287,7 +287,7 @@
             "run_hrs": ["00","12"],
             "num_fcst_hrs": 48,
             "groups": [],
-            "skip_display": ["experimental","summer","winter","default"],
+            "skip_display": ["experimental","summer","winter","default","regional"],
             "parameters": {
                 "QPF": {
                     "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -1253,7 +1253,7 @@
             "run_hrs": ["00"],
             "num_fcst_hrs": 84,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "experiment": ["wwe","ffair","all"],
             "parameters": {
                 "QPF": {
@@ -1417,6 +1417,7 @@
             }
         },
         "GFS": {
+            "skip_display": ["regional"],
             "url_end": "GFS/[RUN]/gfs_",
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": {
@@ -1769,6 +1770,7 @@
     },
     "ai_models": {
         "GraphCast-GFS (AIGFS)": {
+            "skip_display": ["regional"],
             "url_end": "GRAPHCAST_GFS/[RUN]/graphcast_gfs_",
             "run_hrs": ["00","12"],
             "num_fcst_hrs": 168,
@@ -1794,6 +1796,7 @@
             }
         },
         "GraphCast-IFS (AIFS)": {
+            "skip_display": ["regional"],
             "url_end": "GRAPHCAST_IFS/[RUN]/graphcast_ifs_",
             "run_hrs": ["00","12"],
             "num_fcst_hrs": 168,
@@ -1823,7 +1826,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 168,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "PQPF": {
                     "90pqpf6": {"label": "6hr QPF 90 Percentile", "min_fcst_hr": 6, "fcst_hr_step": 6},
@@ -2242,7 +2245,7 @@
             "num_fcst_hrs": 84,
             "run_hrs": ["00"],
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "experiment": ["ffair","wwe","all"],
             "parameters": {
                 "24h Precip.": {
@@ -2370,6 +2373,7 @@
             }
         },
         "CAPS ML Ensemble": {
+            "skip_display": ["regional"],
             "url_end": "CAPS/[RUN]/caps_",
             "num_fcst_hrs": 36,
             "run_hrs": ["00"],
@@ -2395,7 +2399,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 96,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "PQPF": {
                     "90pqpf6": {"label": "6hr QPF 90 Percentile", "min_fcst_hr": 6, "fcst_hr_step": 6},
@@ -2416,7 +2420,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 168,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "PQPF": {
                     "90pqpf6": {"label": "6hr QPF 90 Percentile", "min_fcst_hr": 6, "fcst_hr_step": 6},
@@ -2439,7 +2443,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 90,
             "groups": [],
-            "skip_display": ["default", "summer", "winter", "experimental"],
+            "skip_display": ["default", "summer", "winter", "experimental","regional"],
             "parameters": {
                 "PQPF": {
                     "90pqpf6": {"label": "6hr QPF 90 Percentile", "min_fcst_hr": 6, "fcst_hr_step": 6},
@@ -2459,7 +2463,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 168,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "PQPF": {
                     "90pqpf6": {"label": "6hr QPF 90 Percentile", "min_fcst_hr": 6, "fcst_hr_step": 3},
@@ -2513,6 +2517,7 @@
             }
         },
         "ISU ML Ensemble": {
+            "skip_display": ["regional"],
             "url_end": "",
             "url_full_path": "https://meteor.geol.iastate.edu/~tyreek/FFAIR/[RUN]/isu_[PARAMETER]_[RUN].png",
             "num_fcst_hrs": 1,
@@ -2544,6 +2549,7 @@
             }
         },
         "ISU ML Members": {
+            "skip_display": ["regional"],
             "url_end": "",
             "url_full_path": "https://meteor.geol.iastate.edu/~tyreek/FFAIR/[RUN]/isu_fullmladj_[PARAMETER]_[CYCLE:INT]Z_[RUN].png",
             "num_fcst_hrs": 1,
@@ -2563,6 +2569,7 @@
     },
     "obs": {
         "Precipitation": {
+            "skip_display": ["regional"],
             "url_end": "OBS/[VALID]/obs_", 
             "num_fcst_hrs": 96,
             "archive": true,
@@ -2591,6 +2598,7 @@
             }
         },
         "Precipitation Exceedance/Duration": {
+            "skip_display": ["regional"],
             "url_end": "OBS/[VALID]/obs_", 
             "num_fcst_hrs": 96,
             "archive": true,
@@ -2626,6 +2634,7 @@
             }
         },
         "MRMS Reflectivity": {
+            "skip_display": ["regional"],
             "url_end": "OBS/[VALID]/obs_", 
             "num_fcst_hrs": 96,
             "archive": true,
@@ -2723,6 +2732,7 @@
             }
         },
         "Surface Observations": {
+            "skip_display": ["regional"],
             "url_end": "OBS/[VALID]/obs_", 
             "num_fcst_hrs": 96,
             "archive": true,
@@ -2740,6 +2750,7 @@
             }
         },
         "NWS Products": {
+            "skip_display": ["regional"],
             "url_end": "OBS/[VALID]/obs_", 
             "num_fcst_hrs": 96,
             "archive": true,
@@ -2787,7 +2798,7 @@
             "num_fcst_hrs": 1,
             "run_hrs": ["00","06","12","18"],
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "WPC": {
                     "day0": {"label": "PQPF Day 0", "min_fcst_hr": 0, "fcst_hr_step": 24},
@@ -2806,7 +2817,7 @@
             "num_fcst_hrs": 1,
             "run_hrs": ["00","12"],
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "UFVS GEFSv2022": {
                     "eroufvsday1": {"label": "Day 1", "min_fcst_hr": 1, "fcst_hr_step": 1},

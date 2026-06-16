@@ -881,6 +881,7 @@ function App() {
                     filterHourThresh={filterHourThresh}
                     comparisonPanels={panels}
                     referencePanel={referencePanel}
+                    sharedCycle={sharedCycle}
                 />
             </div>
             <ComparisonView

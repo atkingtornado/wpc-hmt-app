@@ -110,7 +110,14 @@ const HourSlider = (props) => {
         // In comparison mode, use reference panel's run time and time system
         let refPanel = props.comparisonPanels[props.referencePanel || 0]
         if (refPanel) {
-            let refRun = refPanel.selectedRun || props.menuSelections["selectedRun"]
+            // Match the reference run used by ComparisonPanel so the valid time stays
+            // in sync with the rendered image. In shared-cycle mode the reference panel
+            // follows the global cycle (menuSelections.selectedRun); panel.selectedRun can
+            // go stale there (e.g. after a retro date change), so only trust it when cycles
+            // are independent.
+            let refRun = props.sharedCycle
+                ? props.menuSelections["selectedRun"]
+                : (refPanel.selectedRun || props.menuSelections["selectedRun"])
             tmpDate = moment.utc(refRun, 'HH z ddd DD MMM YYYY')
         }
         if (refIsSubhour && !refIsSubhmax) {

@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npx react-scripts:*)",
       "Bash(npm run:*)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(node -e ' *)",
+      "Bash(node _apply_regional.cjs)",
+      "Bash(node -e \"const m=JSON.parse\\(require\\('fs'\\).readFileSync\\('public/conf/product_conf.json','utf8'\\)\\).models; for \\(const k of ['FV3HREF','ARWHREF','ARWHREF2']\\) console.log\\(k, JSON.stringify\\(m[k].skip_display\\)\\); console.log\\('JSON valid'\\);\")"
     ]
   }
 }
