@@ -687,7 +687,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 60,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "QPF": {
                     "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -801,7 +801,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 60,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "QPF": {
                     "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -915,7 +915,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 60,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "QPF": {
                     "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -1029,7 +1029,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 60,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "QPF": {
                     "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -1143,7 +1143,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 60,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "QPF": {
                     "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -1713,7 +1713,7 @@
             "num_fcst_hrs": 72,
             "subhour": true,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "QPF": {
                     "subhprecip15": {"label": "15min QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -1733,7 +1733,7 @@
             "num_fcst_hrs": 72,
             "subhour": true,
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","regional"],
             "parameters": {
                 "QPF": {
                     "subhprecip15": {"label": "15min QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -2569,7 +2569,6 @@
     },
     "obs": {
         "Precipitation": {
-            "skip_display": ["regional"],
             "url_end": "OBS/[VALID]/obs_", 
             "num_fcst_hrs": 96,
             "archive": true,
