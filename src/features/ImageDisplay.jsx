@@ -220,7 +220,7 @@ const ImageDisplay = (props) => {
                 loadStatus.current = 0
             })
         }
-    }, [props.menuSelections["selectedProduct"], props.menuSelections["selectedRun"], props.menuSelections["selectedParameter"], props.menuSelections["selectedParameterGroup"], props.domain, props.realtimeDomain, props.retro])
+    }, [props.menuSelections["selectedProduct"], props.menuSelections["selectedRun"], props.menuSelections["selectedParameter"], props.menuSelections["selectedParameterGroup"], props.domain, props.realtimeDomain, props.retro, props.display])
 
     let tmpImgElements = [...imgElements]
     // reverse order of img elements if scrubbing backwards so currently displayed image is removed prior to adding the new one

@@ -30,6 +30,22 @@ const ComparisonPanel = ({
     refPanelSelections
 }) => {
 
+    // During a mode switch (e.g. toggling Regional) the available products can change out from
+    // under a panel. Render a brief placeholder instead of dereferencing a product/parameter that
+    // was just filtered out; App's reconcile effect snaps the panel to a valid selection next tick.
+    const _panelProd = prodConf[panelSelections.selectedProduct]
+    const _refProd = prodConf[(refPanelSelections || panelSelections).selectedProduct]
+    if (!_panelProd || !_refProd ||
+        !_panelProd['parameters'] ||
+        !_panelProd['parameters'][panelSelections.selectedParameterGroup] ||
+        !_panelProd['parameters'][panelSelections.selectedParameterGroup][panelSelections.selectedParameter]) {
+        return (
+            <div className="flex items-center justify-center border border-gray-200 rounded" style={{ minHeight: '240px' }}>
+                <span className="text-gray-400 text-sm">Updating…</span>
+            </div>
+        )
+    }
+
     const modelOptions = Object.keys(modelConf).map((model) => ({ value: model, label: model }))
     const subModelOptions = Object.keys(subModelConf).map((model) => ({ value: model, label: model }))
     const aiModelOptions = Object.keys(aiModelConf).map((model) => ({ value: model, label: model }))

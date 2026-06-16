@@ -6,6 +6,8 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import ComparisonToggle from './ComparisonToggle';
 
 const SelectionMenuTop = (props) => {
@@ -31,6 +33,13 @@ const SelectionMenuTop = (props) => {
 				{props.comparisonMode !== undefined &&
 					<ComparisonToggle comparisonMode={props.comparisonMode} onChange={props.handleComparisonModeChange} />
 				}
+				<div className="flex m-2 ml-4 items-center">
+					<FormControlLabel
+						control={<Switch checked={props.regionalMode} onChange={props.handleRegionalModeChange} color="primary" size="small" />}
+						label="Regional"
+						sx={{ mr: 0 }}
+					/>
+				</div>
 				<div>
 
 				    {props.retro ?

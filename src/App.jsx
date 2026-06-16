@@ -104,6 +104,7 @@ const inputParams = (function() {
 function App() {
 
   const [urlBase, setUrlBase] = useState(null);
+  const [rawConf, setRawConf] = useState(null);
   const [prodConf, setProdConf] = useState(null);
   const [modelConf, setModelConf] = useState(null);
   const [subModelConf, setSubModelConf] = useState(null);
@@ -126,10 +127,18 @@ function App() {
   const [sharedCycle, setSharedCycle] = useState(true);
   const [referencePanel, setReferencePanel] = useState(0);
 
+  // "regional" is now a runtime mode controlled by an in-app toggle (not the URL).
+  // It still honors ?display=regional as the initial state so existing links keep working.
+  const [regionalMode, setRegionalMode] = useState(inputParams.getDisplay() === 'regional');
+
   // Input arguments from URL
-  const display = inputParams.getDisplay()  //display is for season
+  const urlDisplay = inputParams.getDisplay()  //display is for season
   const experiment = inputParams.getExperiment()  //experiment is if it only plots for certain experiments (ffair vs wee)
   const mode = inputParams.getMode() //flag to hide observations plots
+
+  // Effective display: when the regional toggle is on, behave as display="regional";
+  // otherwise use the URL season (falling back to the default when the URL itself said "regional").
+  const display = regionalMode ? 'regional' : (urlDisplay === 'regional' ? 'winter' : urlDisplay)
 
 
   //sarah
@@ -228,42 +237,48 @@ function App() {
 
   // ------------------------------------------------------------------------------------------
 
-  // read in product_conf.json
+  // read in product_conf.json (once)
   useEffect(() => {
     fetch(confUrl + '/conf/product_conf.json')
     .then((response) => response.json())
-    .then((jsonData) => {
-
-      // split all model groups in product_conf.json into their own dictionaries, and filter by display
-      let tmpModelConf = filterData(jsonData['models'], display, experiment)
-      let tmpSubModelConf = filterData(jsonData['subModels'], display, experiment)
-      let tmpAiModelConf = filterData(jsonData['ai_models'], display, experiment)
-      let tmpEnsemblesPQPFConf = filterData(jsonData['ensembles_PQPF'], display, experiment)
-      let tmpObsConf = filterData(jsonData['obs'], display, experiment, mode)
-      let tmpEroConf = filterData(jsonData['ero'], display, experiment)
-      let tmpAriFfgConf = jsonData['ari_ffg']
-
-      // store these all in a single dictionary
-      let tmpProdConf = {
-        ...tmpModelConf,
-        ...tmpSubModelConf,
-        ...tmpAiModelConf,
-        ...tmpEnsemblesPQPFConf,
-        ...tmpObsConf,
-        ...tmpEroConf,
-        ...tmpAriFfgConf
-      }
-      setUrlBase(jsonData['url_base'])
-      setModelConf(tmpModelConf)
-      setSubModelConf(tmpSubModelConf)
-      setAiModelConf(tmpAiModelConf)
-      setEnsemblesPQPFConf(tmpEnsemblesPQPFConf)
-      setObsConf(tmpObsConf)
-      setEroConf(tmpEroConf)
-      setAriFfgConf(tmpAriFfgConf)
-      setProdConf(tmpProdConf)
-    })
+    .then((jsonData) => setRawConf(jsonData))
   },[])
+
+  // (re)build the filtered configs whenever the raw config or the active display changes.
+  // The display dependency lets the regional toggle re-filter the available models on the fly.
+  useEffect(() => {
+    if (!rawConf) return
+    const jsonData = rawConf
+
+    // split all model groups in product_conf.json into their own dictionaries, and filter by display
+    let tmpModelConf = filterData(jsonData['models'], display, experiment)
+    let tmpSubModelConf = filterData(jsonData['subModels'], display, experiment)
+    let tmpAiModelConf = filterData(jsonData['ai_models'], display, experiment)
+    let tmpEnsemblesPQPFConf = filterData(jsonData['ensembles_PQPF'], display, experiment)
+    let tmpObsConf = filterData(jsonData['obs'], display, experiment, mode)
+    let tmpEroConf = filterData(jsonData['ero'], display, experiment)
+    let tmpAriFfgConf = jsonData['ari_ffg']
+
+    // store these all in a single dictionary
+    let tmpProdConf = {
+      ...tmpModelConf,
+      ...tmpSubModelConf,
+      ...tmpAiModelConf,
+      ...tmpEnsemblesPQPFConf,
+      ...tmpObsConf,
+      ...tmpEroConf,
+      ...tmpAriFfgConf
+    }
+    setUrlBase(jsonData['url_base'])
+    setModelConf(tmpModelConf)
+    setSubModelConf(tmpSubModelConf)
+    setAiModelConf(tmpAiModelConf)
+    setEnsemblesPQPFConf(tmpEnsemblesPQPFConf)
+    setObsConf(tmpObsConf)
+    setEroConf(tmpEroConf)
+    setAriFfgConf(tmpAriFfgConf)
+    setProdConf(tmpProdConf)
+  },[rawConf, display])
 
   // set default (i.e. what user sees when first opening the page) parameters, products, run and forecast hours
   useEffect(() => {
@@ -341,10 +356,48 @@ function App() {
     }
   },[retroDate, retro])
 
+  // Keep comparison panels valid when the set of available products changes (e.g. toggling
+  // regional mode can filter out a product a panel was showing). Snap any panel that now points
+  // at a missing product/parameter back to a valid selection so the comparison view never
+  // references a filtered-out model.
+  useEffect(() => {
+    if (!prodConf || !panels || panels.length === 0) return
+    const allProducts = Object.keys(prodConf)
+    if (allProducts.length === 0) return
+    const fixed = panels.map((panel, i) => {
+      let prod = panel.selectedProduct
+      let pg = panel.selectedParameterGroup
+      let p = panel.selectedParameter
+      let needsFix = false
+      if (!prodConf[prod]) {
+        prod = allProducts[i % allProducts.length]
+        needsFix = true
+      }
+      if (!prodConf[prod]['parameters'][pg]) {
+        pg = Object.keys(prodConf[prod]['parameters'])[0]
+        needsFix = true
+      }
+      if (!prodConf[prod]['parameters'][pg][p]) {
+        p = Object.keys(prodConf[prod]['parameters'][pg])[0]
+        needsFix = true
+      }
+      if (!needsFix) return panel
+      const { dateArr, selectedRun } = genDateOptionsForProduct(prod, panel.selectedRun)
+      return { ...panel, selectedProduct: prod, selectedParameterGroup: pg, selectedParameter: p, selectedRun, dateOptions: dateArr }
+    })
+    if (fixed.some((f, i) => f !== panels[i])) {
+      setPanels(fixed)
+    }
+  }, [prodConf])
+
   const handleRetroChange = (e, value) => {
     if(value !== null) {
       setRetro(value)
     }
+  }
+
+  const handleRegionalModeChange = (e) => {
+    setRegionalMode(e.target.checked)
   }
 
   const handleRetroDateChange = (value) => {
@@ -820,6 +873,14 @@ function App() {
     setFcstHr(e.target.value)
   }
 
+  // Guard against rendering with a selection that points at a product/parameter that was just
+  // filtered out (e.g. right after toggling regional mode, before the reset effects run).
+  const selectionReady = prodConf && menuSelections &&
+    prodConf[menuSelections.selectedProduct] &&
+    prodConf[menuSelections.selectedProduct]['parameters'] &&
+    prodConf[menuSelections.selectedProduct]['parameters'][menuSelections.selectedParameterGroup] &&
+    prodConf[menuSelections.selectedProduct]['parameters'][menuSelections.selectedParameterGroup][menuSelections.selectedParameter]
+
   return (
     <div className="App">
       <div className="z-10 relative">
@@ -831,7 +892,7 @@ function App() {
         <ExternalLinkDialog  />
       </div>
 
-      {prodConf && menuSelections ?
+      {selectionReady ?
         comparisonMode ?
           <div className="w-full xl:w-[95%] mx-auto">
             <div className="w-full flex flex-col justify-center items-center">
@@ -848,6 +909,8 @@ function App() {
                     onChange={handleMenuChange}
                     comparisonMode={comparisonMode}
                     handleComparisonModeChange={handleComparisonModeChange}
+                    regionalMode={regionalMode}
+                    handleRegionalModeChange={handleRegionalModeChange}
                 />
                 <div className="flex items-center gap-3 py-2 pb-4">
                     <ToggleButtonGroup
@@ -943,6 +1006,8 @@ function App() {
                         onChange={handleMenuChange}
                         comparisonMode={comparisonMode}
                         handleComparisonModeChange={handleComparisonModeChange}
+                        regionalMode={regionalMode}
+                        handleRegionalModeChange={handleRegionalModeChange}
                     />
                     <HourSlider
                         prodConf={prodConf}
