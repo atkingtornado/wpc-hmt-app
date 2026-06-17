@@ -620,8 +620,14 @@ function App() {
         })
       })
       if(!allParams.includes(menuSelections["selectedParameter"])) {
-        tmpMenuSelections["selectedParameter"] = allParams[0]
-        tmpMenuSelections["selectedParameterGroup"] = allParamGroups[0]
+        // For ensembles, default to pmm1 (1hr Prob. Matched Mean) when available,
+        // otherwise fall back to the first parameter.
+        let defaultIdx = 0
+        if (ensemblesPQPFConf && Object.keys(ensemblesPQPFConf).includes(e.value) && allParams.includes("pmm1")) {
+          defaultIdx = allParams.indexOf("pmm1")
+        }
+        tmpMenuSelections["selectedParameter"] = allParams[defaultIdx]
+        tmpMenuSelections["selectedParameterGroup"] = allParamGroups[defaultIdx]
       } else {
         let index = allParams.indexOf(tmpMenuSelections["selectedParameter"])
         tmpMenuSelections["selectedParameterGroup"] = allParamGroups[index]
@@ -841,8 +847,14 @@ function App() {
         })
       })
       if (!allParams.includes(panel.selectedParameter)) {
-        panel.selectedParameter = allParams[0]
-        panel.selectedParameterGroup = allParamGroups[0]
+        // For ensembles, default to pmm1 (1hr Prob. Matched Mean) when available,
+        // otherwise fall back to the first parameter.
+        let defaultIdx = 0
+        if (ensemblesPQPFConf && Object.keys(ensemblesPQPFConf).includes(value) && allParams.includes("pmm1")) {
+          defaultIdx = allParams.indexOf("pmm1")
+        }
+        panel.selectedParameter = allParams[defaultIdx]
+        panel.selectedParameterGroup = allParamGroups[defaultIdx]
       } else {
         let index = allParams.indexOf(panel.selectedParameter)
         panel.selectedParameterGroup = allParamGroups[index]
