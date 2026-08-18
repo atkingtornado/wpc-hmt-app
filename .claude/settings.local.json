@@ -3,7 +3,17 @@
     "allow": [
       "Bash(npx react-scripts:*)",
       "Bash(npm run:*)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(node -e ' *)",
+      "Bash(node _apply_regional.cjs)",
+      "Bash(node -e \"const m=JSON.parse\\(require\\('fs'\\).readFileSync\\('public/conf/product_conf.json','utf8'\\)\\).models; for \\(const k of ['FV3HREF','ARWHREF','ARWHREF2']\\) console.log\\(k, JSON.stringify\\(m[k].skip_display\\)\\); console.log\\('JSON valid'\\);\")",
+      "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\('public/conf/product_conf.json','utf8'\\)\\); const a=d.ari_ffg||{}; for\\(const k of Object.keys\\(a\\)\\){console.log\\(k, 'hasParameters='+\\('parameters' in a[k]\\), a[k].static_image?'static':'', a[k].display_slider===false?'noSlider':''\\)}\")",
+      "Bash(node _apply_switch.cjs)",
+      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\('scripts:', JSON.stringify\\(p.scripts\\)\\); console.log\\('deps mui:', p.dependencies && p.dependencies['@mui/material']\\)\")",
+      "Bash(npx vite *)",
+      "Bash(git check-ignore *)",
+      "Bash(node _move_switch.cjs)",
+      "Bash(node _adjust_regional.cjs)"
     ]
   }
 }
