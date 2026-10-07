@@ -57,6 +57,20 @@ function fhrStringSub(value) {
     }
 }
 
+// react-medium-image-zoom hides the page scrollbar while an image is zoomed and each image restores
+// whatever it saw when it zoomed. If two zooms overlap (e.g. closing one panel's image and opening
+// another within ~0.35s), the last one restores "hidden" and the page can no longer scroll. Once
+// the unzoom animation has finished and no zoom is open, make sure scrolling is back on.
+function restoreBodyScroll(isZoomed) {
+    if (isZoomed) return
+    setTimeout(() => {
+        if (!document.querySelector('dialog[open]')) {
+            document.body.style.overflow = ''
+            document.body.style.width = ''
+        }
+    }, 1000)
+}
+
 
 const ImageDisplay = (props) => {
 
@@ -254,7 +268,7 @@ const ImageDisplay = (props) => {
                     isVisible = (imgEl.fcstHr === props.fcstHr) && !imgsAreLoading
                 }
                 return (
-                    <Zoom key={imgEl.fcstHr+"img"} >
+                    <Zoom key={imgEl.fcstHr+"img"} onZoomChange={restoreBodyScroll}>
                         <img className={`${isVisible ? 'block' : 'hidden' } max-h-screen object-scale-down m-auto`} src={imgEl.img.src} />
                     </Zoom>
                 )
