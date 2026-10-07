@@ -723,16 +723,20 @@ function App() {
       const panelCount = value === "4-panel" ? 4 : 2
       let newPanels = []
 
-      // Always sync panel 0 with current single-panel selections
-      const { dateArr: p0DateArr, selectedRun: p0Run } = genDateOptionsForProduct(menuSelections.selectedProduct, menuSelections.selectedRun)
-      const panel0 = {
-        selectedProduct: menuSelections.selectedProduct,
-        selectedParameterGroup: menuSelections.selectedParameterGroup,
-        selectedParameter: menuSelections.selectedParameter,
-        selectedRun: p0Run,
-        dateOptions: p0DateArr
+      // Coming from single view, sync panel 0 with the single-panel selections; when switching
+      // between 2- and 4-panel, keep panel 0 as-is (like the other panels below)
+      if (comparisonMode && panels[0]) {
+        newPanels.push(panels[0])
+      } else {
+        const { dateArr: p0DateArr, selectedRun: p0Run } = genDateOptionsForProduct(menuSelections.selectedProduct, menuSelections.selectedRun)
+        newPanels.push({
+          selectedProduct: menuSelections.selectedProduct,
+          selectedParameterGroup: menuSelections.selectedParameterGroup,
+          selectedParameter: menuSelections.selectedParameter,
+          selectedRun: p0Run,
+          dateOptions: p0DateArr
+        })
       }
-      newPanels.push(panel0)
 
       for (let i = 1; i < panelCount; i++) {
         if (panels && panels[i]) {
