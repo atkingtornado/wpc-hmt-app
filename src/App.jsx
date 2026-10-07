@@ -216,12 +216,12 @@ function App() {
       
       
 
-      // otherwise, filter individual parameters by display and return
-      data[`parameters`] = Object.fromEntries(Object
+      // otherwise, filter individual parameters by display and return a copy (don't modify the
+      // loaded config: it's re-filtered whenever the display changes, e.g. the Regional toggle)
+      return {...data, parameters: Object.fromEntries(Object
           .entries(data[`parameters`])
           .map(([k, v]) => [k, filterByParameterGroup(v, display)])
-          .filter(([, v]) => v !== null))
-      return data
+          .filter(([, v]) => v !== null))}
   }
 
   const filterData = (data, display, experiment, mode) => {
@@ -280,14 +280,18 @@ function App() {
     setProdConf(tmpProdConf)
   },[rawConf, display])
 
-  // set default (i.e. what user sees when first opening the page) parameters, products, run and forecast hours
+  // set default (i.e. what user sees when first opening the page) parameters, products, run and forecast hours.
+  // prodConf is also rebuilt when the display changes (e.g. the Regional toggle), so keep the current
+  // selections wherever they're still available and only fall back to the defaults for what isn't.
   useEffect(() => {
     if(prodConf) {
-      const initialProduct = Object.keys(prodConf)[0]
-      const initalRun = ""
-      const initialParameterGroup = Object.keys(prodConf[initialProduct]["parameters"])[0]
-      const initialParameter = Object.keys(prodConf[initialProduct]["parameters"][initialParameterGroup])[0]
-      //const previousValue = Object.keys(prodConf)[0]
+      const prev = menuSelections || {}
+      const initialProduct = prodConf[prev.selectedProduct] ? prev.selectedProduct : Object.keys(prodConf)[0]
+      const initalRun = prev.selectedRun || ""
+      const paramGroups = prodConf[initialProduct]["parameters"]
+      // prefer the previous group, else any group that still has the previous parameter, else the first group
+      const initialParameterGroup = [prev.selectedParameterGroup, ...Object.keys(paramGroups)].find((grp) => paramGroups[grp]?.[prev.selectedParameter]) || Object.keys(paramGroups)[0]
+      const initialParameter = paramGroups[initialParameterGroup][prev.selectedParameter] ? prev.selectedParameter : Object.keys(paramGroups[initialParameterGroup])[0]
 
       let tmpMenuSelections = {
         "selectedProduct": initialProduct,
@@ -296,8 +300,11 @@ function App() {
         "selectedParameter": initialParameter
       }
 
-      let tmpFcstHr = filterHourThresh(prodConf[initialProduct]["parameters"][initialParameterGroup][initialParameter]["min_fcst_hr"], display)
-      setFcstHr(tmpFcstHr)
+      // keep the forecast hour unless the product changed (the menuSelections effect below clamps it to range)
+      if (initialProduct !== prev.selectedProduct) {
+        let tmpFcstHr = filterHourThresh(paramGroups[initialParameterGroup][initialParameter]["min_fcst_hr"], display)
+        setFcstHr(tmpFcstHr)
+      }
 
       tmpMenuSelections = genDateOptions(tmpMenuSelections)
       setSelectedMenuSelections(tmpMenuSelections)
