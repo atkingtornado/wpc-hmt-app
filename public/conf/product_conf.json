@@ -1,5 +1,6 @@
 {
     "url_base": "https://www.wpc.ncep.noaa.gov/hmt/hmt_webpages/images/",
+    "regional_subdomain_groups": ["QPF", "Reflectivity", "QPF Mean", "QPF PMM", "QPF LPMM", "QPF Probs."],
     "models": {
         "HRRR": {
             "url_end": "HRRR/[RUN]/hrrr_",

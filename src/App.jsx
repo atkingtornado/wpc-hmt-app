@@ -235,6 +235,11 @@ function App() {
       )
   }
 
+  // keep only the given parameter groups, dropping products that have none of them
+  const filterByGroups = (data, groups) => Object.fromEntries(Object.entries(data)
+      .map(([k, v]) => [k, {...v, parameters: Object.fromEntries(Object.entries(v[`parameters`]).filter(([grp]) => groups.includes(grp)))}])
+      .filter(([, v]) => Object.keys(v[`parameters`]).length > 0))
+
   // ------------------------------------------------------------------------------------------
 
   // read in product_conf.json (once)
@@ -244,19 +249,27 @@ function App() {
     .then((jsonData) => setRawConf(jsonData))
   },[])
 
-  // (re)build the filtered configs whenever the raw config or the active display changes.
+  // (re)build the filtered configs whenever the raw config, the active display or the regional domain changes.
   // The display dependency lets the regional toggle re-filter the available models on the fly.
   useEffect(() => {
     if (!rawConf) return
     const jsonData = rawConf
 
+    // regional sub-domains (Great Lakes, Monsoon, Float 1/2) only have some parameter groups plotted,
+    // listed in product_conf.json's "regional_subdomain_groups"
+    const subdomainGroups = (display === 'regional' && realtimeDomain !== 'conus') ? jsonData['regional_subdomain_groups'] : null
+    const filterConf = (data, mode) => {
+      const filtered = filterData(data, display, experiment, mode)
+      return subdomainGroups ? filterByGroups(filtered, subdomainGroups) : filtered
+    }
+
     // split all model groups in product_conf.json into their own dictionaries, and filter by display
-    let tmpModelConf = filterData(jsonData['models'], display, experiment)
-    let tmpSubModelConf = filterData(jsonData['subModels'], display, experiment)
-    let tmpAiModelConf = filterData(jsonData['ai_models'], display, experiment)
-    let tmpEnsemblesPQPFConf = filterData(jsonData['ensembles_PQPF'], display, experiment)
-    let tmpObsConf = filterData(jsonData['obs'], display, experiment, mode)
-    let tmpEroConf = filterData(jsonData['ero'], display, experiment)
+    let tmpModelConf = filterConf(jsonData['models'])
+    let tmpSubModelConf = filterConf(jsonData['subModels'])
+    let tmpAiModelConf = filterConf(jsonData['ai_models'])
+    let tmpEnsemblesPQPFConf = filterConf(jsonData['ensembles_PQPF'])
+    let tmpObsConf = filterConf(jsonData['obs'], mode)
+    let tmpEroConf = filterConf(jsonData['ero'])
     let tmpAriFfgConf = jsonData['ari_ffg']
 
     // store these all in a single dictionary
@@ -278,7 +291,7 @@ function App() {
     setEroConf(tmpEroConf)
     setAriFfgConf(tmpAriFfgConf)
     setProdConf(tmpProdConf)
-  },[rawConf, display])
+  },[rawConf, display, realtimeDomain])
 
   // set default (i.e. what user sees when first opening the page) parameters, products, run and forecast hours.
   // prodConf is also rebuilt when the display changes (e.g. the Regional toggle), so keep the current
