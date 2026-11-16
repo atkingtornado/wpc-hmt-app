@@ -661,7 +661,7 @@ function App() {
       const minHour = filterHourThresh(prodConf[e.value]["parameters"][tmpMenuSelections["selectedParameterGroup"]][tmpMenuSelections["selectedParameter"]]['min_fcst_hr'], display)
       const incrementHour = filterHourThresh(prodConf[e.value]["parameters"][tmpMenuSelections["selectedParameterGroup"]][tmpMenuSelections["selectedParameter"]]['fcst_hr_step'], display)
       const maxHour = filterHourThresh(prodConf[e.value].num_fcst_hrs, display)
-      const hourArray = arange(minHour, maxHour, incrementHour)
+      const hourArray = arange(minHour, maxHour + 1, incrementHour) // arange excludes its stop, and the final hour is valid
       if ((hourArray.indexOf(newHr) == -1) && (hourArray.length > 3)) {
           const hourArrayDiff = hourArray.map(val => Math.abs(val - newHr))
           let newIdx = hourArrayDiff.indexOf(Math.min(...hourArrayDiff))
@@ -682,7 +682,7 @@ function App() {
         const minHour = filterHourThresh(prodConf[menuSelections["selectedProduct"]]["parameters"][menuSelections["selectedParameterGroup"]][menuSelections["selectedParameter"]]['min_fcst_hr'], display)
         const incrementHour = filterHourThresh(prodConf[menuSelections["selectedProduct"]]["parameters"][menuSelections["selectedParameterGroup"]][menuSelections["selectedParameter"]]['fcst_hr_step'], display)
         const maxHour = filterHourThresh(prodConf[menuSelections["selectedProduct"]].num_fcst_hrs, display)
-        const hourArray = arange(minHour, maxHour, incrementHour)
+        const hourArray = arange(minHour, maxHour + 1, incrementHour) // arange excludes its stop, and the final hour is valid
         if ((hourArray.indexOf(newHr) == -1) && (hourArray.length > 3)) {
             const hourArrayDiff = hourArray.map(val => Math.abs(val - newHr))
             let newIdx = hourArrayDiff.indexOf(Math.min(...hourArrayDiff))
