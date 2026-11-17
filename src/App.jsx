@@ -438,6 +438,14 @@ function App() {
     }
   }
 
+  // Subhourly products (HRRR15/RRFS15) count fcstHr in 15-min steps, except the hourly-max parameter
+  const isHourlyMax = (product, parameter) => prodConf[product].subhour && parameter === 'subhmax15precip'
+  const stepsPerHour = (product, parameter) => (prodConf[product].subhour && !isHourlyMax(product, parameter)) ? 4 : 1
+  const maxFcstHr = (product, parameter) => {
+    const max = filterHourThresh(prodConf[product].num_fcst_hrs, display)
+    return isHourlyMax(product, parameter) ? Math.floor(max / 4) : max
+  }
+
   function arange(start, stop, increment=1) {
     let array = []
     for (let i = start; i < stop; i += increment) {
@@ -656,11 +664,12 @@ function App() {
       // Modify forecast hour based on cycle change
       // ADD SOMETHING TO CHECK IF THIS CYCLE IS AVAILABLE IN THE NEW MODEL. IF IT IS, CHANGE THE DROPDOWN MENU TO USE THE SAME CYCLE. IF NOT, THEN CHANGE FHR AND CYCLE
       let hourDiff = oldCycle.diff(newCycle, 'hours')
-      let newHr = fcstHr + hourDiff      
+      // fcstHr is in the old model's units: convert to hours, shift by the cycle change, convert to the new model's units
+      let newHr = (fcstHr / stepsPerHour(oldValue, menuSelections["selectedParameter"]) + hourDiff) * stepsPerHour(e.value, tmpMenuSelections["selectedParameter"])
       // is the selected hour in the list of hours for this product?
       const minHour = filterHourThresh(prodConf[e.value]["parameters"][tmpMenuSelections["selectedParameterGroup"]][tmpMenuSelections["selectedParameter"]]['min_fcst_hr'], display)
       const incrementHour = filterHourThresh(prodConf[e.value]["parameters"][tmpMenuSelections["selectedParameterGroup"]][tmpMenuSelections["selectedParameter"]]['fcst_hr_step'], display)
-      const maxHour = filterHourThresh(prodConf[e.value].num_fcst_hrs, display)
+      const maxHour = maxFcstHr(e.value, tmpMenuSelections["selectedParameter"])
       const hourArray = arange(minHour, maxHour + 1, incrementHour) // arange excludes its stop, and the final hour is valid
       if ((hourArray.indexOf(newHr) == -1) && (hourArray.length > 3)) {
           const hourArrayDiff = hourArray.map(val => Math.abs(val - newHr))
@@ -677,11 +686,11 @@ function App() {
         let oldCycle = moment.utc(oldValue, 'HH z ddd DD MMM YYYY')
         let newCycle = moment.utc(e.value, 'HH z ddd DD MMM YYYY')
         let hourDiff = oldCycle.diff(newCycle, 'hours')
-        let newHr = fcstHr + hourDiff
+        let newHr = fcstHr + hourDiff * stepsPerHour(menuSelections["selectedProduct"], menuSelections["selectedParameter"])
         // is the selected hour in the list of hours for this product?
         const minHour = filterHourThresh(prodConf[menuSelections["selectedProduct"]]["parameters"][menuSelections["selectedParameterGroup"]][menuSelections["selectedParameter"]]['min_fcst_hr'], display)
         const incrementHour = filterHourThresh(prodConf[menuSelections["selectedProduct"]]["parameters"][menuSelections["selectedParameterGroup"]][menuSelections["selectedParameter"]]['fcst_hr_step'], display)
-        const maxHour = filterHourThresh(prodConf[menuSelections["selectedProduct"]].num_fcst_hrs, display)
+        const maxHour = maxFcstHr(menuSelections["selectedProduct"], menuSelections["selectedParameter"])
         const hourArray = arange(minHour, maxHour + 1, incrementHour) // arange excludes its stop, and the final hour is valid
         if ((hourArray.indexOf(newHr) == -1) && (hourArray.length > 3)) {
             const hourArrayDiff = hourArray.map(val => Math.abs(val - newHr))
