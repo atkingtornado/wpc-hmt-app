@@ -27,8 +27,8 @@
                     "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
-                    "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "frozr24": {"label": "24hr Ice Pellet QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
+                    "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]}
                 },	
                 "6hr Precip.": {
@@ -137,7 +137,7 @@
             "run_hrs": ["00","06","12","18"],
             "num_fcst_hrs": 60,
             "groups": [],
-            "skip_display": ["experimental","regional"],
+            "skip_display": ["experimental","summer","winter","default","regional"],
             "parameters": {
                 "QPF": {
                     "precip1": {"label": "1hr QPF", "min_fcst_hr": 1, "fcst_hr_step": 1},
@@ -340,6 +340,7 @@
                     "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
+                    "frozr24": {"label": "24hr Ice Pellet QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]}
@@ -460,6 +461,7 @@
                     "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
+                    "frozr24": {"label": "24hr Ice Pellet QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]}
@@ -583,8 +585,8 @@
                     "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
+                    "frozr24": {"label": "24hr Ice Pellet QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
-                    "frozr24": {"label": "24hr Ice Pellets QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]}
                 },	
@@ -708,6 +710,7 @@
                     "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
+                    "frozr24": {"label": "24hr Ice Pellet QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]}
@@ -822,6 +825,7 @@
                     "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
+                    "frozr24": {"label": "24hr Ice Pellet QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]}
@@ -936,6 +940,7 @@
                     "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
+                    "frozr24": {"label": "24hr Ice Pellet QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]}
@@ -1050,6 +1055,7 @@
                     "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
+                    "frozr24": {"label": "24hr Ice Pellet QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]}
@@ -1164,6 +1170,7 @@
                     "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
+                    "frozr24": {"label": "24hr Ice Pellet QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]}
@@ -1461,6 +1468,39 @@
             "run_hrs": ["00","12"],
             "num_fcst_hrs": 120,
             "groups": [],
+            "display": ["summer"],
+            "skip_display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Reflectivity": {
+                    "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                },
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                }
+            }
+        },
+        "AR-EFS": {
+            "url_end": "AR_EFS_00/[RUN]/ar_efs_00_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 120,
+            "groups": [],
             "display": ["experimental"],
             "experiment": ["pear","all"],
             "parameters": {
@@ -1565,6 +1605,326 @@
                 }
             }
         },
+        "AR-EFS M1": {
+            "url_end": "AR_EFS_01/[RUN]/ar_efs_01_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 120,
+            "groups": [],
+            "display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Reflectivity": {
+                    "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                },
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                }
+            }
+        },
+        "AR-EFS M2": {
+            "url_end": "AR_EFS_02/[RUN]/ar_efs_02_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 120,
+            "groups": [],
+            "display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Reflectivity": {
+                    "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                },
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                }
+            }
+        },
+        "AR-EFS M3": {
+            "url_end": "AR_EFS_03/[RUN]/ar_efs_03_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 120,
+            "groups": [],
+            "display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Reflectivity": {
+                    "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                },
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                }
+            }
+        },
+        "AR-EFS M4": {
+            "url_end": "AR_EFS_04/[RUN]/ar_efs_04_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 120,
+            "groups": [],
+            "display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Reflectivity": {
+                    "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                },
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                }
+            }
+        },
+        "AR-EFS M5": {
+            "url_end": "AR_EFS_05/[RUN]/ar_efs_05_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 120,
+            "groups": [],
+            "display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Reflectivity": {
+                    "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                },
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                }
+            }
+        },
+        "AR-EFS M6": {
+            "url_end": "AR_EFS_06/[RUN]/ar_efs_06_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 120,
+            "groups": [],
+            "display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Reflectivity": {
+                    "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                },
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                }
+            }
+        },
+        "AR-EFS M7": {
+            "url_end": "AR_EFS_07/[RUN]/ar_efs_07_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 120,
+            "groups": [],
+            "display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Reflectivity": {
+                    "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                },
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                }
+            }
+        },
+        "AR-EFS M8": {
+            "url_end": "AR_EFS_08/[RUN]/ar_efs_08_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 120,
+            "groups": [],
+            "display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Reflectivity": {
+                    "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                },
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                }
+            }
+        },
+        "AR-EFS M9": {
+            "url_end": "AR_EFS_09/[RUN]/ar_efs_09_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 120,
+            "groups": [],
+            "display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Reflectivity": {
+                    "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                },
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                }
+            }
+        },
+        "AR-EFS M10": {
+            "url_end": "AR_EFS_10/[RUN]/ar_efs_10_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 120,
+            "groups": [],
+            "display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip3": {"label": "3hr QPF", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 3},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Reflectivity": {
+                    "refc1": {"label": "Composite Reflectivity", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                },
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "td": {"label": "2m Dewpoint in C", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 3, "fcst_hr_step": 3},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 3, "fcst_hr_step": 3}
+                }
+            }
+        },
         "UUtah CTL": {
             "url_end": "UTAH/[RUN]/utahctl_",
             "run_hrs": ["00","12"],
@@ -1600,6 +1960,7 @@
                     "snow24": {"label": "24hr Snowfall (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6},
                     "snod24": {"label": "24hr Snow Depth Change", "min_fcst_hr": 24, "fcst_hr_step": 6},
                     "swe24": {"label": "24hr Snow Water Equiv.", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "frozr24": {"label": "24hr Ice Pellet QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
                     "frzr24": {"label": "24hr Freezing Rain QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
                     "fram24": {"label": "24hr Freezing Rain Acc. Model (Flat Ice)", "min_fcst_hr": 24, "fcst_hr_step": 6},
                     "ari24": {"label": "24hr QPF ARI", "min_fcst_hr": 24, "fcst_hr_step": 6}
@@ -1742,7 +2103,7 @@
                     "subhprate15": {"label": "15min Inst. Precip. Rate", "min_fcst_hr": 1, "fcst_hr_step": 1},
                     "subhprecip1": {"label": "1h QPF", "min_fcst_hr": 4, "fcst_hr_step": 1},
                     "subhprecip3": {"label": "3h QPF", "min_fcst_hr": 12, "fcst_hr_step": 1}
-                },
+                },	
                 "Snow": {
                     "subhsnow15": {"label": "15min Snowfall (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
                     "subhmax15snow": {"label": "Max 15min Snowfall (Var. Density) in an Hour", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
@@ -1750,26 +2111,43 @@
                     "subhsnow3": {"label": "3hr Snowfall (Var. Density)", "min_fcst_hr": 4, "fcst_hr_step": 1, "display": ["winter"]},
                     "subhswe15": {"label": "1hr Snow Water Equiv.", "min_fcst_hr": 12, "fcst_hr_step": 1, "display": ["winter"]}
                 },
-                "Ice Pellets": {
-                    "subhfrozr15": {"label": "15min Ice Pellet QPF", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
-                    "subhmax15frozr": {"label": "Max 15min Ice Pellet QPF in an Hour", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
-                    "subhfrozr1": {"label": "1h Ice Pellet QPF", "min_fcst_hr": 4, "fcst_hr_step": 1, "display": ["winter"]},
-                    "subhfrozr3": {"label": "3h Ice Pellet QPF", "min_fcst_hr": 12, "fcst_hr_step": 1, "display": ["winter"]}
-                },
-                "Freezing Rain": {
-                    "subhptype15": {"label": "15min Precipitation Type", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
-                    "subhfrzr15": {"label": "15min Freezing Rain QPF", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
-                    "subhmax15frzrr": {"label": "Max 15min Freezing Rain QPF in an Hour", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
-                    "subhfrzr1": {"label": "1hr Freezing Rain QPF", "min_fcst_hr": 4, "fcst_hr_step": 1, "display": ["winter"]},
-                    "subhfrzr3": {"label": "3hr Freezing Rain QPF", "min_fcst_hr": 12, "fcst_hr_step": 1, "display": ["winter"]}
+                "Precipitation Type": {
+                    "subhptype15": {"label": "15min P-Type", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]}
                 },
                 "Reflectivity": {
-                    "subrefc15": {"label": "15min Composite Reflectivity", "min_fcst_hr": 1, "fcst_hr_step": 1}
+                    "subhrefc15": {"label": "15min Composite Reflectivity", "min_fcst_hr": 1, "fcst_hr_step": 1}
                 }
             }
         }
     },
     "ai_models": {
+        "Nested Eagle": {
+            "url_end": "NESTED_EAGLE/[RUN]/nested_eagle_",
+            "run_hrs": ["00","12"],
+            "num_fcst_hrs": 168,
+            "groups": [],
+            "display": ["experimental"],
+            "experiment": ["pear","all"],
+            "parameters": {
+                "QPF": {
+                    "precip6": {"label": "6hr QPF", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                    "precip12": {"label": "12hr QPF", "min_fcst_hr": 12, "fcst_hr_step": 6},
+                    "precip24": {"label": "24hr QPF", "min_fcst_hr": 24, "fcst_hr_step": 6},
+                    "precip36": {"label": "36hr QPF", "min_fcst_hr": 36, "fcst_hr_step": 6},
+                    "precip48": {"label": "48hr QPF", "min_fcst_hr": 48, "fcst_hr_step": 6}
+                },	
+                "Synoptic": {
+                    "tmpc": {"label": "2m Temperature in C with MSLP", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                    "pwat": {"label": "Hourly Precipitable Water", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                    "wind850": {"label": "850mb Heights and Wind", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                    "mixing850": {"label": "850mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                    "mixing700": {"label": "700mb Mixing Ratio, Temp., and Geo. Height", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                    "vort500": {"label": "500mb Heights and Absolute Vorticity", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                    "wind300": {"label": "300mb Heights and Wind", "min_fcst_hr": 6, "fcst_hr_step": 6},
+                    "ivt": {"label": "Integrated Vapor Transport (IVT)", "min_fcst_hr": 6, "fcst_hr_step": 6}
+                }
+            }
+        },
         "GraphCast-GFS (AIGFS)": {
             "skip_display": ["regional"],
             "url_end": "GRAPHCAST_GFS/[RUN]/graphcast_gfs_",
@@ -1926,7 +2304,7 @@
             "num_fcst_hrs": 48,
             "run_hrs": ["00","06","12","18"],
             "groups": [],
-            "skip_display": ["experimental"],
+            "skip_display": ["experimental","summer","winter","default"],
             "parameters": {
                 "24h Precip.": {
                     "mean24": {"label": "24hr Mean", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
@@ -2178,18 +2556,19 @@
                     "100yrari24hr": {"label": "24hr NProb (~39 km) QPF Exceeding 100yr ARI", "min_fcst_hr": 24, "fcst_hr_step": 3}
                 },
                 "Snow Mean": {
-                    "snmean1": {"label": "1hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
-                    "snmean3": {"label": "3hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 3, "fcst_hr_step": 1, "display": ["winter"]},
-                    "snmean6": {"label": "6hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 6, "fcst_hr_step": 1, "display": ["winter"]},
-                    "snmean12": {"label": "12hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 12, "fcst_hr_step": 6, "display": ["winter"]},
-                    "snmean20": {"label": "20hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 24, "fcst_hr_step": 24, "display": ["winter"]},
-                    "snmean24": {"label": "24hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
                     "asnow1": {"label": "1hr Snowfall Mean (Var. Density)", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
                     "asnow3": {"label": "3hr Snowfall Mean (Var. Density)", "min_fcst_hr": 3, "fcst_hr_step": 1, "display": ["winter"]},
                     "asnow6": {"label": "6hr Snowfall Mean (Var. Density)", "min_fcst_hr": 6, "fcst_hr_step": 1, "display": ["winter"]},
                     "asnow12": {"label": "12hr Snowfall Mean (Var. Density)", "min_fcst_hr": 12, "fcst_hr_step": 6, "display": ["winter"]},
                     "asnow20": {"label": "20hr Snowfall Mean (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 24, "display": ["winter"]},
-                    "asnow24": {"label": "24hr Snowfall Mean (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]}
+                    "asnow24": {"label": "24hr Snowfall Mean (Var. Density)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]},
+                    "snmean1": {"label": "1hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
+                    "snmean3": {"label": "3hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 3, "fcst_hr_step": 1, "display": ["winter"]},
+                    "snmean6": {"label": "6hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 6, "fcst_hr_step": 1, "display": ["winter"]},
+                    "snmean12": {"label": "12hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 12, "fcst_hr_step": 6, "display": ["winter"]},
+                    "snmean20": {"label": "20hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 24, "fcst_hr_step": 24, "display": ["winter"]},
+                    "snmean24": {"label": "24hr Snowfall Mean (10:1 SLR)", "min_fcst_hr": 24, "fcst_hr_step": 6, "display": ["winter"]}
+                    
                 },	
                 "Precip. Type": {
                     "categorical": {"label": "1hr Categorical Precip. Type", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
@@ -2222,22 +2601,6 @@
                     "sneas3in3hr": {"label": "3hr Ens. Agreement Prob. of Snowfall (Var. Density) > 3 in", "min_fcst_hr": 3, "fcst_hr_step": 3, "display": ["winter"]},
                     "sneas3in6hr": {"label": "6hr Ens. Agreement Prob. of Snowfall (Var. Density) > 3 in", "min_fcst_hr": 6, "fcst_hr_step": 3, "display": ["winter"]},
                     "sneas6in6hr": {"label": "6hr Ens. Agreement Prob. of Snowfall (Var. Density) > 6 in", "min_fcst_hr": 6, "fcst_hr_step": 3, "display": ["winter"]}
-                },
-                "Freezing Rain Probs.": {
-                    "frzprob0.01in1hr": {"label": "1hr NProb. (~18 km) of FZRA QPF > 0.01 in", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
-                    "frzprob0.1in1hr": {"label": "1hr NProb. (~18 km) of FZRA QPF > 0.1 in", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
-                    "frzprob0.25in1hr": {"label": "1hr NProb. (~18 km) of FZRA QPF > 0.25 in", "min_fcst_hr": 1, "fcst_hr_step": 1, "display": ["winter"]},
-                    "frzprob0.01in3hr": {"label": "3hr NProb. (~18 km) of FZRA QPF > 0.01 in", "min_fcst_hr": 3, "fcst_hr_step": 3, "display": ["winter"]},
-                    "frzprob0.1in3hr": {"label": "3hr NProb. (~18 km) of FZRA QPF > 0.1 in", "min_fcst_hr": 3, "fcst_hr_step": 3, "display": ["winter"]},
-                    "frzprob0.25in3hr": {"label": "3hr NProb. (~18 km) of FZRA QPF > 0.25 in", "min_fcst_hr": 3, "fcst_hr_step": 3, "display": ["winter"]},
-                    "frzprob0.01in6hr": {"label": "6hr NProb. (~18 km) of FZRA QPF > 0.01 in", "min_fcst_hr": 6, "fcst_hr_step": 3, "display": ["winter"]},
-                    "frzprob0.1in6hr": {"label": "6hr NProb. (~18 km) of FZRA QPF > 0.1 in", "min_fcst_hr": 6, "fcst_hr_step": 3, "display": ["winter"]},
-                    "frzprob0.25in6hr": {"label": "6hr NProb. (~18 km) of FZRA QPF > 0.25 in", "min_fcst_hr": 6, "fcst_hr_step": 3, "display": ["winter"]},
-                    "frzprob0.5in6hr": {"label": "6hr NProb. (~18 km) of FZRA QPF > 0.5 in", "min_fcst_hr": 6, "fcst_hr_step": 3, "display": ["winter"]},
-                    "frzprob0.01in12hr": {"label": "12hr NProb. (~18 km) of FZRA QPF > 0.01 in", "min_fcst_hr": 12, "fcst_hr_step": 3, "display": ["winter"]},
-                    "frzprob0.1in12hr": {"label": "12hr NProb. (~18 km) of FZRA QPF > 0.1 in", "min_fcst_hr": 12, "fcst_hr_step": 3, "display": ["winter"]},
-                    "frzprob0.25in12hr": {"label": "12hr NProb. (~18 km) of FZRA QPF > 0.25 in", "min_fcst_hr": 12, "fcst_hr_step": 3, "display": ["winter"]},
-                    "frzprob0.5in12hr": {"label": "12hr NProb. (~18 km) of FZRA QPF > 0.5 in", "min_fcst_hr": 12, "fcst_hr_step": 3, "display": ["winter"]}
                 }	
             }
         },
@@ -2436,7 +2799,6 @@
                 "QPF PMM": { 
                     "pmm24": {"label": "24hr Prob. Matched Mean", "min_fcst_hr" : 24, "fcst_hr_step": 6}
                 }
-
             }
         },
         "NBMX": {
@@ -2679,10 +3041,10 @@
                     "flat24": {"label": "FRANA 24h Flat Ice", "min_fcst_hr": 0, "fcst_hr_step": 6},
                     "flat48": {"label": "FRANA 48h Flat Ice", "min_fcst_hr": 0, "fcst_hr_step": 6},
                     "flat72": {"label": "FRANA 72h Flat Ice", "min_fcst_hr": 0, "fcst_hr_step": 6},
-                    "flat6bc": {"label": "FRANA_BC 6h Flat Ice (ASOS bias-corrected)", "min_fcst_hr": 0, "fcst_hr_step": 6},
-                    "flat24bc": {"label": "FRANA_BC 24h Flat Ice (ASOS bias-corrected)", "min_fcst_hr": 0, "fcst_hr_step": 6},
-                    "flat48bc": {"label": "FRANA_BC 48h Flat Ice (ASOS bias-corrected)", "min_fcst_hr": 0, "fcst_hr_step": 6},
-                    "flat72bc": {"label": "FRANA_BC 72h Flat Ice (ASOS bias-corrected)", "min_fcst_hr": 0, "fcst_hr_step": 6}
+                    "flat6rf": {"label": "FRANA_RF 6h Flat Ice (random forest FRAM)", "min_fcst_hr": 0, "fcst_hr_step": 6},
+                    "flat24rf": {"label": "FRANA_RF 24h Flat Ice (random forest FRAM)", "min_fcst_hr": 0, "fcst_hr_step": 6},
+                    "flat48rf": {"label": "FRANA_RF 48h Flat Ice (random forest FRAM)", "min_fcst_hr": 0, "fcst_hr_step": 6},
+                    "flat72rf": {"label": "FRANA_RF 72h Flat Ice (random forest FRAM)", "min_fcst_hr": 0, "fcst_hr_step": 6}
                 }
             }
         },
