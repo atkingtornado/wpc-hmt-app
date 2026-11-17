@@ -720,6 +720,18 @@ function App() {
     else if (selectionID === "selectedParameter") {
 
     }
+    // A new parameter (picked directly or via its group) may count fcstHr in different units
+    // (15-min steps vs hours on subhourly products): convert so the valid time stays put
+    if (selectionID === "selectedParameterGroup" || selectionID === "selectedParameter") {
+      const prod = menuSelections["selectedProduct"]
+      const newParam = tmpMenuSelections["selectedParameter"]
+      const oldSteps = stepsPerHour(prod, menuSelections["selectedParameter"])
+      const newSteps = stepsPerHour(prod, newParam)
+      if (oldSteps !== newSteps) {
+        const minHour = filterHourThresh(prodConf[prod]["parameters"][tmpMenuSelections["selectedParameterGroup"]][newParam]['min_fcst_hr'], display)
+        setFcstHr(Math.min(Math.max(Math.round(fcstHr / oldSteps * newSteps), minHour), maxFcstHr(prod, newParam)))
+      }
+    }
     setSelectedMenuSelections(tmpMenuSelections)
   }
 
