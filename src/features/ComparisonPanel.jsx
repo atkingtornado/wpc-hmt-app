@@ -109,12 +109,12 @@ const ComparisonPanel = ({
     const currParamConf = currProdConf["parameters"][panelSelections.selectedParameterGroup][panelSelections.selectedParameter]
     const isStatic = (currProdConf.static_image) || (currProdConf.no_fhr_in_url) || (currProdConf.display_slider === false)
     const isSubhour = (`subhour` in currProdConf) && currProdConf.subhour
-    const isSubhmax = panelSelections.selectedParameter === "subhmax15precip"
+    const isSubhmax = panelSelections.selectedParameter?.startsWith("subhmax15")
 
     // Determine reference panel's time system
     const refProdConf = prodConf[refPanelSelections.selectedProduct]
     const refIsSubhour = (`subhour` in refProdConf) && refProdConf.subhour
-    const refIsSubhmax = refPanelSelections.selectedParameter === "subhmax15precip"
+    const refIsSubhmax = refPanelSelections.selectedParameter?.startsWith("subhmax15")
     // Is the slider in 15-min indices?
     const sliderIsSubhour = refIsSubhour && !refIsSubhmax
 

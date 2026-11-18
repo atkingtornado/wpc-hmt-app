@@ -185,7 +185,7 @@ const ImageDisplay = (props) => {
                     let num_fcst_hrs = props.filterHourThresh(currProdConf.num_fcst_hrs, props.display)
                     let fcst_hr_step = props.filterHourThresh(currParamConf.fcst_hr_step, props.display)
                     if((`subhour` in props.prodConf[props.menuSelections['selectedProduct']]) && (props.prodConf[props.menuSelections['selectedProduct']].subhour)) {
-                        if(props.menuSelections["selectedParameter"] === "subhmax15precip") {
+                        if(props.menuSelections["selectedParameter"]?.startsWith("subhmax15")) {
                             //num_fcst_hrs = num_fcst_hrs*4
                             num_fcst_hrs = Math.floor(num_fcst_hrs/4);
                         }
@@ -204,7 +204,7 @@ const ImageDisplay = (props) => {
                             if((`fhr_to_day` in props.prodConf[props.menuSelections['selectedProduct']]) && (props.prodConf[props.menuSelections['selectedProduct']].fhr_to_day)) {
                                 url += props.menuSelections["selectedParameter"] + `day${parseInt(i/24)}` + "_" + domain + tmpDate.format("YYYYMMDDHH") + ".png"
                             } else if((`subhour` in props.prodConf[props.menuSelections['selectedProduct']]) && (props.prodConf[props.menuSelections['selectedProduct']].subhour)) {
-                                if(props.menuSelections["selectedParameter"] === "subhmax15precip") {
+                                if(props.menuSelections["selectedParameter"]?.startsWith("subhmax15")) {
                                     url += props.menuSelections["selectedParameter"] + "_" + domain + tmpDate.format("YYYYMMDDHH") + "f" + fhrString(i) + ".png"  
                                 } else {
                                 url += props.menuSelections["selectedParameter"] + "_" + domain + tmpDate.format("YYYYMMDDHH") + "f" + fhrStringSub(i) + ".png"

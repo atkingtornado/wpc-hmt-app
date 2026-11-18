@@ -27,10 +27,10 @@ const HourSlider = (props) => {
             let refPanel = props.comparisonPanels[props.referencePanel || 0]
             if (refPanel) {
                 let rProdConf = props.prodConf[refPanel.selectedProduct]
-                isSubhourSlider = (`subhour` in rProdConf) && rProdConf.subhour && refPanel.selectedParameter !== "subhmax15precip"
+                isSubhourSlider = (`subhour` in rProdConf) && rProdConf.subhour && !refPanel.selectedParameter?.startsWith("subhmax15")
             }
         } else {
-            isSubhourSlider = (`subhour` in currProdConf) && currProdConf.subhour && props.menuSelections["selectedParameter"] !== "subhmax15precip"
+            isSubhourSlider = (`subhour` in currProdConf) && currProdConf.subhour && !props.menuSelections["selectedParameter"]?.startsWith("subhmax15")
         }
 
         if (isSubhourSlider) {
@@ -63,7 +63,7 @@ const HourSlider = (props) => {
     let max=props.filterHourThresh(currProdConf.num_fcst_hrs, props.display)
     //let max=useRef(0)
     if((`subhour` in props.prodConf[props.menuSelections['selectedProduct']]) && (props.prodConf[props.menuSelections['selectedProduct']].subhour)) {
-        if (props.menuSelections["selectedParameter"] === "subhmax15precip" ) {
+        if (props.menuSelections["selectedParameter"]?.startsWith("subhmax15") ) {
             //setMax(props.filterHourThresh(currProdConf.num_fcst_hrs, props.display)*4)
             max=Math.floor(max/4)
         }
@@ -82,13 +82,13 @@ const HourSlider = (props) => {
             let rParamConf = rProdConf["parameters"][refPanel.selectedParameterGroup][refPanel.selectedParameter]
             let rIsStatic = (rProdConf.static_image) || (rProdConf.no_fhr_in_url) || (rProdConf.display_slider === false)
             refIsSubhour = (`subhour` in rProdConf) && rProdConf.subhour
-            refIsSubhmax = refPanel.selectedParameter === "subhmax15precip"
+            refIsSubhmax = refPanel.selectedParameter?.startsWith("subhmax15")
 
             if (!rIsStatic) {
                 refMin = props.filterHourThresh(rParamConf.min_fcst_hr, props.display)
                 refMax = props.filterHourThresh(rProdConf.num_fcst_hrs, props.display)
                 refStep = props.filterHourThresh(rParamConf.fcst_hr_step, props.display)
-                // For subhmax15precip, max is divided by 4 (hours, not 15-min indices)
+                // For hourly-max params (key starts with "subhmax15"), max is divided by 4 (hours, not 15-min indices)
                 if (refIsSubhour && refIsSubhmax) {
                     refMax = Math.floor(refMax / 4)
                 }
@@ -137,7 +137,7 @@ const HourSlider = (props) => {
         tmpDate = tmpDate.subtract(props.fcstHr, "hours")
         validTimeLabel = `${tmpDate.format('HH z ddd DD MMM YYYY')}`
     } else if((`subhour` in props.prodConf[props.menuSelections['selectedProduct']]) && (props.prodConf[props.menuSelections['selectedProduct']].subhour)) {
-        if (props.menuSelections["selectedParameter"] === "subhmax15precip" ) {
+        if (props.menuSelections["selectedParameter"]?.startsWith("subhmax15") ) {
             tmpDate = tmpDate.add(props.fcstHr, "hours")
             validTimeLabel = `${tmpDate.format('HH z ddd DD MMM YYYY')}`
         } else {

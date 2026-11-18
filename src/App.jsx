@@ -336,7 +336,7 @@ function App() {
       console.log(num_fcst_hrs)
       //Sarah added
       if(`subhour` in tmpCurrProdConf) {
-          if(menuSelections["selectedParameter"] !== 'subhmax15precip' ) {
+          if(!menuSelections["selectedParameter"]?.startsWith("subhmax15") ) {
             num_fcst_hrs = num_fcst_hrs*4
             console.log(num_fcst_hrs)
           }
@@ -438,8 +438,11 @@ function App() {
     }
   }
 
-  // Subhourly products (HRRR15/RRFS15) count fcstHr in 15-min steps, except the hourly-max parameter
-  const isHourlyMax = (product, parameter) => prodConf[product].subhour && parameter === 'subhmax15precip'
+  // Subhourly products (HRRR15/RRFS15) count fcstHr in 15-min steps and use fHHMM file names.
+  // The exception is the hourly-max parameters, whose keys start with "subhmax15" (subhmax15precip,
+  // subhmax15snow, ...): they are plotted once per hour, so they count in hours and use fHH file names.
+  // HourSlider, ImageDisplay and ComparisonPanel apply the same "subhmax15" prefix check.
+  const isHourlyMax = (product, parameter) => prodConf[product].subhour && parameter?.startsWith("subhmax15")
   const stepsPerHour = (product, parameter) => (prodConf[product].subhour && !isHourlyMax(product, parameter)) ? 4 : 1
   const maxFcstHr = (product, parameter) => {
     const max = filterHourThresh(prodConf[product].num_fcst_hrs, display)
